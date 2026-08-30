@@ -1,0 +1,57 @@
+id: IL2
+symbol: "IL-2"
+gene: IL2
+aliases: [TCGF, T細胞増殖因子]
+
+families: {structure: short-chain-4-helix, receptor: gamma-c-shared, naming: interleukin}
+
+receptor:
+  - name: "IL2RA + IL2RB + IL2RG"
+    subunits: [IL2RA, IL2RB, IL2RG]
+    note: "γc(IL2RG) を構成鎖として含む。IL2RA(CD25) の有無で親和性が桁で変わる"
+    source: "PMID:30995502"
+    status: verified
+
+downstream: {primary: "JAK1/JAK3 → STAT5", secondary: ["PI3K/AKT", "MAPK"], source: "PMID:30995502", status: verified}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: "免疫シナプス近傍に留まる", source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "IL-2 の産生は T 細胞に限られる。調べたうえで『なし』と判断"}
+  hsc_lx2: {level: 0, source: null, status: inferred, note: "IL-2 の産生は T 細胞に限られる。調べたうえで『なし』と判断"}
+  lsec_tmnk1: {level: 0, source: null, status: inferred, note: "IL-2 の産生は T 細胞に限られる。調べたうえで『なし』と判断"}
+  kc_ikc: {level: 0, source: null, status: inferred, note: "IL-2 の産生は T 細胞に限られる。調べたうえで『なし』と判断"}
+  mac_thp1: {level: 0, source: null, status: inferred, note: "IL-2 の産生は T 細胞に限られる。調べたうえで『なし』と判断"}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "高親和性 IL-2 受容体はリンパ球に限られ、肝の実質・非実質細胞は応答しない。調べたうえで『なし』と判断"}
+  hsc_lx2: {level: 0, source: null, status: inferred, note: "高親和性 IL-2 受容体はリンパ球に限られ、肝の実質・非実質細胞は応答しない。調べたうえで『なし』と判断"}
+  lsec_tmnk1: {level: 0, source: null, status: inferred, note: "高親和性 IL-2 受容体はリンパ球に限られ、肝の実質・非実質細胞は応答しない。調べたうえで『なし』と判断"}
+  kc_ikc: {level: 0, source: null, status: inferred, note: "高親和性 IL-2 受容体はリンパ球に限られ、肝の実質・非実質細胞は応答しない。調べたうえで『なし』と判断"}
+  mac_thp1: {level: 0, source: null, status: inferred, note: "高親和性 IL-2 受容体はリンパ球に限られ、肝の実質・非実質細胞は応答しない。調べたうえで『なし』と判断"}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "T細胞側の効果。肝実質・非実質細胞への直接効果はほぼない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "産生も受容も系外の T/NK のみ。この共培養系では通信辺が一本も系内に落ちない。系外分子の基準として登録している"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Leonard WJ, Lin JX, O'Shea JJ. The γc Family of Cytokines: Basic Biology to Therapeutic Ramifications. Immunity 2019;50:832-850", pmid: "30995502"}

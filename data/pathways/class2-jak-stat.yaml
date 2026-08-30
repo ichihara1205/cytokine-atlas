@@ -1,0 +1,48 @@
+id: class2-jak-stat
+label_ja: クラスII受容体 → JAK/STAT（ISGF3 と GAF）
+family: il10rb-shared
+outcome: >-
+  抗ウイルス応答と抗炎症という、一見無関係な2つの出力が同じ構造クラスから出る。
+  受容体鎖を共有するため IFN-λ と IL-10 は近縁だが、下流で組む STAT 複合体が違うので出口が分かれる。
+  IFN-λ の受容体 IFNLR1 が上皮に限局することが、作用範囲を決める最大の要因。
+steps:
+  - id: ligand_ifn
+    kind: ligand
+    label: "インターフェロン"
+    branch: left
+    note: "III型は IL-28/IL-29 という IL 名でも流通する"
+    molecules: [IFNB1, IFNG, IFNL3]
+  - id: ligand_il10
+    kind: ligand
+    label: "IL-10ファミリー"
+    branch: right
+    molecules: [IL10, IL22]
+  - id: receptor
+    kind: receptor
+    architecture: class2
+    label: "クラスII受容体（共通鎖を共有）"
+    genes: [IL10RB, IL10RA, IL22RA1, IFNLR1, IFNAR1, IFNAR2, IFNGR1, IFNGR2]
+    note: "IFN-λ は IFNLR1 + IL10RB。IL-10 と共通鎖 IL10RB を共有する。名前は IL、機能は IFN、受容体は IL-10 系という三重のズレの実体がここ"
+  - id: jak
+    kind: transducer
+    label: "JAK1 / TYK2 / JAK2"
+  - id: isgf3
+    kind: tf
+    label: "ISGF3（STAT1/2 + IRF9）"
+    branch: left
+  - id: stat3
+    kind: tf
+    label: "STAT3 / STAT1ホモ二量体"
+    branch: right
+  - id: out_isg
+    kind: output
+    label: "ISG による抗ウイルス状態"
+    branch: left
+    induces: [CXCL9, CXCL10]
+  - id: out_il10
+    kind: output
+    label: "抗炎症・組織修復"
+    branch: right
+    note: "IL-6 と同じ STAT3 を使いながら出力が抗炎症になる。標的遺伝子と時間経過の違いによる"
+source: "PMID:42213608; PMID:26200010"
+status: verified

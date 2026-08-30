@@ -1,0 +1,31 @@
+id: tgfb1-latent
+molecule: TGFB1
+label_ja: TGF-β1 — 潜在型で出て、細胞外で活性化される
+outcome: >-
+  制御点が細胞の外にある珍しい例。分泌の時点では不活性で、細胞外基質に潜在型として貯蔵され、
+  インテグリンの牽引力やプロテアーゼで初めて活性化する。
+  したがって「どれだけ分泌したか」と「どれだけ効いたか」が一致しない。
+  総 TGF-β1 の ELISA は酸処理で潜在型を強制活性化して測るため、測っているのは貯蔵量に近い。
+steps:
+  - id: tx
+    kind: transcription
+    label: "TGFB1 転写"
+  - id: pro
+    kind: proform
+    label: "LAP と結合した潜在型複合体"
+    note: "小胞体で LAP（潜在関連ペプチド）と会合したまま折りたたまれる"
+  - id: rel
+    kind: release
+    label: "潜在型のまま分泌され基質に貯蔵"
+    route: classical
+    note: "LTBP を介して細胞外基質に係留される"
+  - id: ext
+    kind: extracellular
+    label: "細胞外での活性化"
+    note: "インテグリン αvβ6/αvβ8 による牽引力、トロンボスポンジン1、プロテアーゼ、酸性化などが LAP を外す"
+notes:
+  - text: "酸処理ありの総量と、酸処理なしの活性型を分けて測らないと、この経路のどこが動いたか分からない"
+    source: null
+    status: inferred
+source: null
+status: inferred

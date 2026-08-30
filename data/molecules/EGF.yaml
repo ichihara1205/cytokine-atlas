@@ -1,0 +1,46 @@
+id: EGF
+symbol: "EGF"
+gene: EGF
+aliases: [上皮増殖因子, URG, ベータウロガストロン]
+
+families: {structure: egf-structural, receptor: rtk-egfr, naming: growth-factor-naming}
+
+receptor:
+  - name: "EGFR(ErbB1)"
+    subunits: [EGFR]
+    note: "ErbB2-4 とヘテロ二量体も作る。リガンドごとに好む組み合わせが違う"
+    source: null
+    status: inferred
+
+downstream: {primary: "EGFR → GRB2/SOS → RAS → ERK", secondary: ["PI3K/AKT", "STAT3"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "膜型前駆体から ADAM 切断で遊離する"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hepatoblast:    {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  source: null
+  status: inferred
+
+notes:
+  - text: "肝細胞培地に常に添加されている。培地由来の EGF が背景として常時 EGFR を叩いているため、共培養で観察される『細胞間の会話』の解釈には培地組成を必ず併記する必要がある"
+    source: null
+    status: inferred

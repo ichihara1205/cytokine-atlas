@@ -1,0 +1,47 @@
+id: IL18
+symbol: "IL-18"
+gene: IL18
+aliases: [IGIF, IL-1F4, IFN-gamma-inducing factor]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL18R1 + IL18RAP"
+    subunits: [IL18R1, IL18RAP]
+    note: "内因性の可溶性拮抗因子 IL18BP が高親和性で結合し、遊離型を強く抑える"
+    source: null
+    status: inferred
+
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: [], source: null, status: inferred}
+form:
+  secretion: latent
+  latency: "pro-IL-18 としてカスパーゼ1切断を要する。IL-1β と同じインフラマソーム依存"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+receivers:
+  t_nk:    {level: 3, source: null, status: inferred}
+  kc_ikc:  {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "主作用は T/NK からの IFN-γ 誘導。系内に T/NK がいない共培養では効果がほぼ現れない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "ELISA の総 IL-18 は IL18BP と結合した不活性型を含む。総量が高くても遊離型が働いているとは限らない"
+    source: null
+    status: inferred

@@ -1,0 +1,47 @@
+id: BMP2
+symbol: "BMP-2"
+gene: BMP2
+aliases: [BMP2A, 骨形成タンパク質2]
+
+families: {structure: bmp-smad158-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "BMPR2 + BMPR1A/1B(ALK3/6)"
+    subunits: [BMPR2, BMPR1A, BMPR1B]
+    note: "ノギン・グレムリンなどの細胞外アンタゴニストで強く制御される"
+    source: "PMID:27141051"
+    status: verified
+
+downstream: {primary: "SMAD1/5/8 → SMAD4", secondary: ["p38 MAPK"], source: "PMID:27141051", status: verified}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "同上"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  lsec_tmnk1: {level: 2, source: null, status: inferred}
+  hsc_lx2:    {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatoblast:    {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  ipsc:           {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 2
+  note: "iPS からの内胚葉・肝分化誘導で用いられる。分化への寄与が最大"
+  source: null
+  status: inferred
+
+notes:
+  - text: "TGF-β と同じスーパーファミリーだが SMAD1/5/8 枝。名前が全く違うのに構造は同族という、慣用名軸と構造軸のズレの典型"
+    source: null
+    status: inferred

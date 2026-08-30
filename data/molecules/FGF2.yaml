@@ -1,0 +1,51 @@
+id: FGF2
+symbol: "FGF-2/bFGF"
+gene: FGF2
+aliases: [bFGF, 塩基性線維芽細胞増殖因子, HBGF-2]
+
+families: {structure: fgf-structural, receptor: fgfr-heparin, naming: fgf-numbering}
+
+receptor:
+  - name: "FGFR1-4 + ヘパラン硫酸"
+    subunits: [FGFR1, FGFR2]
+    note: "ヘパラン硫酸が三元複合体の必須成分。糖鎖がないと受容体を活性化できない"
+    source: null
+    status: inferred
+
+downstream: {primary: "FGFR → FRS2 → RAS → ERK", secondary: ["PI3K/AKT", "PLCγ"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "古典的な分泌シグナル配列を持たず、非古典的経路で細胞外に出る。多くは細胞外基質に貯蔵される"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: "ヘパラン硫酸に捕捉されて局所に留まる", source: null, status: inferred}
+
+producers:
+  hsc_lx2:    {level: 2, source: null, status: inferred}
+  lsec_tmnk1: {level: 2, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:     {level: 2, source: null, status: inferred}
+  lsec_tmnk1:  {level: 2, source: null, status: inferred}
+  ipsc:        {level: 3, source: null, status: inferred}
+  hepatoblast: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  note: "ヒト iPS の未分化維持に必須。文脈によって分化を進めも止めもする"
+  source: null
+  status: inferred
+
+notes:
+  - text: "iPS 培地の必須成分。分化系で FGF2 を抜くタイミングが表現型を決めるため、『系に存在する量』は培地履歴に強く依存する"
+    source: null
+    status: inferred
+  - text: "IL-1 と同じ β-トレフォイル折りたたみを持つが受容体も機能も無関係。構造相同性が機能を意味しないことの実例"
+    source: null
+    status: inferred

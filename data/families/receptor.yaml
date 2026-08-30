@@ -1,0 +1,351 @@
+# 軸2: 受容体共有（受容体鎖・下流の共有）
+# axis: receptor
+# この軸が「名前と実体のズレ」を最もはっきり出す。IL-28/29 が IL10RB を使うのはここで見える。
+
+- id: gp130-shared
+  axis: receptor
+  label_ja: gp130（IL6ST）共有群
+  parent: null
+  children: []
+  members: [IL6, IL11, OSM, LIF, CNTF, CTF1]
+  defining_feature: "共通鎖 IL6ST(gp130) を受容体複合体に共有する。IL-6 の他に9分子が同じ gp130 を使い、計10メンバーからなる"
+  mismatch:
+    - member: null
+      note: "OSM・LIF・CNTF・CT-1・IL-11 は IL-6 と同族だが、名前が全く揃っていない。IL 番号で探しても辿り着けない"
+      source: "PMID:30995501"
+      status: verified
+  source: "PMID:30995501"
+  status: verified
+
+- id: gamma-c-shared
+  axis: receptor
+  label_ja: 共通γ鎖（IL2RG）共有群
+  parent: null
+  children: []
+  members: [IL2, IL4, IL7, IL9, IL15, IL21]
+  defining_feature: "共通γ鎖 IL2RG が IL-2/IL-4/IL-7/IL-9/IL-15/IL-21 受容体の構成鎖になる。IL2RG 遺伝子の変異が X連鎖SCID を起こす。JAK3 を介して働く"
+  mismatch:
+    - member: null
+      note: "IL-2/4/7/9/15/21 は番号が飛んでいるが一族。番号の連続性は系統を反映しない"
+      source: "PMID:30995502"
+      status: verified
+  source: "PMID:30995502"
+  status: verified
+
+- id: il10rb-shared
+  axis: receptor
+  label_ja: IL10RB共有群
+  parent: null
+  children: []
+  members: [IL10, IL22, IL26, IFNL1, IFNL2, IFNL3]
+  defining_feature: "クラスIIサイトカイン受容体。共通鎖 IL10RB に固有鎖（IL10RA / IL22RA1 / IFNLR1）が組み合わさる"
+  mismatch:
+    - member: IFNL1
+      note: "IL-29 の別名を持つが実体は III型 IFN。受容体は IFNLR1 + IL10RB で、IL-10 と鎖を共有する。名前は IL、機能は IFN、受容体は IL-10 系という三重のズレ"
+      source: null
+      status: inferred
+    - member: IFNL2
+      note: "IL-28A。同上。HGNC 承認シンボルは IFNL2 で、IL28A は旧シンボル"
+      source: null
+      status: inferred
+    - member: IFNL3
+      note: "IL-28B の名を持つが実体は III型 IFN。IFN-λ は IFNLR1 と IL10RB のヘテロ二量体を介してシグナルを出す。HGNC 承認シンボルは IFNL3 で、IL28B は旧シンボル"
+      source: "PMID:42213608; PMID:26200010"
+      status: verified
+  source: null
+  status: inferred
+
+- id: serine-threonine-kinase-receptor
+  axis: receptor
+  label_ja: I型/II型セリンスレオニンキナーゼ受容体群
+  parent: null
+  children: []
+  members: [TGFB1, TGFB2, TGFB3, BMP2, BMP4, BMP6, GDF2, MSTN, INHBA, AMH, NODAL]
+  defining_feature: "II型受容体が I型受容体をリン酸化し、SMAD が核へ入る。構造軸の TGF-βスーパーファミリーとほぼ一致するが GDF15 だけが外れる"
+  source: "PMID:27141051"
+  status: verified
+
+- id: gfral-ret
+  axis: receptor
+  label_ja: GFRAL–RET
+  parent: null
+  children: []
+  members: [GDF15]
+  defining_feature: "GDF15 の受容体。脳幹（最後野・孤束核）に限局して発現し、RET を共受容体とする。SMAD を一切使わない"
+  mismatch:
+    - member: GDF15
+      note: "構造軸では TGF-βスーパーファミリーに入るのに、受容体軸ではこの一族に単独で立つ。構造から受容体を推測してはいけない最も明確な反例"
+      source: "PMID:28846099"
+      status: verified
+  source: "PMID:28846099"
+  status: verified
+
+- id: il1r-family
+  axis: receptor
+  label_ja: IL-1受容体ファミリー（TIRドメイン）
+  parent: null
+  children: []
+  members: [IL1A, IL1B, IL18, IL33, IL36A, IL36B, IL36G, IL37, IL1RN]
+  defining_feature: "細胞内 TIR ドメインを持ち MyD88 → NF-κB を動かす。TLR と下流を共有する。IL-1 ファミリーは作動性7分子・受容体拮抗剤3分子・抗炎症性1分子(IL-37)からなり、受容体側は6鎖が4つのシグナル複合体を作るほか、デコイ受容体(IL-1R2, IL-18BP)を持つ"
+  mismatch:
+    - member: IL1RN
+      note: "IL-1Ra。IL-1 ファミリーの3つの受容体拮抗剤の一つで、受容体に結合してもシグナルを出さない。「受容体を共有する」ことと「同じ作用を持つ」ことが別であることを示す"
+      source: "PMID:24332029"
+      status: verified
+    - member: IL33
+      note: "受容体は IL1RL1(ST2)。核内でクロマチンにも結合し、細胞死に伴って放出されるアラーミンとして働く。分泌シグナル配列を持たない点で古典的サイトカインの枠から外れる"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: fgfr-klotho
+  axis: receptor
+  label_ja: FGFR + Klotho（内分泌型FGF）
+  parent: null
+  children: []
+  members: [FGF19, FGF21, FGF23]
+  defining_feature: "αKlotho / βKlotho は内分泌型 FGF 受容体複合体の必須構成要素で、FGF19・FGF21・FGF23 が FGFR に高親和性で結合するために要求される。FGF19 は摂食時に腸から出て肝細胞の βKlotho–FGFR4 に、FGF21 は絶食時に肝から出て脂肪細胞の βKlotho–FGFR1c に結合する"
+  mismatch:
+    - member: null
+      note: "FGF19/21/23 だけが内分泌型。他の FGF は同じ番号体系でも傍分泌でヘパリン依存であり、性質が全く違う"
+      source: "PMID:30455427"
+      status: verified
+  source: "PMID:30455427"
+  status: verified
+
+- id: tnfr-superfamily
+  axis: receptor
+  label_ja: TNF受容体スーパーファミリー
+  parent: null
+  children: []
+  members: [TNF, LTA, TNFSF10, FASLG, CD40LG, TNFSF12]
+  defining_feature: "TNF/TNFR スーパーファミリーは19のリガンドと29の受容体からなり、細胞の分化・生存・プログラム細胞死を制御する。細胞内でデスドメイン系（アポトーシス）と TRAF 系（NF-κB）に分岐する"
+  source: "PMID:30354964"
+  status: verified
+
+# --- 以下 2026-08-11 追加分 --------------------------------------------
+
+- id: csf1r-shared
+  axis: receptor
+  label_ja: CSF1R共有群
+  parent: null
+  children: []
+  members: [CSF1, IL34]
+  defining_feature: "CSF1R は CSF-1（M-CSF）と IL-34 という2つのホモ二量体増殖因子によって活性化される。組織マクロファージ・破骨細胞・ミクログリアなどの分化を制御する"
+  mismatch:
+    - member: IL34
+      note: "IL 番号を持つが IL ファミリーのどれとも構造が違い、CSF1（M-CSF）と同じ受容体を共有する。IL 番号で探すと CSF1 と同族であることに永久に辿り着けない"
+      source: "PMID:24890514"
+      status: verified
+    - member: null
+      note: "CSF1 と IL-34 は配列相同性がほぼ無いのに同じ受容体を使う。構造軸では別々、受容体軸では同一という食い違いの典型"
+      source: "PMID:24890514"
+      status: verified
+  source: "PMID:24890514"
+  status: verified
+
+- id: chemokine-gpcr
+  axis: receptor
+  label_ja: ケモカイン受容体（7回膜貫通GPCR）
+  parent: null
+  children: []
+  members: [CCL2, CCL5, CXCL8, CXCL9, CXCL10, CXCL12, CX3CL1]
+  defining_feature: "細胞表面の7回膜貫通型 G タンパク質共役受容体を介してシグナルを出す、分泌型の小型タンパク質の大ファミリー。白血球の遊走を促すことで知られる"
+  mismatch:
+    - member: null
+      note: "他のほぼ全てのサイトカインが JAK/STAT か RTK か SMAD を使うのに対し、ケモカインだけが GPCR。受容体とリガンドが多対多に縮重しており、1対1の対応が成り立たない点も他と違う"
+      source: "PMID:29637711"
+      status: verified
+  source: "PMID:29637711"
+  status: verified
+
+- id: ifnar-shared
+  axis: receptor
+  label_ja: IFNAR共有群（I型IFN）
+  parent: null
+  children: []
+  members: [IFNB1]
+  defining_feature: "IFNAR1 + IFNAR2 → JAK1/TYK2 → STAT1/STAT2 + IRF9（ISGF3）"
+  source: null
+  status: inferred
+
+- id: ifngr-shared
+  axis: receptor
+  label_ja: IFNGR（II型IFN）
+  parent: null
+  children: []
+  members: [IFNG]
+  defining_feature: "IFNGR1 + IFNGR2 → JAK1/JAK2 → STAT1 ホモ二量体（GAF）"
+  mismatch:
+    - member: IFNG
+      note: "I型・III型 IFN と同じ「IFN」の名を持つが、受容体も下流の STAT 複合体も別。IFN という名前は抗ウイルス活性という機能に由来し、受容体系統を反映しない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: il17r-family
+  axis: receptor
+  label_ja: IL-17受容体ファミリー（SEFIRドメイン）
+  parent: null
+  children: []
+  members: [IL17A]
+  defining_feature: "細胞内 SEFIR ドメインが ACT1 を介して NF-κB を動かす。JAK/STAT を使わない"
+  source: null
+  status: inferred
+
+- id: il12r-family
+  axis: receptor
+  label_ja: IL-12/IL-23受容体群
+  parent: null
+  children: []
+  members: [IL12B, IL23A]
+  defining_feature: "IL12RB1 を共有し、IL12RB2（IL-12）か IL23R（IL-23）と組む。gp130 に近縁のクラスI受容体"
+  source: null
+  status: inferred
+
+- id: beta-c-shared
+  axis: receptor
+  label_ja: 共通β鎖（CSF2RB）共有群
+  parent: null
+  children: []
+  members: [CSF2]
+  defining_feature: "IL-3・IL-5・GM-CSF が共通β鎖 CSF2RB を共有する。γc 群と同じ「共通鎖」の論理"
+  source: null
+  status: inferred
+
+- id: csf3r-receptor
+  axis: receptor
+  label_ja: CSF3R（G-CSF受容体）
+  parent: null
+  children: []
+  members: [CSF3]
+  defining_feature: "gp130 に近縁のクラスI受容体。JAK2 → STAT3"
+  source: null
+  status: inferred
+
+- id: leptin-receptor
+  axis: receptor
+  label_ja: LEPR
+  parent: null
+  children: []
+  members: [LEP]
+  defining_feature: "クラスIサイトカイン受容体。gp130 群と同じ JAK2 → STAT3 を使う"
+  mismatch:
+    - member: LEP
+      note: "「ホルモン」として扱われるが、受容体も下流も gp130 共有群と同型。内分泌か否かは到達範囲の話であって、受容体系統とは無関係"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: adipor-receptor
+  axis: receptor
+  label_ja: ADIPOR1/2
+  parent: null
+  children: []
+  members: [ADIPOQ]
+  defining_feature: "7回膜貫通だが GPCR ではない。N末端が細胞内という逆向きの膜トポロジーを持ち、セラミダーゼ活性と AMPK を介して働く"
+  mismatch:
+    - member: ADIPOQ
+      note: "リガンドは構造上 TNF ファミリーなのに、受容体は TNFR でも GPCR でもない独自の逆向き7回膜貫通タンパク質。構造軸・受容体軸のどちらから見ても既存の枠に収まらない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: rtk-met
+  axis: receptor
+  label_ja: MET（受容体型チロシンキナーゼ）
+  parent: null
+  children: []
+  members: [HGF]
+  defining_feature: "HGF の唯一の受容体。二量体化して自己リン酸化し、PI3K/AKT と ERK を動かす"
+  source: null
+  status: inferred
+
+- id: rtk-egfr
+  axis: receptor
+  label_ja: EGFR（ErbBファミリー）
+  parent: null
+  children: []
+  members: [EGF]
+  defining_feature: "EGFR/ErbB2-4 のヘテロ・ホモ二量体。リガンドごとに組み合わせが変わる"
+  source: null
+  status: inferred
+
+- id: rtk-pdgfr-vegfr
+  axis: receptor
+  label_ja: PDGFR / VEGFR
+  parent: null
+  children: []
+  members: [PDGFB, VEGFA]
+  defining_feature: "免疫グロブリン様ドメインを持つ受容体型チロシンキナーゼ。リガンドの二量体が受容体を二量体化させる"
+  source: null
+  status: inferred
+
+- id: rtk-igf1r
+  axis: receptor
+  label_ja: IGF1R / INSR
+  parent: null
+  children: []
+  members: [IGF1]
+  defining_feature: "常時二量体のチロシンキナーゼ受容体。IRS を介して PI3K/AKT を動かす"
+  source: null
+  status: inferred
+
+- id: fgfr-heparin
+  axis: receptor
+  label_ja: FGFR + ヘパラン硫酸（傍分泌型FGF）
+  parent: null
+  children: []
+  members: [FGF2]
+  defining_feature: "ヘパラン硫酸を補因子として FGFR に結合する。細胞外基質に捕捉されるため局所に留まる"
+  source: null
+  status: inferred
+
+- id: ferroportin-target
+  axis: receptor
+  label_ja: フェロポルチン（SLC40A1）
+  parent: null
+  children: []
+  members: [HAMP]
+  defining_feature: "ヘプシジンが結合すると鉄輸送体フェロポルチンが内在化・分解される"
+  mismatch:
+    - member: HAMP
+      note: "「受容体」がシグナルを伝える受容体ではなく、分解される鉄輸送体そのもの。下流のシグナル伝達経路が存在しない。受容体軸の枠組み自体が当てはまらない例"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: integrin-cd44
+  axis: receptor
+  label_ja: インテグリン / CD44
+  parent: null
+  children: []
+  members: [SPP1]
+  defining_feature: "RGD モチーフを介して αvβ3 などのインテグリンに、別部位で CD44 に結合する"
+  source: null
+  status: inferred
+
+- id: timp1-cd63
+  axis: receptor
+  label_ja: CD63 / インテグリンβ1
+  parent: null
+  children: []
+  members: [TIMP1]
+  defining_feature: "MMP 阻害とは独立に、CD63/インテグリンβ1 複合体を介して生存シグナルを出す"
+  source: null
+  status: inferred
+
+- id: lcn2-receptor
+  axis: receptor
+  label_ja: SLC22A17 / LRP2
+  parent: null
+  children: []
+  members: [LCN2]
+  defining_feature: "鉄シデロフォア複合体ごと取り込まれる。古典的なシグナル受容体ではない"
+  source: null
+  status: inferred

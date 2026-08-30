@@ -1,0 +1,51 @@
+id: TIMP1
+symbol: "TIMP-1"
+gene: TIMP1
+aliases: [TIMP, EPA, CLGI]
+
+families: {structure: timp-structural, receptor: timp1-cd63, naming: activity-naming}
+
+receptor:
+  - name: "CD63 + インテグリンβ1"
+    subunits: [CD63, ITGB1]
+    note: "MMP 阻害とは独立の経路。TIMP1 の『サイトカイン様』機能はこちら"
+    source: null
+    status: inferred
+
+downstream: {primary: "CD63/ITGB1 → PI3K/AKT（生存シグナル）", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  hsc_qhsc: {level: 1, source: null, status: inferred, note: "同上。TIMP-1 は活性化星細胞のマーカーであり、静止期では低い"}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 2
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "MMP を阻害して基質分解を止めることで線維化を『固定』する。線維化の産生側ではなく分解側の抑制"
+  source: null
+  status: inferred
+
+notes:
+  - text: "活性化星細胞の代表的マーカー。線維化の可逆性を決める分子で、コラーゲン量そのものより線維化の『戻りにくさ』を反映する"
+    source: null
+    status: inferred
+  - text: "本来はプロテアーゼ阻害因子。CD63 経由のシグナル伝達は後から見つかった副次的機能で、サイトカインとして設計された分子ではない"
+    source: null
+    status: inferred

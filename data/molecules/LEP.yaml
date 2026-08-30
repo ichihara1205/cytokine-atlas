@@ -1,0 +1,50 @@
+id: LEP
+symbol: "レプチン"
+gene: LEP
+aliases: [レプチン, OB, オベース]
+
+families: {structure: il6-structural, receptor: leptin-receptor, naming: adipokine-naming}
+
+receptor:
+  - name: "LEPR(ObR)"
+    subunits: [LEPR]
+    note: "長鎖型 LEPRb のみが完全なシグナルを出す。短鎖型は輸送・分解に働く"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK2 → STAT3", secondary: ["PI3K", "ERK", "AMPK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: endocrine, note: "脂肪組織から出て中枢に届く。肝は末梢標的の一つ", source: null, status: inferred}
+
+producers:
+  adipocyte: {level: 3, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred, note: "レプチンは星細胞を直接活性化する。脂肪細胞を入れない系では届かない"}
+
+effects:
+  fibrosis: 2
+  inflammation: 1
+  lipid: -1
+  differentiation: 0
+  note: "星細胞を直接活性化して線維化を促す。一方で肝細胞では脂肪蓄積を抑える向きに働き、線維化と脂質で符号が逆になる"
+  source: null
+  status: inferred
+
+notes:
+  - text: "産生元が系外の脂肪細胞のみ。肝側は受容体を持つのに出し手が系内にいない『受けるだけ』の分子で、NASH を再現するなら脂肪細胞か外部添加が要る"
+    source: null
+    status: inferred
+  - text: "『ホルモン』『アディポカイン』として扱われるが、構造は IL-6 型の長鎖4ヘリックス、受容体もクラスI、下流も JAK2/STAT3。分類上はサイトカインそのもので、3軸で見ると IL-6 群のすぐ隣に来る"
+    source: null
+    status: inferred

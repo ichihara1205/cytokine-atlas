@@ -1,0 +1,48 @@
+id: CSF2
+symbol: "GM-CSF"
+gene: CSF2
+aliases: [GM-CSF, GMCSF, 顆粒球マクロファージコロニー刺激因子]
+
+families: {structure: short-chain-4-helix, receptor: beta-c-shared, naming: csf-naming}
+
+receptor:
+  - name: "CSF2RA + CSF2RB(βc)"
+    subunits: [CSF2RA, CSF2RB]
+    note: "共通β鎖 CSF2RB は IL-3・IL-5 と共有される"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK2 → STAT5", secondary: ["PI3K", "ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:    {level: 2, source: null, status: inferred}
+  lsec_tmnk1: {level: 2, source: null, status: inferred}
+  t_nk:       {level: 2, source: null, status: inferred}
+
+receivers:
+  premac:   {level: 3, source: null, status: inferred}
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 2
+  note: "M-CSF が M2 寄りに導くのに対し、GM-CSF は M1 寄りの表現型を作る"
+  source: null
+  status: inferred
+
+notes:
+  - text: "iPS からのマクロファージ分化プロトコルで M-CSF と並んで使われる。どちらを使うかで得られる iKC の表現型が変わるため、分化条件を必ず記録する"
+    source: null
+    status: inferred

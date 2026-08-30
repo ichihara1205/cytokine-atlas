@@ -1,0 +1,52 @@
+id: CXCL8
+symbol: "CXCL8/IL-8"
+gene: CXCL8
+aliases: [IL8, IL-8, NAP-1, SCYB8]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CXCR1 / CXCR2"
+    subunits: [CXCR1, CXCR2]
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → PI3K/PLCβ → 好中球遊走", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "好中球動員。受け手は系内にいない"}
+
+receivers:
+  neutrophil: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 2
+  lipid: 0
+  differentiation: 0
+  note: "作用は好中球動員。系内に好中球がいなければ効果が現れない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "系内のほぼ全細胞が出すのに、受け手は系外の好中球しかいない。この系で最も典型的な『出るだけ』の分子。ELISA で高値が出やすいが、系の中では誰も受け取っていない"
+    source: null
+    status: inferred
+  - text: "IL-8 の名で広く通っているが HGNC 承認シンボルは CXCL8。IL 番号を持つ唯一級のケモカインで、IL として検索するとケモカイン一族から外れる"
+    source: null
+    status: inferred

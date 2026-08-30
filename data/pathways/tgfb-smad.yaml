@@ -1,0 +1,50 @@
+id: tgfb-smad
+label_ja: TGF-β受容体 → SMAD（2/3枝 と 1/5/8枝）
+family: serine-threonine-kinase-receptor
+outcome: >-
+  同じスーパーファミリーが2つの枝に分かれる。SMAD2/3 枝は星細胞を筋線維芽細胞へ変えて線維化を実行し、
+  SMAD1/5/8 枝は肝細胞でヘプシジンを誘導して鉄代謝を制御する。構造が同じでも出口が全く違う。
+steps:
+  - id: ligand23
+    kind: ligand
+    label: "TGF-β / アクチビン枝"
+    branch: left
+    note: "TGF-β は潜在型（LAP結合）で分泌され、インテグリンやプロテアーゼで活性化されて初めて効く"
+    molecules: [TGFB1, TGFB2, INHBA]
+  - id: ligand158
+    kind: ligand
+    label: "BMP枝"
+    branch: right
+    molecules: [BMP2, BMP6]
+  - id: receptor
+    kind: receptor
+    architecture: stk
+    label: "II型 → I型受容体（ALK）"
+    genes: [TGFBR1, TGFBR2, ACVR1B, ACVR2A, BMPR1A, BMPR2, ACVR1]
+    note: "BMP-6 は肝でヘモジュベリン(HJV)を共受容体とする"
+  - id: smad23
+    kind: tf
+    label: "SMAD2/3 → SMAD4 → 核内"
+    branch: left
+  - id: smad158
+    kind: tf
+    label: "SMAD1/5/8 → SMAD4 → 核内"
+    branch: right
+  - id: out23
+    kind: output
+    label: "線維化の実行"
+    branch: left
+    induces: [CCN2, TIMP1, SPP1]
+    note: "CCN2 は TGF-β の直接の下流標的。線維化のマーカーとして TGF-β より鋭敏なことがある"
+  - id: out158
+    kind: output
+    label: "鉄代謝（ヘプシジン誘導）"
+    branch: right
+    induces: [HAMP]
+    note: "類洞内皮が鉄量に応じて BMP-6 を出し、肝細胞がヘプシジンを出す軸"
+source: "PMID:27141051"
+status: verified
+notes:
+  - text: "GDF-15 は構造上このスーパーファミリーに属するが、受容体は GFRAL+RET で SMAD を一切使わない。この図には乗らない"
+    source: "PMID:28846099"
+    status: verified

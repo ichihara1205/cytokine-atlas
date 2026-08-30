@@ -1,0 +1,25 @@
+id: hgf-protease
+molecule: HGF
+label_ja: HGF — 一本鎖で出て、プロテアーゼで二本鎖になる
+outcome: >-
+  不活性な一本鎖 pro-HGF として分泌され、細胞外のセリンプロテアーゼに切られて
+  はじめて活性型の二本鎖になる。制御点が分泌後にあるので、
+  培養系にプロテアーゼ環境が整っていなければ、量があっても効いていない。
+steps:
+  - id: tx
+    kind: transcription
+    label: "HGF 転写（主に星細胞）"
+  - id: pro
+    kind: proform
+    label: "一本鎖 pro-HGF"
+  - id: rel
+    kind: release
+    label: "一本鎖のまま分泌"
+    route: classical
+    note: "ヘパラン硫酸に結合して基質に留まる"
+  - id: ext
+    kind: extracellular
+    label: "HGFAC・マトリプターゼ等による切断"
+    note: "α鎖とβ鎖がジスルフィドで繋がった二本鎖になり、MET に結合できるようになる"
+source: null
+status: inferred

@@ -1,0 +1,33 @@
+id: gamma-c-jak3
+label_ja: 共通γ鎖 → JAK1/JAK3 → STAT5
+family: gamma-c-shared
+outcome: >-
+  リンパ球の発生・増殖・生存・分化を制御する。この共培養系では受け手（T/NK）が系外にいるため、
+  産生されても系内では仕事をしない。IL2RG の変異が X連鎖SCID を起こすことが、
+  この経路がリンパ球にとって代替の効かない入口であることを示している。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "γc ファミリー"
+    note: "IL-15 は産生細胞の膜上で IL15RA に載ったまま提示される（trans-presentation）ため、上清では捉えにくい"
+    molecules: [IL2, IL4, IL15, IL21]
+  - id: receptor
+    kind: receptor
+    architecture: class1_shared
+    label: "固有鎖 + IL2RG（γc）"
+    genes: [IL2RA, IL2RB, IL2RG, IL4R, IL15RA, IL21R]
+    note: "IL2RG の変異が X連鎖SCID の原因になる"
+  - id: jak
+    kind: transducer
+    label: "JAK1 / JAK3"
+    note: "JAK3 は γc に会合する。JAK3 阻害薬はこの一族をまとめて止める"
+  - id: stat
+    kind: tf
+    label: "STAT5"
+    note: "共通鎖が同じでも固有鎖の違いで STAT の選択が変わる"
+  - id: out
+    kind: output
+    label: "リンパ球の増殖・生存"
+    note: "この系では受け手が系外のため、出力が系内に落ちない"
+source: "PMID:30995502"
+status: verified

@@ -1,0 +1,53 @@
+id: CX3CL1
+symbol: "CX3CL1/フラクタルカイン"
+gene: CX3CL1
+aliases: [フラクタルカイン, ニューロタクチン, SCYD1]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CX3CR1"
+    subunits: [CX3CR1]
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → 遊走・接着", secondary: ["生存シグナル"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "膜貫通ムチン様ストークの先端にケモカインドメインを載せた膜型として作られ、ADAM10/17 の切断で可溶型になる"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "膜貫通ストークの先端にケモカインドメインを載せた膜型。切断で可溶型になる"
+  oligomer_source: null
+range: {mode: juxtacrine, note: "膜型は接着分子として直接働く。可溶型のみが遊走を誘導する", source: null, status: inferred}
+
+producers:
+  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  lsec_ilsec:     {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred, note: "膜型が接着分子として働き、クッパー細胞の定着に関わる。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+
+receivers:
+  kc_ikc:   {level: 3, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  premac:   {level: 2, source: null, status: inferred}
+  t_nk:     {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "CX3CR1 発現はクッパー細胞の同定マーカーの一つ。iKC でこれが立つかが成熟の指標"}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  note: "クッパー細胞の定着・生存に関わる。炎症の符号は文脈で割れるため 0"
+  source: null
+  status: inferred
+
+notes:
+  - text: "ケモカインの中で唯一、膜型が接着分子そのものとして働く。上清 ELISA では膜型の寄与が見えないため、LSEC–KC の接触依存的な関係を見落とす"
+    source: null
+    status: inferred
+  - text: "LSEC が出して iKC が受ける、系内で完結する数少ない組。共培養で内皮を入れる意義を示す分子"
+    source: null
+    status: inferred

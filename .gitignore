@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# site/ はビルド生成物。GitHub Actions が毎回作り直すのでコミットしない。
+# CLAUDE.md §3「site/ を直接編集してはならない」の裏返しで、そもそも履歴に持たない。
+site/

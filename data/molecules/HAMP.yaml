@@ -1,0 +1,52 @@
+id: HAMP
+symbol: "ヘプシジン"
+gene: HAMP
+aliases: [ヘプシジン, HEPC, LEAP-1, HAMP1]
+
+families: {structure: defensin-like-structural, receptor: ferroportin-target, naming: activity-naming}
+
+receptor:
+  - name: "SLC40A1(フェロポルチン)"
+    subunits: [SLC40A1]
+    note: "シグナルを伝える受容体ではなく、結合されて内在化・分解される鉄輸送体そのもの"
+    source: null
+    status: inferred
+
+downstream: {primary: "なし（フェロポルチンの内在化・分解による鉄放出の遮断）", secondary: [], source: null, status: inferred}
+form:
+  secretion: latent
+  latency: "プロヘプシジンとして作られ、フーリン切断で25アミノ酸の成熟型になる"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "25アミノ酸のヘアピン型ペプチド"
+  oligomer_source: null
+range: {mode: endocrine, note: "肝から出て腸・マクロファージの鉄放出を止める", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+
+receivers:
+  kc_ikc:   {level: 3, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "フェロポルチンを介した鉄の隔離はクッパー細胞の中核機能。iKC で再現されるかは未確認"}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "作用は鉄代謝であり、この4軸のどれにも当てはまらない。0 は『効果がない』ではなく『この軸で測れない』"
+  source: null
+  status: inferred
+
+notes:
+  - text: "IL-6/STAT3 と BMP6/SMAD1-5-8 の両方で転写誘導される。炎症時に鉄が隔離される（炎症性貧血）のはこの経路。肝細胞→クッパー細胞の一方向の軸として系内で完結する"
+    source: null
+    status: inferred
+  - text: "『受容体』が下流を持たず、結合相手を分解するだけ。受容体軸の枠組み自体が当てはまらない分子で、サイトカインの一般像の外側にある"
+    source: null
+    status: inferred
+  - text: "effects の4軸では鉄代謝を表現できない。BMP6 と同じく軸追加を検討する材料"
+    source: null
+    status: inferred

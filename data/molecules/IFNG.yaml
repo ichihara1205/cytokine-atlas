@@ -1,0 +1,51 @@
+id: IFNG
+symbol: "IFN-γ"
+gene: IFNG
+aliases: [II型IFN, 免疫インターフェロン]
+
+families: {structure: class2-helical, receptor: ifngr-shared, naming: interferon-naming}
+
+receptor:
+  - name: "IFNGR1 + IFNGR2"
+    subunits: [IFNGR1, IFNGR2]
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1/JAK2 → STAT1ホモ二量体（GAF）", secondary: ["IRF1"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "逆平行のホモ二量体。単量体では受容体を活性化できない"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+receivers:
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "M1 側への分極刺激"}
+
+effects:
+  fibrosis: -1
+  inflammation: 2
+  lipid: 0
+  differentiation: 1
+  note: "強い炎症性でありながら星細胞に対しては抗線維化に働く。炎症＝線維化ではないことの例"
+  source: null
+  status: inferred
+
+notes:
+  - text: "M1 分極の標準刺激。系内に産生者がいないので、外から加えない限りこの系では動かない"
+    source: null
+    status: inferred
+  - text: "I型・III型 IFN と同じ IFN の名を持つが受容体も STAT 複合体も別物。名前で束ねると誤る"
+    source: null
+    status: inferred

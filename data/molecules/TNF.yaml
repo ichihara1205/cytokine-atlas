@@ -1,0 +1,62 @@
+id: TNF
+symbol: "TNF-α"
+gene: TNF
+aliases: [TNFA, カケクチン, 腫瘍壊死因子]
+
+families: {structure: tnf-superfamily, receptor: tnfr-superfamily, naming: activity-naming}
+
+receptor:
+  - name: "TNFRSF1A(TNFR1)"
+    subunits: [TNFRSF1A]
+    note: "デスドメインを持ち、複合体Iで NF-κB、複合体IIでアポトーシス／ネクロプトーシスへ分岐する"
+    source: null
+    status: inferred
+  - name: "TNFRSF1B(TNFR2)"
+    subunits: [TNFRSF1B]
+    note: "デスドメインを持たない。膜型TNFに強く応答する"
+    source: null
+    status: inferred
+
+downstream: {primary: "TRAF2 → NF-κB", secondary: ["JNK", "カスパーゼ8"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "膜型三量体として作られ、TACE(ADAM17) 切断で可溶型になる。膜型と可溶型で使う受容体が偏る"
+  source: null
+  status: inferred
+  oligomer: homotrimer
+  oligomer_note: "膜型の三量体として作られ、切断で可溶型の三量体になる。受容体を3つまとめて集める"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:     {level: 3, source: null, status: inferred}
+  mac_thp1:   {level: 3, source: null, status: inferred}
+  neutrophil: {level: 2, source: null, status: inferred}
+  t_nk:       {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  adipocyte:      {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred, note: "同上"}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "活性化入力"}
+
+effects:
+  fibrosis: 1
+  inflammation: 2
+  lipid: 1
+  differentiation: 0
+  note: "肝細胞への作用は生存（NF-κB）と細胞死（カスパーゼ8）の両方。転写阻害の有無で符号が反転するため、線維化の値は文脈依存"
+  source: null
+  status: inferred
+
+notes:
+  - text: "腫瘍壊死因子の名は特殊な実験条件での観察に由来し、生体内の主な役割ではない"
+    source: null
+    status: inferred
+  - text: "膜型と可溶型で受容体の使い分けが変わる。上清 ELISA は可溶型しか見ないため、膜型の寄与を取り逃がす"
+    source: null
+    status: inferred

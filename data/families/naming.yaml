@@ -1,0 +1,168 @@
+# 軸3: 慣用名・通し番号（人が検索で最初に叩く軸）
+# axis: naming
+# この軸は「間違っている」のではなく「歴史の産物」。だからこそ他の2軸と突き合わせる必要がある。
+
+- id: interleukin
+  axis: naming
+  label_ja: IL番号
+  parent: null
+  children: []
+  members: [IL1A, IL1B, IL1RN, IL2, IL4, IL6, IL7, IL9, IL10, IL11, IL12B, IL15, IL17A, IL18, IL21, IL22, IL23A, IL26, IL33, IL34]
+  defining_feature: "白血球間の伝達因子に発見順で番号を振ったもの。系統も受容体も反映しない"
+  mismatch:
+    - member: null
+      note: "IL の番号は発見順であって系統ではない。IL-1/18/33/36/37/38 が一族、IL-2/4/7/9/15/21 が γc 一族というように、番号は飛び飛びに一族を作る"
+      source: null
+      status: inferred
+    - member: IFNL2
+      note: "III型 IFN は IL-28・IL-29 の名でも呼ばれる。IL 番号で分類すると受容体も機能も取り違える"
+      source: "PMID:26200010"
+      status: verified
+    - member: IL11
+      note: "IL 番号を持つが実体は gp130 共有群、すなわち IL-6 の同族。OSM/LIF/CNTF/CT-1 は IL 番号すら持たない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: interferon-naming
+  axis: naming
+  label_ja: IFN命名（I型/II型/III型）
+  parent: null
+  children: []
+  members: [IFNA1, IFNB1, IFNG, IFNL1, IFNL2, IFNL3]
+  defining_feature: "ウイルス干渉作用にちなむ機能由来の名。I型・II型・III型で受容体も構造も異なる"
+  mismatch:
+    - member: null
+      note: "III型 IFN（IFN-λ）は IL-28・IL-29 という IL 名でも流通している。同じ分子が2つの命名体系にまたがる"
+      source: "PMID:26200010"
+      status: verified
+  source: null
+  status: inferred
+
+- id: chemokine-numbering
+  axis: naming
+  label_ja: CCL/CXCL番号
+  parent: null
+  children: []
+  members: [CCL2, CCL5, CXCL8, CXCL9, CXCL10, CXCL12, CX3CL1]
+  defining_feature: "システインモチーフ（CC/CXC/C/CX3C）＋通し番号。1990年代に旧慣用名から整理された、3軸のうち唯一構造を反映する命名"
+  mismatch:
+    - member: CXCL8
+      note: "IL-8 の名で広く通っているが HGNC 承認シンボルは CXCL8。IL 番号を持つ唯一級のケモカインで、IL 系として検索すると一族から外れる"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: fgf-numbering
+  axis: naming
+  label_ja: FGF番号
+  parent: null
+  children: []
+  members: [FGF1, FGF2, FGF7, FGF19, FGF21, FGF23]
+  defining_feature: "線維芽細胞増殖活性にちなむ名＋通し番号"
+  mismatch:
+    - member: null
+      note: "FGF19/21/23 だけが内分泌型で α/β-Klotho を要求する。連番の中に性質の全く違う3つが埋もれている"
+      source: "PMID:30455427"
+      status: verified
+  source: null
+  status: inferred
+
+- id: tgf-bmp-gdf-naming
+  axis: naming
+  label_ja: TGF/BMP/GDF/アクチビン等の慣用名
+  parent: null
+  children: []
+  members: [TGFB1, TGFB2, TGFB3, BMP2, BMP4, BMP6, GDF2, GDF15, MSTN, INHBA, AMH, NODAL]
+  defining_feature: "発見された文脈（形質転換・骨形成・増殖分化・生殖腺）ごとに別々に名付けられた"
+  mismatch:
+    - member: null
+      note: "TGF-β / BMP / GDF / アクチビン / AMH / nodal / ミオスタチン は名前が完全にばらばらだが、構造上は単一のスーパーファミリー。名前からは絶対に辿り着けない"
+      source: "PMID:27141051"
+      status: verified
+    - member: GDF2
+      note: "BMP9 の名でも流通する。GDF と BMP の使い分けに一貫した基準はない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+# --- 以下 2026-08-11 追加分 --------------------------------------------
+
+- id: csf-naming
+  axis: naming
+  label_ja: CSF命名（コロニー刺激因子）
+  parent: null
+  children: []
+  members: [CSF1, CSF2, CSF3, IL34]
+  defining_feature: "骨髄細胞のコロニー形成を促す活性にちなむ機能由来の名。M-CSF / GM-CSF / G-CSF"
+  mismatch:
+    - member: IL34
+      note: "CSF1 と同じ CSF1R を共有するのに、CSF ではなく IL の番号が付いている。発見が遅く、既に CSF の命名枠が閉じていたことによる歴史的事故"
+      source: "PMID:24890514"
+      status: verified
+    - member: CSF3
+      note: "G-CSF。CSF の名を持つが構造は IL-6 型の長鎖4ヘリックス。CSF1（M-CSF）とは構造も受容体も無関係で、CSF という括りは活性の記述にすぎない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: growth-factor-naming
+  axis: naming
+  label_ja: 増殖因子命名（〜growth factor）
+  parent: null
+  children: []
+  members: [HGF, EGF, VEGFA, PDGFB, IGF1, FGF2]
+  defining_feature: "「どの細胞を増やしたか」という発見時のアッセイ系にちなむ名。標的細胞名がそのまま分子名になっている"
+  mismatch:
+    - member: HGF
+      note: "肝細胞増殖因子の名だが、実際には上皮全般の運動性・生存・形態形成を担う。構造はプラスミノーゲン様であって他の増殖因子とは無縁"
+      source: null
+      status: inferred
+    - member: null
+      note: "発見時のアッセイ系に由来する名前なので、その因子の生体内での主な役割とは限らない。VEGF が血管以外に、PDGF が血小板以外に働くのはその例"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: adipokine-naming
+  axis: naming
+  label_ja: アディポカイン
+  parent: null
+  children: []
+  members: [LEP, ADIPOQ]
+  defining_feature: "脂肪組織から分泌されるという産生元にちなむ括り。構造にも受容体にも共通性はない"
+  mismatch:
+    - member: null
+      note: "「アディポカイン」は産生細胞による括りであって、構造でも受容体でもない第4の論理。レプチンは IL-6 型ヘリックス＋クラスI受容体、アディポネクチンは TNF 型＋逆向き7回膜貫通と、中身は全く別物"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: activity-naming
+  axis: naming
+  label_ja: 活性由来の名前
+  parent: null
+  children: []
+  members: [TNF, TNFSF10, TNFSF12, OSM, LIF, HAMP, TIMP1, SPP1, LCN2, CCN2]
+  defining_feature: "発見時に観察された生物活性や生化学的性質をそのまま名前にしたもの"
+  mismatch:
+    - member: TNF
+      note: "腫瘍壊死因子。実際の主な役割は炎症・自然免疫の制御であり、腫瘍壊死は特殊な実験条件での観察にすぎない"
+      source: null
+      status: inferred
+    - member: TIMP1
+      note: "MMP 阻害因子として名付けられたが、CD63 を介したサイトカイン様の生存シグナルも出す。名前は最初に見つかった機能しか表さない"
+      source: null
+      status: inferred
+    - member: CCN2
+      note: "旧名 CTGF（結合組織増殖因子）。HGNC 承認シンボルは CCN2 で、CTGF は旧シンボル。文献の大半は今も CTGF で書かれているため検索時に取りこぼしやすい"
+      source: null
+      status: inferred
+  source: null
+  status: inferred

@@ -1,0 +1,48 @@
+id: IFNB1
+symbol: "IFN-β"
+gene: IFNB1
+aliases: [I型IFN, 線維芽細胞インターフェロン]
+
+families: {structure: class2-helical, receptor: ifnar-shared, naming: interferon-naming}
+
+receptor:
+  - name: "IFNAR1 + IFNAR2"
+    subunits: [IFNAR1, IFNAR2]
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1/TYK2 → STAT1/STAT2 + IRF9（ISGF3）", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: -1
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "IFNAR はほぼ全ての有核細胞にあるため、受け手を絞れない。系内で完結する数少ない自然免疫シグナル"
+    source: null
+    status: inferred

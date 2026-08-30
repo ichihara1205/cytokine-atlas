@@ -1,0 +1,45 @@
+id: TGFB2
+symbol: "TGF-β2"
+gene: TGFB2
+aliases: [TGF-beta2, BSC-1増殖抑制因子]
+
+families: {structure: tgfb-smad23-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "TGFBR2 + TGFBR1(ALK5)（TGFBR3を要する）"
+    subunits: [TGFBR2, TGFBR1, TGFBR3]
+    note: "TGFBR2 への親和性が低く、共受容体ベータグリカン(TGFBR3) がないと結合しにくい。TGF-β1/β3 との違いはここ"
+    source: null
+    status: inferred
+
+downstream: {primary: "SMAD2/3 → SMAD4", secondary: [], source: "PMID:27141051", status: verified}
+form:
+  secretion: latent
+  latency: "TGF-β1 同様 LAP 結合の潜在型"
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "同上"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: -1
+  lipid: 0
+  differentiation: 1
+  source: null
+  status: inferred
+
+notes:
+  - text: "同じ SMAD2/3 を使うのに共受容体要求性が違う。アイソフォームをまとめて『TGF-β』と扱うと、細胞ごとの応答差を説明できなくなる"
+    source: null
+    status: inferred

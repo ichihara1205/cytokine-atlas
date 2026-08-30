@@ -1,0 +1,53 @@
+id: IL4
+symbol: "IL-4"
+gene: IL4
+aliases: [BSF-1, B細胞刺激因子1]
+
+families: {structure: short-chain-4-helix, receptor: gamma-c-shared, naming: interleukin}
+
+receptor:
+  - name: "IL4R + IL2RG（I型）"
+    subunits: [IL4R, IL2RG]
+    note: "I型受容体は γc(IL2RG) を構成鎖として含む。II型受容体は IL4R + IL13RA1 で γc を使わない"
+    source: "PMID:30995502"
+    status: verified
+
+downstream: {primary: "JAK1/JAK3 → STAT6", secondary: ["IRS-2 → PI3K"], source: "PMID:30995502", status: verified}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+receivers:
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  hsc_lx2:  {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: -1
+  lipid: 0
+  differentiation: 1
+  note: "マクロファージを M2 側へ寄せる。炎症は NF-κB 系に対しては抑制的だが 2型炎症としては促進的で、符号は文脈依存"
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: opposes, target: IFNG, source: null, status: inferred,
+     note: "マクロファージ分極で逆向き。IFN-γ が M1 側、IL-4 が M2 側へ寄せる"}
+
+notes:
+  - text: "iKC / THP-1 の M2 分極を作るときの標準刺激。系内に産生者がいないため、外から入れない限りこの系では動かない"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Leonard WJ, Lin JX, O'Shea JJ. The γc Family of Cytokines: Basic Biology to Therapeutic Ramifications. Immunity 2019;50:832-850", pmid: "30995502"}

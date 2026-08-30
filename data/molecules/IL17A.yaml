@@ -1,0 +1,52 @@
+id: IL17A
+symbol: "IL-17A"
+gene: IL17A
+aliases: [CTLA-8, IL-17]
+
+families: {structure: il17-structural, receptor: il17r-family, naming: interleukin}
+
+receptor:
+  - name: "IL17RA + IL17RC"
+    subunits: [IL17RA, IL17RC]
+    source: null
+    status: inferred
+
+downstream: {primary: "ACT1 → TRAF6 → NF-κB", secondary: ["mRNA安定化（HuR/Arid5a）"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "ジスルフィド結合したホモ二量体"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 2
+  inflammation: 2
+  lipid: 1
+  differentiation: 0
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: synergizes_with, target: TNF, source: null, status: inferred,
+     note: "単独では弱く、TNF-α と組んで初めて強い転写応答を出す。単剤刺激では効果を過小評価する"}
+
+notes:
+  - text: "単独では弱く、TNF などと組み合わさって初めて強い転写応答を出す。相乗効果を前提とする分子なので単剤刺激では効果を過小評価する"
+    source: null
+    status: inferred
+  - text: "IL 番号を持つが構造も受容体も下流も他の IL と無縁。JAK/STAT を使わない数少ないインターロイキン"
+    source: null
+    status: inferred

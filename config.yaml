@@ -1,0 +1,47 @@
+# Cytokine Atlas サイト設定
+# build.py と validate.py が両方これを読む。
+
+site:
+  title: "Cytokine Atlas"
+  subtitle: "肝共培養系のサイトカイン参照"
+  lang: ja
+  base_url: ""          # 公開時にサブディレクトリへ置くなら "/cytokine-atlas" のように
+
+# --- 公開フラグ ---------------------------------------------------------
+# false にすると own_data（本人の未発表実測）を site/ に一切出力しない。
+# HTML にも JSON にも出さない。「隠す」のではなく「書き出さない」。
+include_own_data: false
+
+# --- 系（この共培養系を何と定義するか）---------------------------------
+# ここに挙げた細胞が「系内」。system_closure の自動判定に使う。
+# cells/*.yaml 側の in_system: false は、この一覧に無いことと同義（両方書いてよい）。
+system:
+  in_system:
+    - hepatocyte_pxb
+    - hsc_lx2
+    - hsc_qhsc
+    - lsec_tmnk1
+    - lsec_ilsec
+    - kc_ikc
+    - kc_pkc
+    - mac_thp1
+    - premac
+    - ipsc
+    - hepatoblast
+
+# --- トップページの通信行列 --------------------------------------------
+# 5×5。行=産生側 / 列=受容側。ここに挙げた順で描く。
+matrix:
+  cells:
+    - hepatocyte_pxb
+    - hsc_lx2
+    - lsec_tmnk1
+    - kc_ikc
+    - mac_thp1
+  min_level: 1          # この level 未満の辺は行列に載せない（0=なし は常に除外）
+
+# --- 検証 ---------------------------------------------------------------
+validate:
+  hgnc_file: "data/hgnc/symbols.tsv"
+  # true にすると status: inferred も警告ではなくエラーにする（公開前の総点検用）
+  strict_inferred: false

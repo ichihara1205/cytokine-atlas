@@ -1,0 +1,53 @@
+id: IL33
+symbol: "IL-33"
+gene: IL33
+aliases: [IL-1F11, NF-HEV]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL1RL1(ST2) + IL1RAP"
+    subunits: [IL1RL1, IL1RAP]
+    note: "可溶性 ST2 がデコイ受容体として働く"
+    source: null
+    status: inferred
+
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "分泌シグナル配列を持たない。定常状態では核内でクロマチンに結合し、細胞死・傷害に伴って全長のまま放出される"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred, note: "静止期星細胞が核内に蓄えるアラーミン。活性化・細胞死に伴って放出される"}
+  lsec_ilsec: {level: 3, source: null, status: inferred, note: "類洞内皮が主な貯蔵源。内皮の健全性の指標になりうる"}
+
+receivers:
+  hsc_lx2: {level: 2, source: null, status: inferred}
+  kc_ikc:  {level: 1, source: null, status: inferred}
+  t_nk:    {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "2型免疫を介した線維化促進と、組織修復・保護の両方が報告される。炎症の向きは文献間で割れるため 0"
+  source: null
+  status: inferred
+
+notes:
+  - text: "類洞内皮が主な貯蔵源。内皮の傷害を反映するので、上清中の IL-33 は LSEC の健全性の指標として読める可能性がある"
+    source: null
+    status: inferred
+  - text: "核内タンパクでもありサイトカインでもある。「分泌される因子」という前提が成り立たない"
+    source: null
+    status: inferred

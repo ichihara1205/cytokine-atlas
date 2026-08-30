@@ -1,0 +1,100 @@
+# data/molecules/_TEMPLATE.yaml
+# 新規分子はこれをコピーして作る。ファイル名は id と揃える（IL6.yaml）。
+# アンダースコアで始まるファイルは validate.py / build.py の対象外。
+#
+# 鉄則:
+#   - status と source を空欄のまま verified にしない（validate.py が止める）
+#   - プライマー配列・抗体クローン番号・カタログ番号を推測で埋めない。分からなければ status: todo
+#   - source は "PMID:26867490" か DOI。タイトルだけの引用は不可
+#   - own_data だけは source を要求しない代わりに date と unit が必須
+
+id: IL6
+symbol: "IL-6"
+gene: IL6                      # HGNC 承認シンボル。validate.py が実データと照合する
+aliases: [BSF-2, HSF, IFN-beta-2]
+
+families:                      # 3軸。単一の family / grp フィールドは使わない
+  structure: il6-structural
+  receptor: gp130-shared
+  naming: interleukin
+
+receptor:
+  - name: "IL-6R + IL6ST(gp130)"
+    subunits: [IL6R, IL6ST]
+    note: "可溶性IL6R による trans-signaling で IL6R 陰性細胞も応答する"
+    source: "PMID:26867490"
+    status: verified
+
+downstream:
+  primary: "JAK1 → STAT3"
+  secondary: ["SHP2 → ERK"]
+  source: "PMID:26867490"
+  status: verified
+
+form:
+  secretion: soluble           # soluble | membrane_bound | both | latent
+  latency: null                # 潜在型がある場合、活性化に必要な因子を書く
+  source: "PMID:26867490"      # verified には必ず source。無いなら status を inferred に落とす
+  status: verified
+
+range:
+  mode: endocrine              # autocrine | juxtacrine | paracrine | endocrine
+  note: "急性期反応として全身へ"
+  source: null
+  status: inferred
+
+producers:                     # level 3=主要 2=明確 1=文脈依存 0=なし
+  hepatocyte_pxb: {level: 2, source: "PMID:26867490", status: verified}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 3, source: "PMID:26867490", status: verified}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: "PMID:26867490", status: verified}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+
+# system_closure は書かない。build.py が producers/receivers から自動判定する。
+# 手で書くと validate.py がエラーで止める。
+
+effects:                       # -2 〜 +2。文献間で不一致なら 0 にして note に書く
+  fibrosis: 1
+  inflammation: 2
+  lipid: 0
+  differentiation: 0
+  note: "脂質への効果は文献間で不一致（急性期の抗脂肪 vs 慢性のインスリン抵抗性）。平均を取らず 0 とする"
+  source: "PMID:26867490"
+  status: verified
+
+assays:
+  elisa:
+    - {vendor: "R&D Systems", cat: "D6050", note: "Quantikine", status: todo}
+  array:
+    - {vendor: "abcam", cat: "ab134003", source: null, status: todo}
+  qpcr:
+    primers: []                # ← verified 以外はサイトに出力されない。推測で埋めない
+    # - {fwd: "...", rev: "...", amplicon: 120, source: "PMID:...", status: verified}
+  antibody: []                 # ← 同上。クローン番号は一次情報からのみ
+    # - {target: "IL-6", clone: "...", vendor: "...", cat: "...", app: [WB, IF], source: "...", status: verified}
+  rnaseq:
+    note: "bulk で十分。低発現ではないので特別な処理は不要"
+    source: null
+    status: inferred
+
+own_data:                      # 本人の実測のみ。一般知識をここに書かない
+  - date: "2026-05-13"         # 必須
+    experiment: "20条件 ELISA"
+    condition: "PXB + LSEC + KC"
+    value: 9.2
+    unit: "ng/mL"              # value があるなら必須
+    note: "mono-sum 比 17–19 倍。LSEC 追加で 1.5–1.65 倍"
+    status: verified
+
+notes:
+  - text: "trans-signaling を考えると受け手は実質全細胞に広がる。受容体発現だけで受け手を絞ると誤る"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Schmidt-Arras D, Rose-John S. IL-6 pathway in the liver: From physiopathology to therapy. J Hepatol 2016;64:1403-15", pmid: "26867490"}

@@ -1,0 +1,49 @@
+id: CSF3
+symbol: "G-CSF"
+gene: CSF3
+aliases: [G-CSF, GCSF, フィルグラスチム]
+
+families: {structure: il6-structural, receptor: csf3r-receptor, naming: csf-naming}
+
+receptor:
+  - name: "CSF3R"
+    subunits: [CSF3R]
+    note: "gp130 に近縁のクラスIサイトカイン受容体"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK2 → STAT3", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: endocrine, note: null, source: null, status: inferred}
+
+producers:
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+receivers:
+  neutrophil: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 1
+  note: "作用は好中球の産生・動員。系内に受け手がいない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "CSF の名を持つが構造は IL-6 型の長鎖4ヘリックス、受容体も gp130 近縁。M-CSF（CSF1）とは構造も受容体も無関係で、CSF という括りは活性の記述にすぎない"
+    source: null
+    status: inferred
+  - text: "系内で産生されるのに受け手が系外の好中球のみ。CXCL8 と同じ『出るだけ』のパターン"
+    source: null
+    status: inferred

@@ -1,0 +1,47 @@
+id: FGF21
+symbol: "FGF-21"
+gene: FGF21
+aliases: [FGF-21]
+
+families: {structure: fgf-structural, receptor: fgfr-klotho, naming: fgf-numbering}
+
+receptor:
+  - name: "FGFR1c + KLB(β-Klotho)"
+    subunits: [FGFR1, KLB]
+    note: "肝から分泌され、脂肪細胞の β-Klotho–FGFR1c 複合体に結合する"
+    source: "PMID:30455427"
+    status: verified
+
+downstream: {primary: "FGFR1c → ERK", secondary: ["AMPK", "PGC-1α"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: endocrine, note: "肝から出て脂肪組織・中枢に届く", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+
+receivers:
+  adipocyte: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: -1
+  lipid: -1
+  differentiation: 0
+  note: "脂肪組織での糖脂質代謝改善が主。肝細胞自身への直接効果は KLB 発現が低く限定的"
+  source: null
+  status: inferred
+
+notes:
+  - text: "肝が出すのに肝は受けない。受け手が系外の脂肪細胞にしかいないため、この共培養では『出るだけ』になる。肝単独系で FGF21 の効果を評価しようとすると必ず見誤る"
+    source: "PMID:30455427"
+    status: verified
+
+refs:
+  - {citation: "Kuro-o M. The Klotho proteins in health and disease. Nat Rev Nephrol 2019;15:27-44", pmid: "30455427"}

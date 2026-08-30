@@ -1,0 +1,45 @@
+id: CXCL9
+symbol: "CXCL9/MIG"
+gene: CXCL9
+aliases: [MIG, SCYB9]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CXCR3"
+    subunits: [CXCR3]
+    note: "CXCL9/10/11 が同じ CXCR3 を共有する"
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → T細胞遊走", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "IFN-γ 誘導性。系内に IFN-γ の産生者がいないため、外部刺激なしにはほとんど出ない。CXCL9 が上がっていれば IFN-γ 系が動いた証拠として読める"
+    source: null
+    status: inferred

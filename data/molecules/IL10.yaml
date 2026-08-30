@@ -1,0 +1,56 @@
+id: IL10
+symbol: "IL-10"
+gene: IL10
+aliases: [CSIF, サイトカイン合成阻害因子]
+
+families: {structure: class2-helical, receptor: il10rb-shared, naming: interleukin}
+
+receptor:
+  - name: "IL10RA + IL10RB"
+    subunits: [IL10RA, IL10RB]
+    note: "IL10RB は IL-22 や IFN-λ と共有される共通鎖"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1/TYK2 → STAT3", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "絡み合った（intertwined）ホモ二量体"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:   {level: 3, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  t_nk:     {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  hsc_lx2:        {level: 1, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "IL-10 によるオートクリンな負のフィードバック"}
+
+effects:
+  fibrosis: -1
+  inflammation: -2
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: opposes, target: IL6, source: null, status: inferred,
+     note: "同じ STAT3 を使いながら出力が逆。IL-10 は炎症性サイトカインの産生自体を抑える"}
+  - {type: opposes, target: TNF, source: null, status: inferred,
+     note: "マクロファージの TNF 産生を抑える負のフィードバック"}
+
+notes:
+  - text: "産生も受容もクッパー細胞／マクロファージ側に偏るオートクリン的な負のフィードバック。IL-6 と同じ STAT3 を使いながら出力が抗炎症なのは、標的遺伝子と時間経過の違いによる"
+    source: null
+    status: inferred

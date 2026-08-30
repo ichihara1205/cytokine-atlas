@@ -1,0 +1,60 @@
+id: IL6
+symbol: "IL-6"
+gene: IL6
+aliases: [BSF-2, HSF, IFN-beta-2]
+
+families: {structure: il6-structural, receptor: gp130-shared, naming: interleukin}
+
+receptor:
+  - name: "IL-6R + IL6ST(gp130)"
+    subunits: [IL6R, IL6ST]
+    note: "可溶性IL6R による trans-signaling で IL6R 陰性細胞も応答する"
+    source: "PMID:26867490"
+    status: verified
+
+downstream:
+  primary: "JAK1 → STAT3"
+  secondary: ["SHP2 → ERK"]
+  source: "PMID:26867490"
+  status: verified
+
+form:
+  secretion: soluble
+  latency: null
+  source: "PMID:26867490"
+  status: verified
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: endocrine, note: "急性期反応として全身へ", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 2, source: "PMID:26867490", status: verified}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 3, source: "PMID:26867490", status: verified}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: "PMID:26867490", status: verified}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  t_nk:           {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 2
+  lipid: 0
+  differentiation: 0
+  note: "脂質への効果は文献間で不一致（急性期の抗脂肪 vs 慢性のインスリン抵抗性）。平均を取らず 0 とする"
+  source: "PMID:26867490"
+  status: verified
+
+notes:
+  - text: "trans-signaling を考えると受け手は実質全細胞に広がる。受容体発現だけで受け手を絞ると誤る"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Schmidt-Arras D, Rose-John S. IL-6 pathway in the liver: From physiopathology to therapy. J Hepatol 2016;64:1403-15", pmid: "26867490"}

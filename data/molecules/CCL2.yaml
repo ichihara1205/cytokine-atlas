@@ -1,0 +1,49 @@
+id: CCL2
+symbol: "CCL2/MCP-1"
+gene: CCL2
+aliases: [MCP-1, MCAF, SCYA2]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CCR2"
+    subunits: [CCR2]
+    note: "ACKR1/ACKR2 が非シグナル型のスカベンジャー受容体として量を調節する"
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → PI3Kγ → 細胞遊走", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: "グリコサミノグリカンに固定されて濃度勾配を作る", source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "単球動員。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+
+receivers:
+  mac_thp1: {level: 3, source: null, status: inferred}
+  premac:   {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 2
+  lipid: 1
+  differentiation: 0
+  note: "作用は単球動員という細胞移動であって、標的細胞の形質転換ではない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "静置共培養では『動員』という主作用が再現されない。上清濃度が高くても系内で意味のある仕事をしているとは限らない"
+    source: null
+    status: inferred

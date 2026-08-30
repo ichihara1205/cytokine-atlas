@@ -1,0 +1,39 @@
+id: hamp-furin
+molecule: HAMP
+label_ja: ヘプシジン — 2つの入力が同じ転写に集まる
+outcome: >-
+  転写の段階で炎症（IL-6/STAT3）と鉄（BMP6/SMAD）という2つの独立した入力が合流する、
+  珍しい構造。プロセシングは単純で、律速は転写側にある。
+  上清のヘプシジンが上がったとき、炎症由来か鉄由来かは量だけでは区別できない。
+steps:
+  - id: sig_inflam
+    kind: trigger
+    signal: 1
+    label: "炎症の入力: IL-6 → STAT3"
+    note: "gp130 経路の出力としてヘプシジンが誘導される。炎症性貧血の機序"
+  - id: sig_iron
+    kind: trigger
+    signal: 2
+    label: "鉄の入力: BMP6 → SMAD1/5/8"
+    note: "類洞内皮が鉄量に応じて BMP-6 を出し、肝細胞がヘモジュベリンを共受容体として受ける"
+  - id: tx
+    kind: transcription
+    label: "HAMP 転写（2入力が合流）"
+  - id: pro
+    kind: proform
+    label: "プロヘプシジン"
+  - id: proc
+    kind: processing
+    label: "フーリンによる切断"
+    protease: FURIN
+    note: "25アミノ酸の成熟型になる"
+  - id: rel
+    kind: release
+    label: "分泌"
+    route: classical
+notes:
+  - text: "この経路の2つの trigger は『2シグナルが揃わないと出ない』ではなく『どちらでも出る』独立入力。同じ2入力でも IL-1β とは論理が違う"
+    source: null
+    status: inferred
+source: null
+status: inferred

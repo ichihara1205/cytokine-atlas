@@ -1,0 +1,47 @@
+id: IL11
+symbol: "IL-11"
+gene: IL11
+aliases: [AGIF, IL-11]
+
+families: {structure: il6-structural, receptor: gp130-shared, naming: interleukin}
+
+receptor:
+  - name: "IL11RA + IL6ST(gp130)"
+    subunits: [IL11RA, IL6ST]
+    note: "IL-6 と同じ gp130 を共有する。固有鎖が IL11RA である点だけが違う"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1 → STAT3", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: "IL-6 と違い全身性の急性期反応は起こしにくい", source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 2
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "IL-6 と受容体を共有しながら線維化側に強く働くと報告される一方、古典的には抗炎症・粘膜保護として扱われてきた。炎症については不一致のため 0"
+  source: null
+  status: inferred
+
+notes:
+  - text: "IL-6 と同じ gp130 を使うのに線維化への寄与が逆向きに議論される。受容体共有だけでは効果の向きを予測できない代表例"
+    source: null
+    status: inferred

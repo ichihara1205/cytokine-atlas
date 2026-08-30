@@ -1,0 +1,59 @@
+id: TGFB1
+symbol: "TGF-β1"
+gene: TGFB1
+aliases: [TGFB, TGF-beta1]
+
+families: {structure: tgfb-smad23-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "TGFBR2 + TGFBR1(ALK5)"
+    subunits: [TGFBR2, TGFBR1]
+    note: "TGFBR2 が TGFBR1 をリン酸化する。内皮では ALK1 を介した SMAD1/5 枝も動く"
+    source: "PMID:27141051"
+    status: verified
+
+downstream: {primary: "SMAD2/3 → SMAD4", secondary: ["p38 MAPK", "RhoA"], source: "PMID:27141051", status: verified}
+form:
+  secretion: latent
+  latency: "LAP と結合した潜在型として分泌され、インテグリンαvβ6/αvβ8 による牽引力、トロンボスポンジン1、プロテアーゼ、酸性化などで活性化される"
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "システインノットで結ばれたホモ二量体"
+  oligomer_source: null
+range: {mode: paracrine, note: "細胞外基質に潜在型として貯蔵され、その場で活性化される", source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 3, source: null, status: inferred, note: "静止期から筋線維芽細胞への活性化を駆動する入力。ここが活性化の起点になる"}
+
+effects:
+  fibrosis: 2
+  inflammation: -1
+  lipid: 0
+  differentiation: 1
+  note: "線維化の中心因子でありながら免疫細胞に対しては抑制的。線維化と炎症の符号が逆になる代表例"
+  source: null
+  status: inferred
+
+notes:
+  - text: "総 TGF-β1 の ELISA は酸処理で潜在型を強制活性化して測るのが一般的。したがって測定値は「その場で効いていた量」ではなく「貯蔵量」に近い。活性型を測りたいなら酸処理なしの条件と対比する"
+    source: null
+    status: inferred
+  - text: "潜在型で分泌されるため、産生量と作用量が一致しない。producers の level は分泌量、実際の効果は活性化機構に依存する"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Morikawa M, Derynck R, Miyazono K. TGF-β and the TGF-β Family. Cold Spring Harb Perspect Biol 2016;8:a021873", pmid: "27141051"}

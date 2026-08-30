@@ -1,0 +1,47 @@
+id: IL21
+symbol: "IL-21"
+gene: IL21
+aliases: [IL-21]
+
+families: {structure: short-chain-4-helix, receptor: gamma-c-shared, naming: interleukin}
+
+receptor:
+  - name: "IL21R + IL2RG"
+    subunits: [IL21R, IL2RG]
+    note: "γc(IL2RG) を構成鎖として含む"
+    source: "PMID:30995502"
+    status: verified
+
+downstream: {primary: "JAK1/JAK3 → STAT3", secondary: ["STAT1", "STAT5"], source: "PMID:30995502", status: verified}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+receivers:
+  t_nk:    {level: 3, source: null, status: inferred}
+  hsc_lx2: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "γc 群でありながら下流が STAT3 主体で、IL-6 群に近い出力になる。共通鎖が同じでも固有鎖の違いで STAT の選択が変わる"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Leonard WJ, Lin JX, O'Shea JJ. The γc Family of Cytokines: Basic Biology to Therapeutic Ramifications. Immunity 2019;50:832-850", pmid: "30995502"}

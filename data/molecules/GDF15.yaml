@@ -1,0 +1,57 @@
+id: GDF15
+symbol: "GDF-15"
+gene: GDF15
+aliases: [MIC-1, NAG-1, PLAB, PTGFB]
+
+families: {structure: tgf-beta-superfamily, receptor: gfral-ret, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "GFRAL + RET"
+    subunits: [GFRAL, RET]
+    note: "脳幹（最後野・孤束核）に限局して発現する。SMAD を一切使わない"
+    source: "PMID:28846099"
+    status: verified
+
+downstream: {primary: "RET チロシンキナーゼ → ERK/AKT/PLCγ", secondary: [], source: "PMID:28846099", status: verified}
+form:
+  secretion: latent
+  latency: "プロペプチド結合型として分泌され、切断で成熟型になる"
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "ホモ二量体"
+  oligomer_source: null
+range: {mode: endocrine, note: "肝から出て脳幹に届く。標的が中枢のみという極端な内分泌型", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 2, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "受容体 GFRAL は脳幹（最後野・孤束核）に限局し、肝の細胞には発現しない。調べたうえで『なし』と判断"}
+  hsc_lx2: {level: 0, source: null, status: inferred, note: "受容体 GFRAL は脳幹（最後野・孤束核）に限局し、肝の細胞には発現しない。調べたうえで『なし』と判断"}
+  lsec_tmnk1: {level: 0, source: null, status: inferred, note: "受容体 GFRAL は脳幹（最後野・孤束核）に限局し、肝の細胞には発現しない。調べたうえで『なし』と判断"}
+  kc_ikc: {level: 0, source: null, status: inferred, note: "受容体 GFRAL は脳幹（最後野・孤束核）に限局し、肝の細胞には発現しない。調べたうえで『なし』と判断"}
+  mac_thp1: {level: 0, source: null, status: inferred, note: "受容体 GFRAL は脳幹（最後野・孤束核）に限局し、肝の細胞には発現しない。調べたうえで『なし』と判断"}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: -1
+  differentiation: 0
+  note: "作用は中枢を介した食欲抑制・体重減少。肝局所での直接効果は確立していない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "受け手が系内にも系外の登録細胞にも一つもいない。受容体 GFRAL が脳幹限定であるため、この共培養系では『出るだけ』にすらならず、行き先が系の外にしかない。細胞ストレスのマーカーとしてのみ読むべき分子"
+    source: null
+    status: inferred
+  - text: "構造は TGF-βスーパーファミリーなのに受容体も下流も完全に別。構造から受容体を推測してはいけない最も明確な反例"
+    source: "PMID:28846099"
+    status: verified
+
+refs:
+  - {citation: "Yang L, et al. GFRAL is the receptor for GDF15 and is required for the anti-obesity effects of the ligand. Nat Med 2017;23:1158-1166", pmid: "28846099"}

@@ -1,0 +1,45 @@
+id: IL23A
+symbol: "IL-23p19"
+gene: IL23A
+aliases: [IL-23A, p19]
+
+families: {structure: il12-family-structural, receptor: il12r-family, naming: interleukin}
+
+receptor:
+  - name: "IL12RB1 + IL23R"
+    subunits: [IL12RB1, IL23R]
+    note: "IL12B(p40) と共有結合したヘテロ二量体としてのみ働く"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK2/TYK2 → STAT3", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: heterodimer
+  oligomer_note: "IL12B(p40) と共有結合したヘテロ二量体としてのみ働く"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "Th17 を介した間接効果。系内に T 細胞がいなければ現れない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "p19 単独では分泌されない。p40 との共発現が必須で、片方の mRNA だけを見ても機能する IL-23 が出ているとは言えない"
+    source: null
+    status: inferred

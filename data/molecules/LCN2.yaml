@@ -1,0 +1,51 @@
+id: LCN2
+symbol: "リポカリン2/NGAL"
+gene: LCN2
+aliases: [NGAL, 24p3, シデロカリン, LCN2]
+
+families: {structure: lipocalin-structural, receptor: lcn2-receptor, naming: activity-naming}
+
+receptor:
+  - name: "SLC22A17(24p3R) / LRP2(メガリン)"
+    subunits: [SLC22A17, LRP2]
+    note: "鉄シデロフォア複合体ごと取り込まれる。古典的なシグナル受容体ではない"
+    source: null
+    status: inferred
+
+downstream: {primary: "細胞内鉄濃度の変化を介した間接作用", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "βバレル単量体"
+  oligomer_source: null
+range: {mode: endocrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  neutrophil:     {level: 3, source: null, status: inferred}
+  kc_pkc: {level: 2, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 1
+  differentiation: 0
+  note: "急性期タンパクとして炎症で強く上がるが、それ自体が炎症を起こすかは明確でない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "IL-6/STAT3 の直接標的で、急性期反応の鋭敏な読み出しになる。上清の LCN2 は『炎症が起きた』の指標であって『炎症を起こしている因子』ではない可能性が高い"
+    source: null
+    status: inferred
+  - text: "本来は細菌のシデロフォアを奪う自然免疫分子。サイトカインとして働くかどうか自体が未確定"
+    source: null
+    status: inferred

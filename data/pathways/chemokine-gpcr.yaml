@@ -1,0 +1,32 @@
+id: chemokine-gpcr
+label_ja: ケモカイン受容体 → Gi → 細胞遊走
+family: chemokine-gpcr
+outcome: >-
+  細胞を「呼ぶ」ための経路。転写を変えるのではなく、細胞骨格を組み替えて遊走・接着を起こす。
+  出力が細胞の移動なので、静置した共培養では主作用がそもそも再現されない点に注意が要る。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "ケモカイン"
+    note: "グリコサミノグリカンに固定されて濃度勾配を作る。上清の濃度は勾配を反映しない"
+    molecules: [CCL2, CCL5, CXCL8, CXCL9, CXCL10, CXCL12, CX3CL1]
+  - id: receptor
+    kind: receptor
+    architecture: gpcr
+    label: "7回膜貫通GPCR"
+    genes: [CCR1, CCR2, CCR3, CCR5, CXCR1, CXCR2, CXCR3, CXCR4, CX3CR1]
+    note: "リガンドと受容体は多対多に縮重しており、1対1の対応が成り立たない。CCL5 だけで CCR1/3/5 の3つに結合する"
+  - id: gi
+    kind: transducer
+    label: "Gi → PI3Kγ / PLCβ"
+    note: "JAK/STAT を使わない。サイトカインの中でここだけ機構が違う"
+  - id: out
+    kind: output
+    label: "遊走・接着・停止"
+    note: "転写誘導は主出力ではない。したがってこの経路の出力として作られる分子は基本的に無い"
+source: "PMID:29637711"
+status: verified
+notes:
+  - text: "CX3CL1 は膜型が接着分子そのものとして働くため、可溶型を測る ELISA では接触依存の関係を取り逃がす"
+    source: null
+    status: inferred

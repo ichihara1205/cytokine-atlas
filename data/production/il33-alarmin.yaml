@@ -1,0 +1,26 @@
+id: il33-alarmin
+molecule: IL33
+label_ja: IL-33 — 核に貯めておき、傷害で放出する
+outcome: >-
+  分泌シグナル配列を持たず、定常状態では核内でクロマチンに結合している。
+  細胞死・傷害に伴って全長のまま放出される。つまり「分泌」ではなく「漏出」が放出経路。
+  上清の IL-33 は産生の指標ではなく、内皮などの細胞が壊れたことの指標として読むほうが近い。
+steps:
+  - id: tx
+    kind: transcription
+    label: "IL33 転写（定常的）"
+  - id: pro
+    kind: proform
+    label: "核内でクロマチンに結合して貯蔵"
+    note: "分泌シグナル配列を持たないので通常の分泌経路に入らない"
+  - id: signal2
+    kind: trigger
+    signal: 2
+    label: "細胞の傷害・壊死"
+  - id: rel
+    kind: release
+    label: "全長のまま受動的に放出"
+    route: cell_death
+    note: "カスパーゼ1では成熟せず、逆にアポトーシス時のカスパーゼ3/7 切断は不活性化する"
+source: null
+status: inferred

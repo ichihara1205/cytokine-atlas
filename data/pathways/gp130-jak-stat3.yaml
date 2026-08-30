@@ -1,0 +1,38 @@
+# 経路は data/pathways/ に1本1ファイル。steps は上流から下流の順に並べる。
+# 分子側に pathways を書かない（build.py が steps[].molecules から導出する）。
+id: gp130-jak-stat3
+label_ja: gp130 → JAK1 → STAT3
+family: gp130-shared
+outcome: >-
+  肝細胞に急性期反応を起こす。CRP・ヘプシジン・リポカリン2 などの急性期タンパクの転写を上げ、
+  同時に細胞の生存・増殖を支える。炎症の「全身への通知」と「肝での実行」を兼ねる経路。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "IL-6型サイトカイン"
+    note: "固有鎖は違うが、いずれも gp130 を共有する"
+    molecules: [IL6, IL11, OSM, LIF]
+  - id: receptor
+    kind: receptor
+    architecture: class1_shared
+    label: "固有鎖 + IL6ST(gp130)"
+    genes: [IL6R, IL11RA, OSMR, LIFR, IL6ST]
+    note: "可溶性IL6R が結合した複合体でも gp130 を叩けるため（trans-signaling）、IL6R 陰性細胞も応答する"
+  - id: jak
+    kind: transducer
+    label: "JAK1"
+  - id: stat3
+    kind: tf
+    label: "STAT3 二量体"
+    note: "SHP2 → ERK の副経路にも分岐する"
+  - id: out
+    kind: output
+    label: "急性期反応・生存・増殖"
+    induces: [HAMP, LCN2]
+    note: "ヘプシジンとリポカリン2 はこの経路の直接の出力。上清で測れば経路が動いた証拠になる"
+source: "PMID:30995501"
+status: verified
+notes:
+  - text: "受容体を共有していても出力の向きは一致しない。IL-11 は同じ gp130 を使いながら線維化側に働くと報告される"
+    source: null
+    status: inferred

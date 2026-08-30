@@ -1,0 +1,50 @@
+id: IGF1
+symbol: "IGF-1"
+gene: IGF1
+aliases: [ソマトメジンC, IGF-I]
+
+families: {structure: igf-insulin-structural, receptor: rtk-igf1r, naming: growth-factor-naming}
+
+receptor:
+  - name: "IGF1R"
+    subunits: [IGF1R]
+    note: "IGFBP1-7 が血中・局所で結合して利用可能量を決める。総量ではなく遊離型が効く"
+    source: null
+    status: inferred
+
+downstream: {primary: "IGF1R → IRS-1 → PI3K/AKT", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: endocrine, note: "肝が全身の IGF-1 の主な供給源", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 1, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: -1
+  inflammation: -1
+  lipid: 0
+  differentiation: 0
+  note: "活性化星細胞の老化誘導を介して線維化を抑える報告がある一方、増殖促進の報告もあり符号は揺れる"
+  source: null
+  status: inferred
+
+notes:
+  - text: "IGFBP に結合した状態が大半なので、ELISA の総 IGF-1 は作用量を反映しない。遊離型を見るには酸-エタノール抽出などの前処理が要る"
+    source: null
+    status: inferred
+  - text: "肝細胞の合成能を反映する分泌タンパクなので、共培養で肝機能が保たれているかの指標として使える"
+    source: null
+    status: inferred

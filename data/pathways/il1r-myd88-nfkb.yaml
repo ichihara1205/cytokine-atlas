@@ -1,0 +1,38 @@
+id: il1r-myd88-nfkb
+label_ja: IL-1受容体 → MyD88 → NF-κB
+family: il1r-family
+outcome: >-
+  炎症の初発シグナル。NF-κB を介して IL-6・CXCL8・CCL2 など次の炎症性サイトカインの転写を上げ、
+  炎症を増幅する。TLR と下流を共有するため、無菌性の傷害でも微生物刺激でも同じ出口に入る。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "IL-1ファミリー"
+    note: "IL-1β と IL-18 はインフラマソームによるカスパーゼ1切断を経ないと活性型にならない"
+    molecules: [IL1A, IL1B, IL18, IL33]
+  - id: brake
+    kind: ligand
+    antagonist: true          # 経路を駆動しない。出力の導出元から除かれる
+    label: "内因性の抑え"
+    note: "IL-1Ra は受容体に結合するがシグナルを出さない。可溶性ST2・IL-18BP も遊離型を減らす"
+    molecules: [IL1RN]
+  - id: receptor
+    kind: receptor
+    architecture: tir
+    label: "固有鎖 + 共受容体"
+    genes: [IL1R1, IL1RAP, IL18R1, IL18RAP, IL1RL1]
+    note: "IL-1Ra が結合した受容体は共受容体を呼べず、複合体が完成しないためシグナルが出ない"
+  - id: myd88
+    kind: transducer
+    label: "MyD88 → IRAK → TRAF6"
+    note: "TLR と共有する経路。ここから先は刺激の由来を区別しない"
+  - id: nfkb
+    kind: tf
+    label: "NF-κB"
+  - id: out
+    kind: output
+    label: "炎症性サイトカインの誘導"
+    induces: [IL6, CXCL8, CCL2, IL1B]
+    note: "自分自身（IL-1β）も誘導するため正のフィードバックになる"
+source: "PMID:24332029"
+status: verified

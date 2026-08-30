@@ -1,0 +1,58 @@
+id: FGF19
+symbol: "FGF-19"
+gene: FGF19
+aliases: [FGF15/19, マウスFGF15の相同分子]
+
+families: {structure: fgf-structural, receptor: fgfr-klotho, naming: fgf-numbering}
+
+receptor:
+  - name: "FGFR4 + KLB(β-Klotho)"
+    subunits: [FGFR4, KLB]
+    note: "β-Klotho がないと FGFR4 に結合できない。回腸から出て肝細胞の β-Klotho–FGFR4 複合体に結合する"
+    source: "PMID:30455427"
+    status: verified
+
+downstream: {primary: "FGFR4 → ERK → CYP7A1 抑制", secondary: ["STAT3"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range:
+  mode: endocrine
+  note: "回腸で胆汁酸に応答して産生され、門脈を経て肝細胞に届く。系外の腸がないと本来の軸が成立しない"
+  source: "PMID:30455427"
+  status: verified
+
+producers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "FGF19 の産生元は回腸であり、肝の細胞は作らない。調べたうえで『なし』と判断"}
+  hsc_lx2: {level: 0, source: null, status: inferred, note: "FGF19 の産生元は回腸であり、肝の細胞は作らない。調べたうえで『なし』と判断"}
+  lsec_tmnk1: {level: 0, source: null, status: inferred, note: "FGF19 の産生元は回腸であり、肝の細胞は作らない。調べたうえで『なし』と判断"}
+  kc_ikc: {level: 0, source: null, status: inferred, note: "FGF19 の産生元は回腸であり、肝の細胞は作らない。調べたうえで『なし』と判断"}
+  mac_thp1: {level: 0, source: null, status: inferred, note: "FGF19 の産生元は回腸であり、肝の細胞は作らない。調べたうえで『なし』と判断"}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: -1
+  differentiation: 0
+  note: "胆汁酸合成（CYP7A1）を抑える。脂質への効果は胆汁酸を介した間接的なもの"
+  source: null
+  status: inferred
+
+notes:
+  - text: "産生元が回腸であり、この共培養系にも系外登録細胞にも産生者がいない。肝細胞は受容体を持つのに出し手が存在しない『受けるだけ』の分子で、腸肝軸を再現しない限り動かない"
+    source: "PMID:30455427"
+    status: verified
+  - text: "ヘパリン結合能を失い α/β-Klotho 依存になった内分泌型 FGF。同じ FGF 番号でも FGF2 とは性質が全く違う"
+    source: "PMID:30455427"
+    status: verified
+
+refs:
+  - {citation: "Kuro-o M. The Klotho proteins in health and disease. Nat Rev Nephrol 2019;15:27-44", pmid: "30455427"}

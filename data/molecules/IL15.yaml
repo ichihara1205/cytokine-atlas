@@ -1,0 +1,56 @@
+id: IL15
+symbol: "IL-15"
+gene: IL15
+aliases: [IL-15]
+
+families: {structure: short-chain-4-helix, receptor: gamma-c-shared, naming: interleukin}
+
+receptor:
+  - name: "IL15RA + IL2RB + IL2RG"
+    subunits: [IL15RA, IL2RB, IL2RG]
+    note: "γc(IL2RG) を構成鎖として含む。産生細胞の膜上で IL15RA に載ったまま隣接細胞へ提示される（trans-presentation）"
+    source: "PMID:30995502"
+    status: verified
+
+downstream: {primary: "JAK1/JAK3 → STAT5", secondary: ["PI3K/AKT"], source: "PMID:30995502", status: verified}
+form:
+  secretion: both
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "IL15RA に載ったまま膜上で提示されることが多い"
+  oligomer_source: null
+range:
+  mode: juxtacrine
+  note: "遊離型としてよりも、IL15RA に載せた膜提示型として働くのが主。上清 ELISA では捉えにくい"
+  source: null
+  status: inferred
+
+producers:
+  kc_ikc:     {level: 2, source: null, status: inferred}
+  mac_thp1:   {level: 2, source: null, status: inferred}
+  lsec_tmnk1: {level: 2, source: null, status: inferred}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "主作用は NK/CD8T の維持・活性化。系内に受け手がいない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "系内で産生されるのに受け手が系外の T/NK しかいない。肝の自然免疫を再現したいなら NK を足す必要があることを示す分子"
+    source: null
+    status: inferred
+  - text: "trans-presentation が主体なので、上清の濃度が低くても「働いていない」とは言えない"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Leonard WJ, Lin JX, O'Shea JJ. The γc Family of Cytokines: Basic Biology to Therapeutic Ramifications. Immunity 2019;50:832-850", pmid: "30995502"}

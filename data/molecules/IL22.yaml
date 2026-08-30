@@ -1,0 +1,48 @@
+id: IL22
+symbol: "IL-22"
+gene: IL22
+aliases: [IL-TIF]
+
+families: {structure: class2-helical, receptor: il10rb-shared, naming: interleukin}
+
+receptor:
+  - name: "IL22RA1 + IL10RB"
+    subunits: [IL22RA1, IL10RB]
+    note: "可溶性の IL22RA2(IL-22BP) がデコイとして働く。IL22RA1 は上皮に限局し、免疫細胞は IL-22 を受け取れない"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1/TYK2 → STAT3", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hepatoblast:    {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: -1
+  inflammation: 0
+  lipid: -1
+  differentiation: 0
+  note: "肝細胞保護・再生促進として働く一方、慢性的には炎症・腫瘍化を促すとも報告される。炎症の符号は割れるため 0"
+  source: null
+  status: inferred
+
+notes:
+  - text: "免疫細胞から出て上皮だけが受ける一方向の分子。受容体が上皮限定なので、免疫細胞同士の増幅ループを作らない"
+    source: null
+    status: inferred
+  - text: "系内に産生者（T/ILC）がいないため、この共培養では受け手だけが存在する in_only 型になる"
+    source: null
+    status: inferred

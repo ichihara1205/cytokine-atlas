@@ -1,0 +1,277 @@
+# 軸1: 構造相同性（配列・フォールドの近さ）
+# axis: structure
+# 出典が取れていないものは status: inferred のまま。/todo に出る。
+
+- id: tgf-beta-superfamily
+  axis: structure
+  label_ja: TGF-βスーパーファミリー
+  parent: null
+  children: [tgfb-smad23-branch, bmp-smad158-branch]
+  members: [TGFB1, TGFB2, TGFB3, BMP2, BMP4, BMP6, GDF2, MSTN, GDF15, INHBA, AMH, NODAL]
+  defining_feature: "システインノット構造。二量体で I型/II型セリンスレオニンキナーゼ受容体に結合する"
+  mismatch:
+    - member: null
+      note: "BMP・GDF・アクチビン・ミオスタチン・AMH・nodal は名前が全く揃っていないが、すべてこの一族。SMAD1/5/8 枝と SMAD2/3 枝に分岐するだけで、構造上は同じ折りたたみ"
+      source: "PMID:27141051"
+      status: verified
+    - member: MSTN
+      note: "ミオスタチン。GDF8 の名で呼ばれることが多いが HGNC 承認シンボルは MSTN（GDF8 は旧シンボル）"
+      source: null
+      status: inferred
+    - member: GDF15
+      note: "構造は本ファミリーだが受容体は GFRAL+RET で、I型/II型セリンスレオニンキナーゼ受容体も SMAD も使わない。構造軸と受容体軸が完全に食い違う唯一級の例"
+      source: "PMID:28846099"
+      status: verified
+  source: "PMID:27141051"
+  status: verified
+
+- id: tgfb-smad23-branch
+  axis: structure
+  label_ja: TGF-β/アクチビン枝（SMAD2/3）
+  parent: tgf-beta-superfamily
+  children: []
+  members: [TGFB1, TGFB2, TGFB3, INHBA, MSTN, NODAL]
+  defining_feature: "ALK4/5/7 を介して SMAD2/3 をリン酸化する枝"
+  source: "PMID:27141051"
+  status: verified
+
+- id: bmp-smad158-branch
+  axis: structure
+  label_ja: BMP枝（SMAD1/5/8）
+  parent: tgf-beta-superfamily
+  children: []
+  members: [BMP2, BMP4, BMP6, GDF2, AMH]
+  defining_feature: "ALK1/2/3/6 を介して SMAD1/5/8 をリン酸化する枝"
+  source: "PMID:27141051"
+  status: verified
+
+- id: il6-structural
+  axis: structure
+  label_ja: 長鎖4ヘリックスバンドル型（IL-6型）
+  parent: null
+  children: []
+  members: [IL6, IL11, OSM, LIF, CNTF, CTF1, LEP, CSF3]
+  defining_feature: "up-up-down-down の長鎖4ヘリックスバンドル。gp130 共有群と構成がほぼ一致する"
+  mismatch:
+    - member: LEP
+      note: "レプチン。「アディポカイン」「食欲調節ホルモン」として語られるが、構造は IL-6 型の長鎖4ヘリックスバンドルで、受容体 LEPR もクラスIサイトカイン受容体、下流も JAK2 → STAT3。分類上はサイトカインそのもの"
+      source: null
+      status: inferred
+    - member: CSF3
+      note: "G-CSF。CSF という別系統の名を持つが構造は IL-6 型。受容体 CSF3R も gp130 に近縁のクラスIサイトカイン受容体"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: il1-structural
+  axis: structure
+  label_ja: β-トレフォイル型（IL-1型）
+  parent: null
+  children: []
+  members: [IL1A, IL1B, IL18, IL33, IL36A, IL36B, IL36G, IL37, IL1F10, IL1RN]
+  defining_feature: "12本のβストランドが作る β-トレフォイル。IL-1R ファミリー（Ig様ドメイン＋TIR）に結合する"
+  mismatch:
+    - member: IL1F10
+      note: "IL-38 の名で流通するが HGNC 承認シンボルは IL1F10。IL-38 は alias であって承認シンボルではない"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: fgf-structural
+  axis: structure
+  label_ja: β-トレフォイル型（FGF）
+  parent: null
+  children: []
+  members: [FGF1, FGF2, FGF7, FGF19, FGF21, FGF23]
+  defining_feature: "IL-1 と同じ β-トレフォイル折りたたみを持つが、受容体も機能も無関係。構造相同＝機能相同ではないことの実例"
+  source: null
+  status: inferred
+
+- id: tnf-superfamily
+  axis: structure
+  label_ja: TNFスーパーファミリー
+  parent: null
+  children: []
+  members: [TNF, LTA, TNFSF10, FASLG, CD40LG, TNFSF12, ADIPOQ]
+  defining_feature: "jelly-roll βサンドイッチ。三量体で膜型として作られ、切断されて可溶型になるものが多い"
+  mismatch:
+    - member: ADIPOQ
+      note: "アディポネクチン。C1q/TNF スーパーファミリーに属し、球状ドメインの構造は TNF とほぼ重なる。にもかかわらず受容体 ADIPOR1/2 は TNFR とは全く無縁で、作用も抗炎症・インスリン感受性亢進と TNF の逆向き。構造相同性から機能を推測してはいけない例"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: chemokine-structural
+  axis: structure
+  label_ja: ケモカイン折りたたみ
+  parent: null
+  children: []
+  members: [CCL2, CCL5, CXCL8, CXCL9, CXCL10, CXCL12, CX3CL1]
+  defining_feature: "N末端のシステイン配置で CC / CXC / C / CX3C に分かれる。折りたたみ自体は共通"
+  source: null
+  status: inferred
+
+# --- 以下 2026-08-11 追加分（フェーズ1の分子群に合わせて拡張）-------------
+
+- id: short-chain-4-helix
+  axis: structure
+  label_ja: 短鎖4ヘリックスバンドル型
+  parent: null
+  children: []
+  members: [IL2, IL4, IL15, IL21, CSF2, CSF1, IL34]
+  defining_feature: "IL-6型より短いヘリックスからなる4ヘリックスバンドル。共通鎖型受容体（γc・βc）に結合するものが多い"
+  source: null
+  status: inferred
+
+- id: class2-helical
+  axis: structure
+  label_ja: クラスIIサイトカイン（IL-10/IFN型）
+  parent: null
+  children: []
+  members: [IL10, IL22, IL26, IFNG, IFNB1, IFNL1, IFNL2, IFNL3]
+  defining_feature: "6〜7本のヘリックスからなる。クラスII受容体（IL10RB / IFNAR / IFNGR / IFNLR1）に結合する"
+  mismatch:
+    - member: null
+      note: "IL-10 と IFN は名前も機能も別物に見えるが、構造上は同じクラスII。IFN-λ が IL-10 と受容体鎖を共有するのはこの構造的近さの帰結"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: il12-family-structural
+  axis: structure
+  label_ja: IL-12ファミリー（ヘテロ二量体）
+  parent: null
+  children: []
+  members: [IL12B, IL23A]
+  defining_feature: "α鎖（4ヘリックス）とβ鎖の共有結合ヘテロ二量体。単量体では働かない"
+  mismatch:
+    - member: IL12B
+      note: "IL-12p40。サイトカインと呼ばれるが構造は可溶性サイトカイン受容体に近い。IL-12 と IL-23 で共有され、単独ではホモ二量体として拮抗的に働く"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: il17-structural
+  axis: structure
+  label_ja: IL-17ファミリー（システインノット）
+  parent: null
+  children: []
+  members: [IL17A]
+  defining_feature: "システインノット様の折りたたみ。他のインターロイキンとは構造的に無縁"
+  mismatch:
+    - member: IL17A
+      note: "IL 番号を持つが、構造は他のどの IL とも似ていない。むしろシステインノットという点で TGF-β や PDGF に近い"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: cystine-knot-growth-factor
+  axis: structure
+  label_ja: システインノット型増殖因子（PDGF/VEGF）
+  parent: null
+  children: []
+  members: [PDGFB, VEGFA]
+  defining_feature: "システインノットを介した二量体。受容体型チロシンキナーゼを二量体化させる"
+  mismatch:
+    - member: null
+      note: "TGF-βスーパーファミリーと IL-17 も同じシステインノットを持つ。折りたたみが同じでも受容体は全く別（セリンスレオニンキナーゼ / RTK / IL-17R）"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: egf-structural
+  axis: structure
+  label_ja: EGFドメイン型
+  parent: null
+  children: []
+  members: [EGF]
+  defining_feature: "3つのジスルフィド結合で固定された小さな EGF ドメイン。膜型前駆体から切り出される"
+  source: null
+  status: inferred
+
+- id: igf-insulin-structural
+  axis: structure
+  label_ja: インスリン/IGF型
+  parent: null
+  children: []
+  members: [IGF1]
+  defining_feature: "インスリンと同じ A鎖/B鎖構造。IGF では C ペプチドが切断されず1本鎖のまま残る"
+  source: null
+  status: inferred
+
+- id: hgf-plasminogen-structural
+  axis: structure
+  label_ja: プラスミノーゲン関連（クリングルドメイン）
+  parent: null
+  children: []
+  members: [HGF]
+  defining_feature: "クリングルドメインとセリンプロテアーゼ様ドメインを持つ"
+  mismatch:
+    - member: HGF
+      note: "「増殖因子」と呼ばれるが構造上はプラスミノーゲン（プロテアーゼ）の仲間。プロテアーゼドメインは触媒活性を失っている。前駆体がプロテアーゼで切断されて初めて活性化する点も他の増殖因子と違う"
+      source: null
+      status: inferred
+  source: null
+  status: inferred
+
+- id: ccn-structural
+  axis: structure
+  label_ja: CCNファミリー（マトリセルラー）
+  parent: null
+  children: []
+  members: [CCN2]
+  defining_feature: "IGFBP様・VWC・TSP1・システインノットの4モジュール構造。単独の受容体を持たず他の因子の作用を修飾する"
+  source: null
+  status: inferred
+
+- id: lipocalin-structural
+  axis: structure
+  label_ja: リポカリン
+  parent: null
+  children: []
+  members: [LCN2]
+  defining_feature: "βバレルの内側に疎水性リガンド（鉄シデロフォアなど）を抱える"
+  source: null
+  status: inferred
+
+- id: defensin-like-structural
+  axis: structure
+  label_ja: ディフェンシン様（小型ペプチド）
+  parent: null
+  children: []
+  members: [HAMP]
+  defining_feature: "25アミノ酸のヘアピン型ペプチド。4つのジスルフィド結合で固定される"
+  source: null
+  status: inferred
+
+- id: sibling-structural
+  axis: structure
+  label_ja: SIBLINGファミリー
+  parent: null
+  children: []
+  members: [SPP1]
+  defining_feature: "天然変性タンパク質。定まった立体構造を持たず、RGD モチーフでインテグリンに結合する"
+  source: null
+  status: inferred
+
+- id: timp-structural
+  axis: structure
+  label_ja: TIMPファミリー
+  parent: null
+  children: []
+  members: [TIMP1]
+  defining_feature: "N末端のネトリン様ドメインが MMP の活性中心に差し込まれる"
+  mismatch:
+    - member: TIMP1
+      note: "本来はプロテアーゼ阻害因子であって、サイトカインとして設計された分子ではない。CD63/インテグリンβ1 を介したシグナル伝達能は後から見つかった副次的な機能"
+      source: null
+      status: inferred
+  source: null
+  status: inferred

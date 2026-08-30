@@ -1,0 +1,48 @@
+id: IL1A
+symbol: "IL-1α"
+gene: IL1A
+aliases: [IL-1F1, hematopoietin-1]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL1R1 + IL1RAP"
+    subunits: [IL1R1, IL1RAP]
+    source: null
+    status: inferred
+
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "前駆体は細胞内に留まり、壊死に伴って放出される。カスパーゼ1による成熟を必須としない点が IL-1β と違う"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: juxtacrine, note: "膜結合型としても働き、隣接細胞に直接作用する", source: null, status: inferred}
+
+producers:
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 2
+  lipid: 1
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "細胞死に伴って放出されるアラーミン。培養上清の IL-1α は「産生」ではなく「細胞死」の指標かもしれない。ELISA の解釈時に生存率と併せて見る必要がある"
+    source: null
+    status: inferred

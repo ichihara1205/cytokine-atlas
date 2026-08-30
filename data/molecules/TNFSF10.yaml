@@ -1,0 +1,47 @@
+id: TNFSF10
+symbol: "TRAIL"
+gene: TNFSF10
+aliases: [TRAIL, Apo2L]
+
+families: {structure: tnf-superfamily, receptor: tnfr-superfamily, naming: activity-naming}
+
+receptor:
+  - name: "TNFRSF10A/B（デス受容体 DR4/DR5）"
+    subunits: [TNFRSF10A, TNFRSF10B]
+    note: "TNFRSF10C/D はデスドメインを欠くデコイ受容体で、同じリガンドを奪って細胞死を防ぐ"
+    source: null
+    status: inferred
+
+downstream: {primary: "FADD → カスパーゼ8", secondary: ["NF-κB"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homotrimer
+  oligomer_note: "三量体としてデス受容体を集合させる"
+  oligomer_source: null
+range: {mode: juxtacrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  t_nk:     {level: 3, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: -1
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "活性化星細胞のアポトーシスを誘導する側面があり、線維化には負に働きうる。一方で脂肪肝では肝細胞死を促す報告もある"
+  source: null
+  status: inferred
+
+notes:
+  - text: "デコイ受容体の発現量で感受性が決まる。リガンド量だけでは応答を予測できない"
+    source: null
+    status: inferred

@@ -1,0 +1,57 @@
+id: IL1RN
+symbol: "IL-1Ra"
+gene: IL1RN
+aliases: [IL-1RN, IL-1F3, アナキンラ]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL1R1（拮抗的結合）"
+    subunits: [IL1R1]
+    note: "結合しても共受容体 IL1RAP を呼び込めないため複合体が完成せず、シグナルが出ない"
+    source: null
+    status: inferred
+
+downstream: {primary: "なし（シグナルを出さない）", secondary: [], source: null, status: inferred}
+form:
+  secretion: both
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+
+receivers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: -1
+  inflammation: -2
+  lipid: 0
+  differentiation: 0
+  note: "作用は IL-1α/β の遮断による間接効果。IL-1 が動いていない系では効果が出ない"
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: antagonizes, target: IL1A, source: null, status: inferred,
+     note: "IL-1α と同じ IL1R1 に結合するが、共受容体 IL1RAP を呼べないためシグナルが出ない"}
+  - {type: antagonizes, target: IL1B, source: null, status: inferred,
+     note: "同上。IL-1β/IL-1Ra 比で読むべきで、絶対量だけでは炎症の抑制状態を判定できない"}
+
+notes:
+  - text: "受容体を共有しても作用が同じとは限らないことの最も明快な例。受容体軸だけで効果を推測すると符号を取り違える"
+    source: null
+    status: inferred
+  - text: "IL-1β との比（IL-1Ra/IL-1β）で読むべき分子。絶対量だけでは炎症の抑制状態を判定できない"
+    source: null
+    status: inferred

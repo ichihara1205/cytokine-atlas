@@ -1,0 +1,51 @@
+id: OSM
+symbol: "OSM"
+gene: OSM
+aliases: [Oncostatin M]
+
+families: {structure: il6-structural, receptor: gp130-shared, naming: activity-naming}
+
+receptor:
+  - name: "OSMR + IL6ST(gp130)（II型）"
+    subunits: [OSMR, IL6ST]
+    note: "ヒトでは LIFR + gp130（I型）にも結合する。受容体を2通り持つ"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1 → STAT3", secondary: ["STAT5", "ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:    {level: 2, source: null, status: inferred}
+  mac_thp1:  {level: 2, source: null, status: inferred}
+  neutrophil: {level: 2, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 2
+  note: "肝細胞の成熟・分化促進因子として肝分化プロトコルで使われる。分化への寄与が最も大きい"
+  source: null
+  status: inferred
+
+notes:
+  - text: "iPS 由来肝細胞の成熟工程で OSM を入れるのが定番だが、同時に線維化・炎症側の gp130 シグナルも動かしている点は分けて評価する必要がある"
+    source: null
+    status: inferred
+  - text: "名前に IL も CSF も付かないが IL-6 と同族。慣用名軸から探すと辿り着けない"
+    source: null
+    status: inferred

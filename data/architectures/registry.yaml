@@ -1,0 +1,99 @@
+# 受容体の膜での形。
+#
+# ここは「形」だけでなく「その形でなければならない理由」を持つ。
+# 膜貫通回数と鎖数は、細胞外の結合をどうやって膜の内側に伝えるかという
+# 物理的な手段を決めてしまうので、構造と伝達機構は切り離せない。
+#
+# tm       膜貫通回数（1 / 7 / multi）
+# chains   受容体複合体を作る鎖の数
+# crossing 膜を越えてシグナルを伝える手段（この形が必然的に要求するもの）
+
+- id: class1_shared
+  label_ja: クラスI受容体（共通鎖＋固有鎖）
+  tm: 1
+  chains: 2
+  intrinsic_kinase: false
+  crossing: "1回貫通なので受容体単独では細胞内へ構造変化を伝えられない。固有鎖と共通鎖が寄ることで、それぞれに会合した JAK が近づいて互いをリン酸化する。受容体自身に酵素活性はなく、キナーゼを『借りて』いる点が RTK と違う"
+  why_chains: "共通鎖を複数のサイトカインで使い回し、固有鎖だけを差し替えることで、限られた部品数で多くのリガンドを区別できる。gp130 と γc がこの論理"
+  source: null
+  status: inferred
+
+- id: class2
+  label_ja: クラスII受容体（2本鎖）
+  tm: 1
+  chains: 2
+  intrinsic_kinase: false
+  crossing: "クラスI と同じく1回貫通・2本鎖で、会合した JAK/TYK2 が互いをリン酸化する。細胞外ドメインの折りたたみ方がクラスI と違う"
+  why_chains: "IL10RB を共通鎖として IL-10・IL-22・IFN-λ が使い分ける。固有鎖（IFNLR1 など）の発現分布が、その因子がどの細胞に効くかを決める"
+  source: null
+  status: inferred
+
+- id: gpcr
+  label_ja: 7回膜貫通GPCR
+  tm: 7
+  chains: 1
+  intrinsic_kinase: false
+  crossing: "1本の鎖が膜を7回縫って樽状の構造を作る。リガンドが結合すると柱の配置がねじれ、その構造変化そのものが細胞内の G タンパク質を活性化する。膜をまたぐ情報伝達を1本の鎖で完結できるため、二量体化を必要としない"
+  why_chains: "単量体で自己完結するぶん構造は単純だが、その代わりリガンドと受容体が多対多に縮重しており、組み合わせで特異性を作っている"
+  source: "PMID:29637711"
+  status: verified
+
+- id: rtk
+  label_ja: 受容体型チロシンキナーゼ
+  tm: 1
+  chains: 2
+  intrinsic_kinase: true
+  crossing: "1回貫通のため単独では情報を渡せない。リガンド（多くは二量体）が2つの受容体を並べ、細胞内のキナーゼドメインが接近して互いを自己リン酸化する。二量体化が起動スイッチそのもの"
+  why_chains: "受容体自身がキナーゼを持つので、寄りさえすれば反応が始まる。リガンドが二量体であることと受容体が二量体化することは同じ現象の裏表"
+  source: null
+  status: inferred
+
+- id: stk
+  label_ja: セリンスレオニンキナーゼ受容体（II型＋I型）
+  tm: 1
+  chains: 2
+  intrinsic_kinase: true
+  crossing: "II型と I型の2種類が複合体を作り、恒常的に活性のある II型が I型をリン酸化して初めて I型が SMAD を掴めるようになる。RTK が『互いをリン酸化する』のに対し、こちらはリン酸化の向きが決まっている"
+  why_chains: "II型と I型の組み合わせで、SMAD2/3 枝に行くか SMAD1/5/8 枝に行くかが決まる。同じスーパーファミリーが2つの出口を持てるのはこの組み合わせによる"
+  source: "PMID:27141051"
+  status: verified
+
+- id: tir
+  label_ja: IL-1受容体（Ig様ドメイン＋TIR）
+  tm: 1
+  chains: 2
+  intrinsic_kinase: false
+  crossing: "細胞外の Ig 様ドメインでリガンドを挟み込み、固有鎖と共受容体 IL1RAP が寄ることで細胞内の TIR ドメインが並ぶ。並んだ TIR が MyD88 の足場になる。酵素活性ではなく『足場ができること』がシグナル"
+  why_chains: "共受容体が来ないと TIR が並ばない。IL-1Ra が拮抗できるのはこの仕組みのためで、受容体には結合するが共受容体を呼べないので足場が完成しない"
+  source: "PMID:24332029"
+  status: verified
+
+- id: tnfr
+  label_ja: TNF受容体（システインリッチドメイン・三量体）
+  tm: 1
+  chains: 3
+  intrinsic_kinase: false
+  crossing: "三量体のリガンドが3本の受容体を1か所に集める。集合すること自体がシグナルで、細胞内に TRAF や FADD が乗る足場ができる。どちらの足場が先にできるかで生存と細胞死に分かれる"
+  why_chains: "リガンドが三量体であることと受容体が3本集まることが対応している。デコイ受容体は同じリガンドを奪うことで集合を成立させない"
+  source: "PMID:30354964"
+  status: verified
+
+- id: sefir
+  label_ja: IL-17受容体（SEFIRドメイン）
+  tm: 1
+  chains: 2
+  intrinsic_kinase: false
+  crossing: "細胞内 SEFIR ドメインが ACT1 を呼ぶ。TIR と似た足場型だが分子が違い、JAK/STAT を使わない"
+  why_chains: "IL17RA と IL17RC の組み合わせでリガンドを選ぶ"
+  source: null
+  status: inferred
+
+- id: adipor
+  label_ja: ADIPOR1/2（逆向き7回膜貫通）
+  tm: 7
+  chains: 1
+  intrinsic_kinase: false
+  crossing: "膜を7回貫くが GPCR ではない。N末端が細胞内という逆向きのトポロジーを持ち、G タンパク質を使わずセラミダーゼ活性と AMPK を介して働く"
+  why_chains: "『7回膜貫通なら GPCR』が成り立たない反例。貫通回数だけでは伝達機構は決まらない"
+  source: null
+  status: inferred

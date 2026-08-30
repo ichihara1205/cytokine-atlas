@@ -1,0 +1,36 @@
+id: il1a-necrosis
+molecule: IL1A
+label_ja: IL-1α — 前駆体のまま働き、細胞死で出る
+outcome: >-
+  IL-1β と同じ受容体を使うのに、出方が全く違う。前駆体のまま活性を持ち、
+  カスパーゼ1による成熟を必須としない。主な放出経路は細胞死そのもの。
+  したがって上清の IL-1α は「産生量」ではなく「どれだけ細胞が死んだか」を反映している可能性がある。
+steps:
+  - id: signal1
+    kind: trigger
+    signal: 1
+    label: "シグナル1（プライミング）"
+    note: "NF-κB 系の刺激で転写が上がる"
+  - id: tx
+    kind: transcription
+    label: "IL1A 転写"
+  - id: pro
+    kind: proform
+    label: "pro-IL-1α（前駆体のまま活性あり）"
+    note: "切断されなくても IL1R1 を活性化できる。核内にも局在する"
+  - id: death
+    kind: trigger
+    signal: 2
+    label: "細胞死・壊死"
+    note: "アポトーシスではなくネクローシス／パイロトーシスに伴って細胞外へ出る"
+  - id: rel
+    kind: release
+    label: "壊死・細胞死に伴う受動的放出"
+    route: cell_death
+    note: "膜結合型として隣接細胞に直接作用する経路もある"
+notes:
+  - text: "ELISA で IL-1α を測るときは生存率と必ず併せて見る。細胞死が増えれば産生が変わらなくても上清値は上がる"
+    source: null
+    status: inferred
+source: null
+status: inferred

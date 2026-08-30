@@ -1,0 +1,25 @@
+id: cx3cl1-shedding
+molecule: CX3CL1
+label_ja: CX3CL1 — 膜型は接着分子、切られると遊走因子
+outcome: >-
+  切断される前と後で役割そのものが変わる。膜型は接着分子としてクッパー細胞を内皮に繋ぎ止め、
+  切られた可溶型は遊走を誘導する。上清 ELISA は可溶型しか見ないので、
+  接触依存の関係（LSEC が KC を保持する働き）を丸ごと取り逃がす。
+steps:
+  - id: tx
+    kind: transcription
+    label: "CX3CL1 転写（主に類洞内皮）"
+  - id: pro
+    kind: proform
+    label: "膜型（ムチン様ストークの先にケモカインドメイン）"
+    note: "この形のまま接着分子として働く。切断は不要"
+  - id: proc
+    kind: processing
+    label: "ADAM10/17 による切断"
+    protease: ADAM10
+  - id: rel
+    kind: release
+    label: "可溶型として遊走を誘導"
+    route: shedding
+source: null
+status: inferred

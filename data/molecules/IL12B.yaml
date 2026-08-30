@@ -1,0 +1,49 @@
+id: IL12B
+symbol: "IL-12p40"
+gene: IL12B
+aliases: [IL-12B, p40, NKSF2]
+
+families: {structure: il12-family-structural, receptor: il12r-family, naming: interleukin}
+
+receptor:
+  - name: "IL12RB1 + IL12RB2（IL-12として）"
+    subunits: [IL12RB1, IL12RB2]
+    note: "IL12A と組んで IL-12、IL23A と組んで IL-23 になる。p40 単独ではホモ二量体として拮抗的に働く"
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK2/TYK2 → STAT4", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: heterodimer
+  oligomer_note: "IL12A と組んで IL-12、IL23A と組んで IL-23 になる共有結合ヘテロ二量体"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "作用はパートナー鎖に依存する。p40 単体では拮抗的で符号が逆転しうる"
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: heterodimer_with, target: IL23A, source: null, status: inferred,
+     note: "p40 と p19 が共有結合したヘテロ二量体としてのみ IL-23 として働く。片方の mRNA だけでは機能する分子が出ているとは言えない"}
+
+notes:
+  - text: "サイトカインと呼ばれるが構造は可溶性サイトカイン受容体に近い。単独で測っても IL-12 と IL-23 のどちらの量かが分からないため、p40 の ELISA だけでは解釈できない"
+    source: null
+    status: inferred

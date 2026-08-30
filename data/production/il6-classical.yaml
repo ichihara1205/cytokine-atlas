@@ -1,0 +1,27 @@
+# 比較のための「普通の」例。制御点が転写1か所しかない分子がどう見えるかを示す。
+id: il6-classical
+molecule: IL6
+label_ja: IL-6 — 古典的分泌（対照）
+outcome: >-
+  制御点が転写のほぼ1か所しかない。分泌シグナル配列を持ち、ER-Golgi 経路をそのまま通って出る。
+  したがって mRNA と上清濃度が素直に相関しやすい。
+  IL-1β のような2シグナル制御と対比するために置いている。
+steps:
+  - id: signal1
+    kind: trigger
+    signal: 1
+    label: "炎症刺激 → NF-κB / STAT3"
+  - id: tx
+    kind: transcription
+    label: "IL6 転写"
+  - id: rel
+    kind: release
+    label: "ER-Golgi を通る古典的分泌"
+    route: classical
+    note: "前駆体としての貯蔵段階や切断による成熟を必要としない"
+notes:
+  - text: "この分子で qPCR と ELISA が合うからといって、他の分子でも合うとは限らない。IL-1β では同じ前提が成り立たない"
+    source: null
+    status: inferred
+source: null
+status: inferred

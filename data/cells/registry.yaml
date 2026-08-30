@@ -1,0 +1,226 @@
+# 細胞レジストリ
+# data/cells/ 配下は「1ファイル=1細胞（マッピング）」でも「1ファイル=複数細胞（リスト）」でもよい。
+# ここでは一覧性を優先して1ファイルにまとめている。増えたら分割してよい。
+#
+# 注意: 通信辺（molecule の producers/receivers）と分化辺（下の differentiation.from）は
+#       別のグラフとして描画される。ここには分化辺だけを書く。
+#
+# --- 名前と分類の持ち方 -------------------------------------------------
+# label_generic  総称。図・一覧の主表示（Hepatocyte / HSC / LSEC / KC …）
+# label_short    実際に使っている細胞の呼称（PXB / LX-2 / iKC …）
+# label_ja       正式な説明的名称
+#
+# stage と origin は必ず分けて持つ。1つのフィールドに潰さない。
+#   stage:  pluripotent | progenitor | mature      分化段階（時間軸のどこにいるか）
+#   origin: primary | line | ipsc_derived | null   由来（そのデータをどう読むべきか）
+#
+# これは無関係な2軸である。「不死化株かどうか」と「成熟しているかどうか」は独立で、
+# LX-2 は mature かつ line、iKC は mature かつ ipsc_derived、qHSC は mature かつ primary。
+# 同じ HSC でも株か初代かでデータの意味が変わるので、総称だけを見て同一視してはならない。
+#
+# origin: null は「実際には培養していない参照ノード」。系外の細胞に使う。
+#
+# in_system: false = 系外。「受け手が系内にいない」ことを判定するために必須。
+# 出典の付いていない differentiation は status: inferred / todo のまま。
+
+- id: hepatocyte_pxb
+  label_generic: "Hepatocyte"
+  label_short: PXB
+  label_ja: PXB細胞（ヒト初代肝細胞）
+  stage: mature
+  origin: primary
+  lineage: hepatocyte
+  color: "#E8935C"
+  in_system: true
+  notes:
+    - text: "キメラマウス由来のヒト初代肝細胞。株ではないためロット差を前提に読む"
+      source: null
+      status: inferred
+
+- id: hsc_lx2
+  label_generic: "HSC"
+  label_short: LX-2
+  label_ja: LX-2（不死化ヒト肝星細胞）
+  stage: mature
+  origin: line
+  state: activated
+  lineage: stellate
+  color: "#B57BE0"
+  in_system: true
+  notes:
+    - text: "既に部分活性化した表現型。静止期星細胞（qHSC）の代用にはならない。同じ HSC でも qHSC のデータと直接比較しない"
+      source: null
+      status: inferred
+
+- id: hsc_qhsc
+  label_generic: "HSC"
+  label_short: qHSC
+  label_ja: 静止期肝星細胞（初代）
+  stage: mature
+  origin: primary
+  state: quiescent
+  lineage: stellate
+  color: "#8E5BC0"
+  in_system: true
+  notes:
+    - text: "単離後の培養で自然に活性化するため、静止期を保てる期間が限られる"
+      source: null
+      status: inferred
+
+- id: lsec_tmnk1
+  label_generic: "LSEC"
+  label_short: TMNK-1
+  label_ja: TMNK-1（不死化ヒト類洞内皮）
+  stage: mature
+  origin: line
+  lineage: endothelial
+  color: "#4CC9F0"
+  in_system: true
+  notes:
+    - text: "不死化株。類洞内皮の特徴である有窓構造（fenestrae）は失われていることが多い"
+      source: null
+      status: inferred
+
+- id: lsec_ilsec
+  label_generic: "LSEC"
+  label_short: iLSEC
+  label_ja: iPS由来類洞内皮細胞
+  stage: mature
+  origin: ipsc_derived
+  lineage: endothelial
+  color: "#2E9BC4"
+  in_system: true
+  source_of: ipsc
+  differentiation:
+    from: ipsc
+    protocol: null
+    markers_gained: []
+    source: null
+    status: todo
+
+- id: kc_ikc
+  label_generic: "KC"
+  label_short: iKC
+  label_ja: iPS由来クッパー細胞
+  stage: mature
+  origin: ipsc_derived
+  lineage: myeloid
+  color: "#4FE08C"
+  in_system: true
+  source_of: ipsc
+  differentiation:
+    from: premac
+    protocol: null
+    markers_gained: []
+    source: null
+    status: todo
+  notes:
+    - text: "成熟度の基準は pKC（初代）。同じ KC でも由来が違うので、iKC のデータを初代クッパー細胞の値としてそのまま扱わない"
+      source: null
+      status: inferred
+
+- id: kc_pkc
+  label_generic: "KC"
+  label_short: pKC
+  label_ja: ヒト初代クッパー細胞
+  stage: mature
+  origin: primary
+  lineage: myeloid
+  color: "#2FA96A"
+  in_system: true
+  notes:
+    - text: "iKC の成熟度を測る基準として置く"
+      source: null
+      status: inferred
+
+- id: mac_thp1
+  label_generic: "Mφ"
+  label_short: THP-1
+  label_ja: THP-1由来マクロファージ
+  stage: mature
+  origin: line
+  lineage: myeloid
+  color: "#7FCB9B"
+  in_system: true
+  notes:
+    - text: "単球性白血病株。PMA 分化後もクッパー細胞様ではない。KC の代用として読まない"
+      source: null
+      status: inferred
+
+- id: premac
+  label_generic: "preMac"
+  label_short: preMac
+  label_ja: 前駆マクロファージ
+  stage: progenitor
+  origin: ipsc_derived
+  lineage: myeloid
+  color: "#A8DCC0"
+  in_system: true
+  source_of: ipsc
+  differentiation:
+    from: ipsc
+    protocol: null
+    markers_gained: []
+    source: null
+    status: todo
+
+- id: hepatoblast
+  label_generic: "Hepatoblast"
+  label_short: HB
+  label_ja: 肝芽細胞
+  stage: progenitor
+  origin: ipsc_derived
+  lineage: hepatocyte
+  color: "#F2C79A"
+  in_system: true
+  source_of: ipsc
+  differentiation:
+    from: ipsc
+    protocol: null
+    markers_gained: []
+    source: null
+    status: todo
+
+- id: ipsc
+  label_generic: "iPSC"
+  label_short: iPSC
+  label_ja: ヒトiPS細胞
+  stage: pluripotent
+  origin: ipsc_derived
+  lineage: pluripotent
+  color: "#B9C2CC"
+  in_system: true
+
+# --- ここから系外 -------------------------------------------------------
+# 系外ノードを登録しておかないと「その分子の受け手が系内にいない」を判定できない。
+# origin: null = 実際には培養していない参照ノード。特定の株や初代を指していない。
+
+- id: neutrophil
+  label_generic: "Neutrophil"
+  label_short: Neut
+  label_ja: 好中球
+  stage: mature
+  origin: null
+  lineage: myeloid
+  color: "#9AA5B1"
+  in_system: false
+
+- id: t_nk
+  label_generic: "T / NK"
+  label_short: T/NK
+  label_ja: T細胞・NK細胞
+  stage: mature
+  origin: null
+  lineage: lymphoid
+  color: "#8B93A0"
+  in_system: false
+
+- id: adipocyte
+  label_generic: "Adipocyte"
+  label_short: Adipo
+  label_ja: 脂肪細胞
+  stage: mature
+  origin: null
+  lineage: mesenchymal
+  color: "#7E868F"
+  in_system: false

@@ -1,0 +1,48 @@
+id: BMP6
+symbol: "BMP-6"
+gene: BMP6
+aliases: [VGR1]
+
+families: {structure: bmp-smad158-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "BMPR2/ACVR2A + ALK2/ALK3（HJVを共受容体とする）"
+    subunits: [BMPR2, ACVR2A, ACVR1, BMPR1A]
+    note: "肝ではヘモジュベリン(HJV) が共受容体として働き、ヘプシジン転写を制御する"
+    source: null
+    status: inferred
+
+downstream: {primary: "SMAD1/5/8 → SMAD4 → HAMP転写", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "同上"
+  oligomer_source: null
+range: {mode: paracrine, note: "類洞内皮から肝細胞へ、鉄量に応じて出される", source: null, status: inferred}
+
+producers:
+  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "主作用は鉄代謝（ヘプシジン誘導）で、4軸のどれにも当てはまらない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "類洞内皮が鉄を感知して出し、肝細胞がヘプシジンを出す——という LSEC→肝細胞の一方向の軸。この共培養系で内皮を入れる意味が明確に出る数少ない分子"
+    source: null
+    status: inferred
+  - text: "effects の4軸（線維化・炎症・脂質・分化）では鉄代謝を表現できない。軸の追加を検討する材料"
+    source: null
+    status: inferred

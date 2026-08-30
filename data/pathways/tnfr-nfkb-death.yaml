@@ -1,0 +1,38 @@
+id: tnfr-nfkb-death
+label_ja: TNF受容体 → 複合体I（生存）/ 複合体II（細胞死）
+family: tnfr-superfamily
+outcome: >-
+  同じリガンド・同じ受容体から、生存と細胞死という正反対の出力が出る。
+  どちらに倒れるかは複合体I で誘導される生存タンパク（cFLIP など）が間に合うかで決まるため、
+  転写や翻訳が止まっている細胞では同じ TNF が細胞死に倒れる。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "TNFスーパーファミリー"
+    note: "三量体。膜型として作られ、切断で可溶型になるものが多い"
+    molecules: [TNF, TNFSF10, TNFSF12]
+  - id: receptor
+    kind: receptor
+    architecture: tnfr
+    label: "TNFR（デスドメインの有無）"
+    genes: [TNFRSF1A, TNFRSF1B, TNFRSF10A, TNFRSF10B, TNFRSF12A]
+    note: "デコイ受容体（TNFRSF10C/D）が同じリガンドを奪って細胞死を防ぐ"
+  - id: complex1
+    kind: transducer
+    label: "複合体I → NF-κB"
+    branch: left
+  - id: complex2
+    kind: transducer
+    label: "複合体II → カスパーゼ8"
+    branch: right
+  - id: out1
+    kind: output
+    label: "生存・炎症"
+    branch: left
+    induces: [IL6, CXCL8, CCL2, IL1B]
+  - id: out2
+    kind: output
+    label: "細胞死"
+    branch: right
+source: "PMID:30354964"
+status: verified

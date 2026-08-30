@@ -1,0 +1,47 @@
+id: LIF
+symbol: "LIF"
+gene: LIF
+aliases: [白血病抑制因子, D-factor, HILDA]
+
+families: {structure: il6-structural, receptor: gp130-shared, naming: activity-naming}
+
+receptor:
+  - name: "LIFR + IL6ST(gp130)"
+    subunits: [LIFR, IL6ST]
+    source: null
+    status: inferred
+
+downstream: {primary: "JAK1 → STAT3", secondary: ["ERK", "PI3K"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:    {level: 1, source: null, status: inferred}
+  lsec_tmnk1: {level: 1, source: null, status: inferred}
+  kc_ikc:     {level: 1, source: null, status: inferred}
+
+receivers:
+  ipsc:           {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  hsc_lx2:        {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: -1
+  note: "マウス ES/iPS では未分化維持因子（＝分化を抑える）。ヒト iPS では LIF/STAT3 依存性が低く、この向きはヒト系にそのまま当てはまらない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "マウス ES 細胞の未分化維持因子として有名だが、ヒト iPS 細胞ではプライム型のため LIF 依存性がない。マウスの知識をヒト系に持ち込むと誤る"
+    source: null
+    status: inferred

@@ -1,0 +1,50 @@
+# 産生経路。data/pathways/（受容側）とは語彙が違うので別に持つ。
+#   受容側: ligand → receptor → transducer → tf → output（外から中へ）
+#   産生側: trigger → transcription → proform → processing → release（中から外へ）
+# 混ぜると「どちら向きの矢印か」が読めなくなる（CLAUDE.md §4 と同じ理由）。
+id: il1b-inflammasome
+molecule: IL1B
+label_ja: IL-1β — 2シグナル制御とインフラマソーム
+outcome: >-
+  転写と放出が別々のシグナルで制御される。シグナル1だけでは pro-IL-1β が細胞質に溜まるだけで、
+  外には一切出ない。mRNA が上がっていても上清に出ていないことが普通に起こるため、
+  qPCR と ELISA が乖離する代表例。律速はほぼ常にシグナル2の側にある。
+steps:
+  - id: signal1
+    kind: trigger
+    signal: 1
+    label: "シグナル1（プライミング）"
+    note: "LPS などの TLR リガンドや TNF・IL-1 自身が NF-κB を動かす。ここは転写を上げるだけ"
+  - id: tx
+    kind: transcription
+    label: "NF-κB → IL1B 転写"
+    note: "qPCR で拾えるのはここまで。この時点では分泌は起きていない"
+  - id: pro
+    kind: proform
+    label: "pro-IL-1β が細胞質に蓄積"
+    note: "31kDa の不活性前駆体。分泌シグナル配列を持たないので小胞体には入らない"
+  - id: signal2
+    kind: trigger
+    signal: 2
+    label: "シグナル2（活性化）"
+    note: "ATP・尿酸結晶・K+ 流出・細胞膜傷害などが NLRP3 インフラマソームを組み立てる"
+  - id: proc
+    kind: processing
+    label: "カスパーゼ1による切断"
+    protease: CASP1
+    note: "NLRP3 インフラマソームの集合がカスパーゼ1を活性化し、pro 体を17kDa の成熟型にする"
+    source: "PMID:31036962"
+    status: verified
+  - id: rel
+    kind: release
+    label: "ガスダーミンDの孔から放出"
+    route: gasdermin_pore
+    note: "通常の ER-Golgi 経路を通らない。ガスダーミンD が膜に孔を開け、しばしばパイロトーシスを伴う"
+    source: "PMID:31036962; PMID:40450441"
+    status: verified
+notes:
+  - text: "上清の IL-1β が低いことは『産生していない』ではなく『シグナル2が来ていない』かもしれない。共培養で刺激を設計するときは2つのシグナルを分けて考える必要がある"
+    source: null
+    status: inferred
+source: "PMID:31036962"
+status: verified

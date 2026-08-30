@@ -1,0 +1,30 @@
+id: tnf-shedding
+molecule: TNF
+label_ja: TNF-α — 膜型三量体からの切り出し
+outcome: >-
+  まず膜型の三量体として作られ、TACE(ADAM17) に切られて初めて可溶型になる。
+  膜型と可溶型で使う受容体が偏るため、「切られたかどうか」が作用の質を変える。
+  上清 ELISA は可溶型しか見ないので、膜型で働いている分を丸ごと取り逃がす。
+steps:
+  - id: signal1
+    kind: trigger
+    signal: 1
+    label: "TLR・炎症刺激 → NF-κB"
+  - id: tx
+    kind: transcription
+    label: "TNF 転写"
+  - id: pro
+    kind: proform
+    label: "膜型 pro-TNF（三量体）"
+    note: "この時点で既に膜上で活性を持ち、TNFR2 に強く働く"
+  - id: proc
+    kind: processing
+    label: "TACE(ADAM17) による切断"
+    protease: ADAM17
+    note: "切断を受けて可溶型三量体になる。可溶型は TNFR1 側に偏る"
+  - id: rel
+    kind: release
+    label: "可溶型として拡散"
+    route: shedding
+source: null
+status: inferred

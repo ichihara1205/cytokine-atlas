@@ -1,0 +1,45 @@
+id: CXCL10
+symbol: "CXCL10/IP-10"
+gene: CXCL10
+aliases: [IP-10, SCYB10]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CXCR3"
+    subunits: [CXCR3]
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → T/NK遊走", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 2, source: null, status: inferred}
+
+receivers:
+  t_nk: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "I型/II型 IFN の下流で誘導されるため、IFN 経路の活性化を測る代理指標として使いやすい"
+    source: null
+    status: inferred

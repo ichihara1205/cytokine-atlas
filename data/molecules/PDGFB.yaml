@@ -1,0 +1,52 @@
+id: PDGFB
+symbol: "PDGF-B"
+gene: PDGFB
+aliases: [PDGF2, SIS, 血小板由来増殖因子B鎖]
+
+families: {structure: cystine-knot-growth-factor, receptor: rtk-pdgfr-vegfr, naming: growth-factor-naming}
+
+receptor:
+  - name: "PDGFRB"
+    subunits: [PDGFRB]
+    note: "PDGFRA とのヘテロ二量体も作る。星細胞の活性化に伴って PDGFRB が強く誘導される"
+    source: null
+    status: inferred
+
+downstream: {primary: "PDGFRB → PI3K/AKT", secondary: ["ERK", "PLCγ"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "ホモ二量体。受容体を2つ並べて二量体化させる"
+  oligomer_source: null
+range: {mode: paracrine, note: "C末端の塩基性領域で基質に固定される", source: null, status: inferred}
+
+producers:
+  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  kc_ikc:     {level: 3, source: null, status: inferred}
+  mac_thp1:   {level: 2, source: null, status: inferred}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "星細胞の増殖・遊走を促す。内皮由来の線維化入力"}
+
+receivers:
+  hsc_lx2:  {level: 3, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 1, source: null, status: inferred, note: "受容体 PDGFRB は活性化に伴って誘導される。静止期では応答が小さく、既に活性化した LX-2 では逆に過大評価になる"}
+
+effects:
+  fibrosis: 2
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  note: "星細胞の増殖・遊走を促す最強クラスの因子。分化は筋線維芽細胞化を指す"
+  source: null
+  status: inferred
+
+notes:
+  - text: "クッパー細胞・内皮が出して星細胞が受ける、系内で完結する線維化の中心軸。TGF-β1 が『活性化の質』を決めるのに対し、PDGF-B は『数』を決める"
+    source: null
+    status: inferred
+  - text: "受け手の PDGFRB は活性化後に上がるため、静止期星細胞では応答が小さい。LX-2 は既に部分活性化しているので過大評価になりやすい"
+    source: null
+    status: inferred

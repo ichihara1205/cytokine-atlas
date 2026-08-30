@@ -1,0 +1,39 @@
+id: il18-inflammasome
+molecule: IL18
+label_ja: IL-18 — 恒常的な前駆体とインフラマソーム
+outcome: >-
+  IL-1β と同じカスパーゼ1依存だが、前駆体が定常状態から存在する点が違う。
+  したがって転写を上げなくてもシグナル2だけで放出が起こりうる。
+  さらに細胞外で IL18BP に捕まるため、上清の総量と遊離型が一致しない。
+steps:
+  - id: tx
+    kind: transcription
+    label: "pro-IL-18 は定常的に発現"
+    note: "IL-1β と違い、刺激前から前駆体が存在することが多い"
+  - id: pro
+    kind: proform
+    label: "pro-IL-18 が細胞質に存在"
+  - id: signal2
+    kind: trigger
+    signal: 2
+    label: "シグナル2（インフラマソーム活性化）"
+  - id: proc
+    kind: processing
+    label: "カスパーゼ1による切断"
+    protease: CASP1
+    source: "PMID:31036962"
+    status: verified
+  - id: rel
+    kind: release
+    label: "ガスダーミンDの孔から放出"
+    route: gasdermin_pore
+    source: "PMID:31036962"
+    status: verified
+  - id: ext
+    kind: extracellular
+    label: "IL18BP による捕捉"
+    note: "内因性の可溶性結合タンパクが高親和性で結合し、遊離型を強く減らす。総 IL-18 の ELISA は不活性型を含む"
+    source: null
+    status: inferred
+source: "PMID:31036962"
+status: verified

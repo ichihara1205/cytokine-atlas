@@ -1,0 +1,56 @@
+id: ADIPOQ
+symbol: "アディポネクチン"
+gene: ADIPOQ
+aliases: [アディポネクチン, ACRP30, AdipoQ, GBP28, APM1]
+
+families: {structure: tnf-superfamily, receptor: adipor-receptor, naming: adipokine-naming}
+
+receptor:
+  - name: "ADIPOR1 / ADIPOR2"
+    subunits: [ADIPOR1, ADIPOR2]
+    note: "7回膜貫通だが GPCR ではない。N末端が細胞内という逆向きのトポロジーを持つ"
+    source: null
+    status: inferred
+
+downstream: {primary: "APPL1 → AMPK", secondary: ["PPARα", "セラミダーゼ活性"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: "三量体・六量体・高分子量多量体を作り、多量体の割合が活性を決める。総量では活性を表せない"
+  source: null
+  status: inferred
+  oligomer: multimer
+  oligomer_note: "三量体・六量体・高分子量多量体を作り、多量体の割合が活性を決める"
+  oligomer_source: null
+range: {mode: endocrine, note: null, source: null, status: inferred}
+
+producers:
+  adipocyte: {level: 3, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: -2
+  inflammation: -1
+  lipid: -2
+  differentiation: 0
+  note: "レプチンとほぼ全ての軸で逆向き。脂肪組織から出る2分子が肝で拮抗する"
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: opposes, target: LEP, source: null, status: inferred,
+     note: "同じ脂肪細胞から出るのに、線維化・炎症・脂質のほぼ全ての軸で逆向きに働く。比で読む必要がある"}
+
+notes:
+  - text: "構造は TNF ファミリー（C1q/TNF）で球状ドメインは TNF とほぼ重なるのに、受容体も作用も全く別で、しかも TNF と逆向きの抗炎症。構造相同性から機能を推測してはいけないことの最も強い例"
+    source: null
+    status: inferred
+  - text: "多量体の形成状態で活性が変わるため、総アディポネクチンの ELISA と高分子量アディポネクチンの ELISA は別物として扱う"
+    source: null
+    status: inferred
+  - text: "レプチンと同じく産生元が系外の脂肪細胞のみ。肝側は受容体を持つが出し手がいない"
+    source: null
+    status: inferred

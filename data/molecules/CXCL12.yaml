@@ -1,0 +1,51 @@
+id: CXCL12
+symbol: "CXCL12/SDF-1"
+gene: CXCL12
+aliases: [SDF-1, PBSF, SCYB12]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CXCR4"
+    subunits: [CXCR4]
+    note: "ACKR3(CXCR7) にも結合するが、こちらは β-アレスチン経由でシグナルが異なる"
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → PI3K/AKT → 遊走・生存", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: "基質に固定されてニッチを作る", source: null, status: inferred}
+
+producers:
+  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred}
+  hsc_lx2:    {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred, note: "静止期でも構成的に出す。炎症誘導性ではない"}
+  lsec_ilsec: {level: 3, source: null, status: inferred, note: "構成的に出してニッチを作る。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+
+receivers:
+  hsc_lx2:     {level: 2, source: null, status: inferred}
+  premac:      {level: 2, source: null, status: inferred}
+  hepatoblast: {level: 1, source: null, status: inferred}
+  t_nk:        {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  note: "恒常的に出る構成的ケモカインで、炎症誘導性ではない。他のケモカインと同じ枠で読まない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "他のケモカインが炎症で誘導されるのに対し、これは定常状態のニッチ形成因子。ケモカインという括りの中でも性質が異質"
+    source: null
+    status: inferred

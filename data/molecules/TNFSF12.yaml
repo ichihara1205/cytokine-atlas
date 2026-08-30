@@ -1,0 +1,47 @@
+id: TNFSF12
+symbol: "TWEAK"
+gene: TNFSF12
+aliases: [TWEAK, APO3L]
+
+families: {structure: tnf-superfamily, receptor: tnfr-superfamily, naming: activity-naming}
+
+receptor:
+  - name: "TNFRSF12A(Fn14)"
+    subunits: [TNFRSF12A]
+    note: "TNFRSF の中で最も小さい受容体。デスドメインを持たず TRAF を直接呼ぶ"
+    source: null
+    status: inferred
+
+downstream: {primary: "TRAF2 → 非古典的NF-κB", secondary: ["古典的NF-κB"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homotrimer
+  oligomer_note: "三量体"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:   {level: 2, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+
+receivers:
+  hepatoblast:    {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 1
+  note: "肝前駆細胞（ductular reaction）の増殖を促す。成熟肝細胞では Fn14 発現が低く応答しにくい"
+  source: null
+  status: inferred
+
+notes:
+  - text: "受容体 Fn14 は傷害時に強く誘導される。定常状態の発現を見て「受け手ではない」と判断すると取り逃がす"
+    source: null
+    status: inferred

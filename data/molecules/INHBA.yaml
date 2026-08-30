@@ -1,0 +1,51 @@
+id: INHBA
+symbol: "アクチビンA"
+gene: INHBA
+aliases: [Activin A, インヒビンβA鎖, EDF]
+
+families: {structure: tgfb-smad23-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "ACVR2A/2B + ACVR1B(ALK4)"
+    subunits: [ACVR2A, ACVR2B, ACVR1B]
+    note: "フォリスタチンが細胞外で結合して中和する。インヒビンは同じ受容体を奪って拮抗する"
+    source: null
+    status: inferred
+
+downstream: {primary: "SMAD2/3 → SMAD4", secondary: [], source: "PMID:27141051", status: verified}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "βA鎖のホモ二量体。βA+α だとインヒビンになり作用が逆転する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  ipsc:           {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 2
+  note: "iPS の内胚葉誘導で Nodal 代替として必須。肝再生では逆に肝細胞増殖を抑える"
+  source: null
+  status: inferred
+
+notes:
+  - text: "『インヒビンβA鎖』という名は、二量体の相手によってアクチビン（促進）にもインヒビン（拮抗）にもなることに由来する。同じ遺伝子産物が逆向きの機能を持つため、mRNA 量だけでは作用の向きが決まらない"
+    source: null
+    status: inferred
+  - text: "分化誘導では『Activin A』の商品名で使われるが、遺伝子シンボルは INHBA。文献検索で取りこぼしやすい"
+    source: null
+    status: inferred

@@ -1,0 +1,38 @@
+id: rtk-pi3k-erk
+label_ja: 受容体型チロシンキナーゼ → PI3K-AKT / RAS-ERK
+family: rtk-met
+outcome: >-
+  肝の「増やす・保つ・作り直す」を担う経路。JAK/STAT でも SMAD でもなく、
+  受容体自身がキナーゼである点が他と根本的に違う。同じ PI3K-AKT / ERK に集約されるため、
+  リガンドが違っても出力が似る一方、どの細胞が応答するかは受容体の分布で決まる。
+steps:
+  - id: ligand
+    kind: ligand
+    label: "増殖因子リガンド"
+    note: "HGF は不活性な pro-HGF として分泌され、セリンプロテアーゼ切断で初めて活性型になる"
+    molecules: [HGF, EGF, VEGFA, PDGFB, IGF1, CSF1, IL34, FGF2]
+  - id: ligand_endo
+    kind: ligand
+    label: "内分泌型FGF（Klotho依存）"
+    branch: right
+    note: "ヘパリン結合能を失った代わりに α/β-Klotho を共受容体とするため、局所に留まらず全身を回れる"
+    molecules: [FGF19, FGF21]
+  - id: receptor
+    kind: receptor
+    architecture: rtk
+    label: "受容体型チロシンキナーゼ"
+    genes: [MET, EGFR, KDR, FLT1, PDGFRB, IGF1R, CSF1R, FGFR1, FGFR4, KLB]
+    note: "CSF1R は CSF-1 と IL-34 という構造の違う2つのリガンドで活性化される。FGF19 は βKlotho-FGFR4、FGF21 は βKlotho-FGFR1c"
+  - id: kinase
+    kind: transducer
+    label: "二量体化・自己リン酸化"
+  - id: eff
+    kind: tf
+    label: "PI3K → AKT ／ RAS → ERK"
+    note: "厳密には転写因子そのものではなく、その上流のキナーゼカスケード"
+  - id: out
+    kind: output
+    label: "増殖・生存・遊走・分化"
+    note: "HGF は肝細胞の生存と成熟を支え、PDGF-B は星細胞を増やし、VEGF-A は類洞内皮の有窓構造を保つ"
+source: "PMID:24890514; PMID:30455427"
+status: verified

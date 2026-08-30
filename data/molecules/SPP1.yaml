@@ -1,0 +1,52 @@
+id: SPP1
+symbol: "オステオポンチン"
+gene: SPP1
+aliases: [OPN, オステオポンチン, BSP-1, ETA-1]
+
+families: {structure: sibling-structural, receptor: integrin-cd44, naming: activity-naming}
+
+receptor:
+  - name: "インテグリン αvβ3/αvβ5 ・ CD44"
+    subunits: [ITGAV, ITGB3, CD44]
+    note: "トロンビンやMMPによる切断で露出する部位が変わり、結合するインテグリンが変わる"
+    source: null
+    status: inferred
+
+downstream: {primary: "インテグリン → FAK → PI3K/AKT", secondary: ["NF-κB"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:         {level: 3, source: null, status: inferred}
+  mac_thp1:       {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 2
+  inflammation: 1
+  lipid: 1
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "翻訳後修飾（リン酸化・グリコシル化）と切断状態で作用が変わる。抗体のエピトープによって ELISA の測定値が大きくずれるため、キット間で値を比較できない"
+    source: null
+    status: inferred
+  - text: "定まった立体構造を持たない天然変性タンパク質。『受容体に鍵と鍵穴で嵌まる』というサイトカイン像が当てはまらない"
+    source: null
+    status: inferred

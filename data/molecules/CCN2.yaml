@@ -1,0 +1,55 @@
+id: CCN2
+symbol: "CCN2/CTGF"
+gene: CCN2
+aliases: [CTGF, 結合組織増殖因子, HCS24, IGFBP8]
+
+families: {structure: ccn-structural, receptor: null, naming: activity-naming}
+
+receptor:
+  - name: "固有の受容体を持たない（インテグリン・LRP・HSPG を介する）"
+    subunits: [LRP1, ITGB1]
+    note: "自前の高親和性受容体がなく、TGF-β や BMP に結合してそれらの受容体への提示を変える『修飾因子』として働く"
+    source: null
+    status: inferred
+
+downstream: {primary: "TGF-β/BMP シグナルの増強・減弱（自前の経路を持たない）", secondary: [], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "4つのモジュールからなる単鎖。単独の受容体を持たない"
+  oligomer_source: null
+range: {mode: paracrine, note: "細胞外基質に留まるマトリセルラータンパク", source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 1, source: null, status: inferred}
+  hsc_qhsc: {level: 1, source: null, status: inferred, note: "活性化の下流エフェクターなので静止期では低い。LX-2 の高値は活性化状態を反映している"}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 2
+  inflammation: 0
+  lipid: 0
+  differentiation: 0
+  note: "TGF-β の下流エフェクターとして線維化を実行する。単独刺激では効果が小さい"
+  source: null
+  status: inferred
+
+relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
+  - {type: synergizes_with, target: TGFB1, source: null, status: inferred,
+     note: "TGF-β の直接の下流標的であり、かつ TGF-β シグナルを増強する。自前の受容体を持たないため単独では効果が小さい"}
+
+notes:
+  - text: "TGF-β1 の直接の下流標的なので、線維化のバイオマーカーとして TGF-β より鋭敏なことがある。ただし自前の受容体を持たないため『CCN2 を入れる』実験は他の因子の存在に結果が左右される"
+    source: null
+    status: inferred
+  - text: "HGNC 承認シンボルは CCN2 だが、文献の大半は今も CTGF で書かれている。CTGF で検索しないと過去の文献を取りこぼす"
+    source: null
+    status: inferred

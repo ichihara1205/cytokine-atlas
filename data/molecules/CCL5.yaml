@@ -1,0 +1,48 @@
+id: CCL5
+symbol: "CCL5/RANTES"
+gene: CCL5
+aliases: [RANTES, SCYA5]
+
+families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: chemokine-numbering}
+
+receptor:
+  - name: "CCR1 / CCR3 / CCR5"
+    subunits: [CCR1, CCR3, CCR5]
+    note: "1つのリガンドが3つの受容体に結合する。ケモカイン系の多対多の縮重の典型"
+    source: null
+    status: inferred
+
+downstream: {primary: "Gi → 細胞遊走", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:    {level: 2, source: null, status: inferred}
+  kc_ikc:     {level: 2, source: null, status: inferred}
+  lsec_tmnk1: {level: 2, source: null, status: inferred}
+  t_nk:       {level: 3, source: null, status: inferred}
+
+receivers:
+  mac_thp1: {level: 2, source: null, status: inferred}
+  t_nk:     {level: 3, source: null, status: inferred}
+  hsc_lx2:  {level: 1, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "受容体が3つに分かれるため、CCL5 の量だけでは誰が動くかが決まらない。受け手側の受容体発現とセットで読む必要がある"
+    source: null
+    status: inferred

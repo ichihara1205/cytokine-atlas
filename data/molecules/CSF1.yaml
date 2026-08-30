@@ -1,0 +1,53 @@
+id: CSF1
+symbol: "M-CSF"
+gene: CSF1
+aliases: [M-CSF, MCSF, CSF-1, マクロファージコロニー刺激因子]
+
+families: {structure: short-chain-4-helix, receptor: csf1r-shared, naming: csf-naming}
+
+receptor:
+  - name: "CSF1R"
+    subunits: [CSF1R]
+    note: "IL-34 と同じ受容体を共有する。CSF1R は CSF-1 と IL-34 の両方で活性化される"
+    source: "PMID:24890514"
+    status: verified
+
+downstream: {primary: "CSF1R → PI3K/AKT", secondary: ["ERK"], source: null, status: inferred}
+form:
+  secretion: both
+  latency: "分泌型・膜結合型・プロテオグリカン結合型の3形態がある"
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "ホモ二量体の増殖因子"
+  oligomer_source: "PMID:24890514"
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 1, source: null, status: inferred}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "クッパー細胞の維持に寄与しうる"}
+
+receivers:
+  kc_ikc:   {level: 3, source: null, status: inferred}
+  premac:   {level: 3, source: null, status: inferred}
+  mac_thp1: {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "CSF1R 依存の生存・維持はクッパー細胞の定義的な性質。iKC がこれに依存するかが成熟度の指標になる"}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: 2
+  note: "マクロファージ系の生存・増殖・分化に必須。炎症の向きはむしろ組織修復型（M2寄り）"
+  source: null
+  status: inferred
+
+notes:
+  - text: "非実質細胞が出して iKC が受ける、系内で完結する分化維持の軸。iKC を単独培養すると失われる支持シグナルの候補"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Stanley ER, Chitu V. CSF-1 receptor signaling in myeloid cells. Cold Spring Harb Perspect Biol 2014;6:a021857", pmid: "24890514"}

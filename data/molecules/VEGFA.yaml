@@ -1,0 +1,48 @@
+id: VEGFA
+symbol: "VEGF-A"
+gene: VEGFA
+aliases: [VEGF, VPF, 血管内皮増殖因子]
+
+families: {structure: cystine-knot-growth-factor, receptor: rtk-pdgfr-vegfr, naming: growth-factor-naming}
+
+receptor:
+  - name: "KDR(VEGFR2)"
+    subunits: [KDR]
+    note: "FLT1(VEGFR1) は親和性が高いがキナーゼ活性が弱く、おとり的に働く。可溶型 sFLT1 は完全な中和因子"
+    source: null
+    status: inferred
+
+downstream: {primary: "KDR → PLCγ → ERK", secondary: ["PI3K/AKT", "eNOS"], source: null, status: inferred}
+form:
+  secretion: soluble
+  latency: null
+  source: null
+  status: inferred
+  oligomer: homodimer
+  oligomer_note: "逆平行のホモ二量体"
+  oligomer_source: null
+range: {mode: paracrine, note: "スプライス変異体によりヘパリン結合性が変わり、拡散距離が変わる", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hsc_lx2:        {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+
+receivers:
+  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred, note: "有窓構造の維持に必須。VEGF 供給が切れると脱有窓化するため、内皮単独培養で表現型が崩れる説明になる"}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 2
+  note: "類洞内皮の有窓構造（fenestrae）維持に必須。内皮の分化状態を保つ"
+  source: null
+  status: inferred
+
+notes:
+  - text: "肝細胞・星細胞が出して内皮が受ける、系内で完結する明快な軸。LSEC の脱分化（脱有窓化）は VEGF 供給不足で起こるため、内皮単独培養で表現型が崩れる理由の説明になる"
+    source: null
+    status: inferred

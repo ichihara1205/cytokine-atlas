@@ -1,0 +1,51 @@
+id: IL1B
+symbol: "IL-1β"
+gene: IL1B
+aliases: [IL-1F2, カテコリン]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL1R1 + IL1RAP"
+    subunits: [IL1R1, IL1RAP]
+    note: "IL-1Ra（IL1RN）が同じ IL1R1 に結合して拮抗する"
+    source: null
+    status: inferred
+
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"], source: null, status: inferred}
+form:
+  secretion: latent
+  latency: "不活性な pro-IL-1β として作られ、インフラマソーム活性化によるカスパーゼ1切断で初めて活性型になる"
+  source: null
+  status: inferred
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  kc_ikc:     {level: 3, source: null, status: inferred}
+  mac_thp1:   {level: 3, source: null, status: inferred}
+  neutrophil: {level: 2, source: null, status: inferred}
+  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+
+receivers:
+  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred, note: "炎症性の活性化入力"}
+  lsec_ilsec: {level: 2, source: null, status: inferred, note: "同上"}
+
+effects:
+  fibrosis: 2
+  inflammation: 2
+  lipid: 1
+  differentiation: 0
+  source: null
+  status: inferred
+
+notes:
+  - text: "転写量（qPCR）と活性型タンパク（ELISA）が乖離する代表例。2シグナル必要で、LPS だけでは pro 体が溜まるだけで分泌されない。mRNA だけを見て「産生した」と判断してはいけない"
+    source: null
+    status: inferred
