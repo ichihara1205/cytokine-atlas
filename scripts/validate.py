@@ -9,7 +9,8 @@ ERROR が1件でもあればビルドを止める（exit 1）。WARN は止め�
     python3 scripts/validate.py --json          # 機械可読出力
 
 ERROR にする条件（CLAUDE.md §0.3）:
-  - status: verified なのに source が空
+  - status: verified / figure_read なのに source が空
+  - status: figure_read なのに figure（どの図か）が空
   - 存在しない cell_id / pathway_id / theme_id / family_id を参照している
   - gene が HGNC 承認シンボルと一致しない
   - プライマー配列に ATGC 以外の文字が入っている
@@ -35,7 +36,12 @@ except ModuleNotFoundError:  # pragma: no cover
 
 ROOT = Path(__file__).resolve().parent.parent
 
-STATUSES = {"verified", "inferred", "todo"}
+# status の語彙（CLAUDE.md §0.2）。
+# figure_read は「文献の図から読み取った」。本文に明記がなく目視解釈に依存するため、
+# verified とは別扱いにする。出典に加えて、どの図かを figure に必ず書かせる。
+STATUSES = {"verified", "figure_read", "inferred", "todo"}
+# 出典が必須の status
+NEEDS_SOURCE = {"verified", "figure_read"}
 AXES = {"structure", "receptor", "naming"}
 CELL_STAGES = {"pluripotent", "progenitor", "mature"}
 CELL_ORIGINS = {"primary", "line", "ipsc_derived"}   # null = 培養していない参照ノード
@@ -233,12 +239,25 @@ def check_status_and_sources(obj: dict, relfile: str, issues: list[Issue], stric
                 f"status: {st!r} は不正",
                 f"{' / '.join(sorted(STATUSES))} のいずれか"))
             continue
-        if st == "verified" and not (under & NO_SOURCE_REQUIRED):
+        if st in NEEDS_SOURCE and not (under & NO_SOURCE_REQUIRED):
             if _empty(node.get("source")):
                 issues.append(Issue(
                     "error", relfile, path or "status",
-                    "status: verified なのに source が空",
+                    f"status: {st} なのに source が空",
                     "PMID:12345678 か DOI を入れる。出典が無いなら inferred に落とす"))
+        if st == "figure_read":
+            # どの図を読んだかが書かれていないと、後から検算できない。
+            # これが無いと figure_read は「根拠を示さず verified を名乗る」抜け道になる。
+            if _empty(node.get("figure")):
+                issues.append(Issue(
+                    "error", relfile, path or "status",
+                    "status: figure_read なのに figure（どの図か）が空",
+                    'その出典のどの図から読んだかを書く。例: figure: "Fig. 1"'))
+            if not _empty(node.get("figure")) and _empty(node.get("read_note")):
+                issues.append(Issue(
+                    "warn", relfile, path or "status",
+                    "図から何をどう読み取ったかの説明（read_note）が無い",
+                    "目視解釈なので、読み取りの根拠を残しておくと検算できる"))
         if st == "inferred" and strict_inferred:
             issues.append(Issue("error", relfile, path or "status",
                                 "strict_inferred が有効: inferred が残っている"))

@@ -179,6 +179,9 @@ def render_cell_legend(ctx: "Ctx", ds: "Dataset") -> str:
 
 
 def badge(st: str | None) -> str:
+    if st == "figure_read":
+        return ('<span class="badge badge-figure" title="文献の図から読み取った。'
+                '本文に明記がないため目視解釈に依存する">図から読取</span>')
     if st == "inferred":
         return '<span class="badge badge-inferred" title="Claude が一般知識から書いた。未検証">未検証</span>'
     if st == "todo":
@@ -187,7 +190,8 @@ def badge(st: str | None) -> str:
 
 
 def wrap_status(st: str | None, inner: str) -> str:
-    cls = {"inferred": "is-inferred", "todo": "is-todo"}.get(st or "", "")
+    cls = {"inferred": "is-inferred", "todo": "is-todo",
+           "figure_read": "is-figure"}.get(st or "", "")
     return f'<div class="block {cls}">{inner}{badge(st)}</div>'
 
 
@@ -352,15 +356,17 @@ def collect_todo(ds: Dataset, include_own: bool) -> list[dict]:
             for path, wrapped in blocks:
                 node = wrapped["_node"]
                 st = node.get("status")
-                if st in ("todo", "inferred"):
+                if st in ("todo", "inferred", "figure_read"):
                     label = (node.get("note") or node.get("text") or node.get("name")
                              or node.get("primary") or node.get("defining_feature") or "")
                     rows.append({
                         "kind": kind, "id": oid, "file": relfile,
                         "path": path or "(top)", "status": st,
                         "label": str(label)[:120],
+                        "figure": str(node.get("figure") or ""),
+                        "source": str(node.get("source") or ""),
                     })
-    order = {"todo": 0, "inferred": 1}
+    order = {"todo": 0, "figure_read": 1, "inferred": 2}
     rows.sort(key=lambda r: (order[r["status"]], r["kind"], r["id"], r["path"]))
     return rows
 
@@ -579,6 +585,8 @@ def render_index(ctx: Ctx, ds: Dataset, mols: dict, closures: dict, cfg: dict) -
   style="background:#e7f5ec;color:#166534;border-style:solid">verified</span>
   とし、それ以外は<span class="badge badge-inferred">未検証</span>を付けています。
   未検証の記述は一般知識から書いたもので、裏を取っていません。
+  <span class="badge badge-figure">図から読取</span> は文献の図を目視で読み取ったもので、
+  本文に明記された verified より根拠が弱いものです。
   内訳と残作業は <a href="{ctx.url("todo")}">TODO</a> にあります。
   数値・配列・品番を引くときは必ず出典に当たってください。
 </div>
@@ -2187,6 +2195,21 @@ def render_todo(ctx: Ctx, ds: Dataset, rows: list[dict], counts: dict,
 
     todos = [r for r in rows if r["status"] == "todo"]
     infs = [r for r in rows if r["status"] == "inferred"]
+    figs = [r for r in rows if r["status"] == "figure_read"]
+
+    def fig_table(rs):
+        if not rs:
+            return ('<p class="empty">なし。図から読み取った記述は現時点で0件。</p>')
+        return ("<div class='scroll-x'><table class='rel todo'><thead><tr>"
+                "<th>種別</th><th>対象</th><th>位置</th><th>読んだ図</th>"
+                "<th>内容</th><th>出典</th></tr></thead><tbody>" + "".join(
+                    f'<tr><td>{e(r["kind"])}</td>'
+                    f'<td><a href="{ctx.url(r["kind"], r["id"])}">{e(r["id"])}</a></td>'
+                    f'<td><code>{e(r["path"])}</code></td>'
+                    f'<td><b>{e(r["figure"])}</b></td>'
+                    f'<td>{e(r["label"])}</td>'
+                    f'<td>{src_link(r["source"])}</td></tr>' for r in rs)
+                + "</tbody></table></div>")
     return f"""
 <h1>TODO</h1>
 <p class="lede">未検証がどこに残っているかが常に見える状態を保つ。
@@ -2195,12 +2218,24 @@ def render_todo(ctx: Ctx, ds: Dataset, rows: list[dict], counts: dict,
 <section class="card">
   <div class="counts">
     <span class="cnt verified">verified {counts.get("verified", 0)}</span>
+    <span class="cnt figure">図から読取 {counts.get("figure_read", 0)}</span>
     <span class="cnt inferred">inferred {counts.get("inferred", 0)}</span>
     <span class="cnt todo">todo {counts.get("todo", 0)}</span>
   </div>
 </section>
 
 {cov_html}
+
+<section class="card">
+  <h2>図から読み取ったもの <span class="sub">{len(figs)}</span></h2>
+  <p class="note"><strong>本文に明記がなく、図を目視で読み取った記述。</strong>
+     出典はあるが、根拠は私の視覚的解釈であって引用できる一文ではない。
+     verified と同じ扱いにすると精度の違いが消えるので分けている。
+     どの図を読んだかを必ず記録させており（無いとビルドが止まる）、後から検算できる。
+     <strong>プライマー配列と抗体は、この status でもサイトに出力しない</strong>
+     （出力は verified のみ）。</p>
+  {fig_table(figs)}
+</section>
 
 <section class="card">
   <h2>status: todo <span class="sub">{len(todos)}</span></h2>
@@ -2475,6 +2510,8 @@ tr.is-inferred td{color:var(--muted)}
 .badge{font-size:10px;border-radius:3px;padding:1px 6px;margin-left:6px;white-space:nowrap}
 .badge-inferred{background:#eef2f6;color:var(--muted);border:1px dotted #b9c4cf}
 .badge-todo{background:#fff4e5;color:var(--warn);border:1px dashed currentColor}
+.badge-figure{background:#eaf2fb;color:#2c5f96;border:1px solid #9dbfe0}
+.block.is-figure{border:1px solid #cfe0f2;border-radius:5px;padding:8px 12px;background:#fbfdff}
 .src{font-size:11px;background:#eef4fb;border-radius:3px;padding:1px 6px;white-space:nowrap}
 /* ファミリー */
 .tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
@@ -2490,6 +2527,7 @@ background:#fff;border-radius:5px;cursor:pointer}
 .counts{display:flex;gap:10px;flex-wrap:wrap}
 .cnt{font-size:13px;border-radius:4px;padding:4px 12px}
 .cnt.verified{background:#e7f5ec;color:var(--ok)}
+.cnt.figure{background:#eaf2fb;color:#2c5f96}
 .cnt.inferred{background:#eef2f6;color:var(--muted)}
 .cnt.todo{background:#fff4e5;color:var(--warn)}
 .refs{font-size:13px;padding-left:20px}
@@ -2695,14 +2733,14 @@ def build(skip_validate: bool) -> int:
     write(SITE / "assets" / "app.js", JS)
 
     # --- クライアント用データ ---
-    counts_all = {"verified": 0, "inferred": 0, "todo": 0}
+    counts_all = {"verified": 0, "figure_read": 0, "inferred": 0, "todo": 0}
     payload_mols = {}
     for mid, m in mols.items():
         blocks: list = []
         # 件数は work_view（未検証のプライマー・抗体も数える）で数える。
         # 「TODO を含む」で絞ったときに、出力から落ちた作業が漏れないようにするため。
         walk_status_blocks(work_view(ds.molecules[mid][0], include_own), "", blocks, set())
-        c = {"verified": 0, "inferred": 0, "todo": 0}
+        c = {"verified": 0, "figure_read": 0, "inferred": 0, "todo": 0}
         for _, w in blocks:
             st = w["_node"].get("status")
             if st in c:
