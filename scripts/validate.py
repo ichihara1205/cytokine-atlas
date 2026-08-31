@@ -29,6 +29,8 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import collections.abc
+
 try:
     import yaml
 except ModuleNotFoundError:  # pragma: no cover
@@ -110,12 +112,48 @@ class Dataset:
     production: dict = field(default_factory=dict)
 
 
+class DupKeyLoader(yaml.SafeLoader):
+    """同じマッピングに同じキーが2回出るのを検出する。
+
+    yaml は重複キーを黙って後勝ちで捨てるので、パース後のデータからは
+    絶対に気付けない。producers に同じ cell_id が2回書かれていても
+    エラーにならず、片方の level・source・note が消えたまま公開される。
+    ここで拾わないと誰も拾えない。
+    """
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.dup_keys: list[tuple[str, int]] = []
+
+    def construct_mapping(self, node, deep=False):
+        seen = set()
+        for kn, _ in node.value:
+            k = self.construct_object(kn, deep=deep)
+            if isinstance(k, collections.abc.Hashable):
+                if k in seen:
+                    self.dup_keys.append((str(k), kn.start_mark.line + 1))
+                seen.add(k)
+        return super().construct_mapping(node, deep=deep)
+
+
 def _load_yaml(p: Path, issues: list[Issue]):
+    text = p.read_text(encoding="utf-8")
     try:
-        return yaml.safe_load(p.read_text(encoding="utf-8"))
+        loader = DupKeyLoader(text)
+        try:
+            doc = loader.get_single_data()
+            dups = loader.dup_keys
+        finally:
+            loader.dispose()
     except yaml.YAMLError as e:
         issues.append(Issue("error", _rel(p), "", f"YAML として読めない: {e}"))
         return None
+    for key, line in dups:
+        issues.append(Issue("error", _rel(p), f"L{line}",
+                            f"キー {key} が同じ階層に2回ある",
+                            "yaml は後に書いたほうだけを残して前を黙って捨てる。"
+                            "1つにまとめる（level は高いほう、note は残すほうへ）"))
+    return doc
 
 
 def _rel(p: Path) -> str:

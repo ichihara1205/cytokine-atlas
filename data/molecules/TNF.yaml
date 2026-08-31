@@ -29,14 +29,16 @@ form:
 range: {mode: paracrine, note: null, source: null, status: inferred}
 
 producers:
-  kc_ikc:     {level: 3, source: null, status: inferred}
+  kc_ikc: {level: 3, source: "PMID:39355871", status: verified,
+     note: "KC が分泌する TNF-α が肝細胞の NF-κB を活性化する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   mac_thp1:   {level: 3, source: null, status: inferred}
   neutrophil: {level: 2, source: null, status: inferred}
   t_nk:       {level: 2, source: null, status: inferred}
-  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
-
+  kc_pkc: {level: 3, source: "PMID:39355871", status: verified,
+     note: "同上"}
 receivers:
-  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 3, source: "PMID:39355871", status: verified,
+     note: "KC 由来 TNF-α が肝細胞で NF-κB を活性化する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hsc_lx2:        {level: 3, source: null, status: inferred}
   lsec_tmnk1:     {level: 3, source: null, status: inferred}
   kc_ikc:         {level: 2, source: null, status: inferred}

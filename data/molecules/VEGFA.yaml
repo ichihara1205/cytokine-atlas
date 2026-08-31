@@ -24,14 +24,17 @@ form:
 range: {mode: paracrine, note: "スプライス変異体によりヘパリン結合性が変わり、拡散距離が変わる", source: null, status: inferred}
 
 producers:
-  hepatocyte_pxb: {level: 3, source: null, status: inferred}
-  hsc_lx2:        {level: 2, source: null, status: inferred}
+  hepatocyte_pxb: {level: 3, source: "PMID:39355871", status: verified,
+     note: "同上。肝細胞も VEGF の供給源"}
+  hsc_lx2: {level: 2, source: "PMID:39355871", status: verified,
+     note: "VEGF は HSC と肝細胞が分泌し、LSEC の健常な表現型を保つ（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   kc_ikc:         {level: 2, source: null, status: inferred}
 
 receivers:
-  lsec_tmnk1: {level: 3, source: null, status: inferred}
-  lsec_ilsec: {level: 3, source: null, status: inferred}
-  lsec_ilsec: {level: 3, source: null, status: inferred, note: "有窓構造の維持に必須。VEGF 供給が切れると脱有窓化するため、内皮単独培養で表現型が崩れる説明になる"}
+  lsec_tmnk1: {level: 3, source: "PMID:39355871", status: verified,
+     note: "LSEC が健常な表現型を保つには HSC・肝細胞由来の VEGF による刺激が要る（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  lsec_ilsec: {level: 3, source: "PMID:39355871", status: verified,
+     note: "有窓構造の維持に必須。VEGF 供給が切れると脱有窓化するため、内皮単独培養で表現型が崩れる説明になる"}
 
 effects:
   fibrosis: 1

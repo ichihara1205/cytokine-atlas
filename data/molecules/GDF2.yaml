@@ -25,14 +25,17 @@ form:
 range: {mode: endocrine, note: "肝で作られて血中を循環する", source: null, status: inferred}
 
 producers:
-  hsc_lx2:    {level: 3, source: null, status: inferred, note: "肝星細胞が血中 BMP-9 の主要な供給源とされる"}
-  hsc_qhsc:   {level: 3, source: null, status: inferred, note: "同上。静止期でも産生する"}
+  hsc_lx2: {level: 3, source: "PMID:39355871", status: verified,
+     note: "HSC が放出する BMP-9 が LSEC の健常な表現型の維持を促す（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  hsc_qhsc: {level: 3, source: "PMID:39355871", status: verified,
+     note: "同上。健常時の記述なので静止期星細胞に対応する"}
   lsec_tmnk1: {level: 1, source: null, status: inferred}
 
 receivers:
-  lsec_tmnk1: {level: 3, source: null, status: inferred, note: "I型受容体 ALK1 が内皮に限局するため、受け手は内皮に絞られる"}
-  lsec_ilsec: {level: 3, source: null, status: inferred}
-
+  lsec_tmnk1: {level: 3, source: "PMID:39355871", status: verified,
+     note: "HSC 由来 BMP-9 の受け手は LSEC。健常な表現型の維持に働く（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  lsec_ilsec: {level: 3, source: "PMID:39355871", status: verified,
+     note: "同上"}
 effects:
   fibrosis: 1
   inflammation: 0

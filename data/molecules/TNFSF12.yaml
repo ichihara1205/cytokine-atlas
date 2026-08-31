@@ -38,8 +38,17 @@ effects:
   lipid: 0
   differentiation: 1
   note: "肝前駆細胞（ductular reaction）の増殖を促す。成熟肝細胞では Fn14 発現が低く応答しにくい"
-  source: null
-  status: inferred
+  source: "PMID:39355871"
+  figure: "Fig. 4C"
+  read_note: >-
+    ヒト肝の単一細胞データを CellChat 系の手法で解析し、経路ごとの relative
+    information flow を健常と肝硬変で並べた棒グラフ。TWEAK の棒は肝硬変（黒）が
+    1.0 を占め、健常（白）の区画が視認できない。左端から FN1, TWEAK, THY1, CDH,
+    ANGPT … の順に並び、この左側の一群が肝硬変にほぼ限局した経路にあたる。
+    棒には有意を示す * が付いている。線維化 +1 の根拠はこの図であって、
+    本文中に TWEAK の記述は一切ない（本文全文を検索して0件）。
+    棒の高さは目視であり、数値そのものは論文に記載がない。
+  status: figure_read
 
 notes:
   - text: "受容体 Fn14 は傷害時に強く誘導される。定常状態の発現を見て「受け手ではない」と判断すると取り逃がす"

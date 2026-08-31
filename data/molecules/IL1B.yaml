@@ -25,13 +25,15 @@ form:
 range: {mode: paracrine, note: null, source: null, status: inferred}
 
 producers:
-  kc_ikc:     {level: 3, source: null, status: inferred}
+  kc_ikc: {level: 3, source: "PMID:39355871", status: verified,
+     note: "KC のインフラマソームがカスパーゼ1を活性化し IL-1β の成熟を開始する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   mac_thp1:   {level: 3, source: null, status: inferred}
   neutrophil: {level: 2, source: null, status: inferred}
   kc_pkc: {level: 3, source: "PMID:24332029", status: verified, note: "IL-1β は血中単球・組織マクロファージなどの造血系細胞が TLR 刺激・補体・TNF-α・IL-1 自身に応答して産生する。クッパー細胞は組織マクロファージ"}
 
 receivers:
-  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hsc_lx2: {level: 3, source: "PMID:39355871", status: verified,
+     note: "IL-1β は HSC の活性化に直接寄与する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hepatocyte_pxb: {level: 2, source: null, status: inferred}
   lsec_tmnk1:     {level: 2, source: null, status: inferred}
   kc_ikc:         {level: 2, source: null, status: inferred}

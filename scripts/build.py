@@ -364,6 +364,7 @@ def collect_todo(ds: Dataset, include_own: bool) -> list[dict]:
                         "path": path or "(top)", "status": st,
                         "label": str(label)[:120],
                         "figure": str(node.get("figure") or ""),
+                        "read_note": str(node.get("read_note") or "").strip(),
                         "source": str(node.get("source") or ""),
                     })
     order = {"todo": 0, "figure_read": 1, "inferred": 2}
@@ -2202,12 +2203,12 @@ def render_todo(ctx: Ctx, ds: Dataset, rows: list[dict], counts: dict,
             return ('<p class="empty">なし。図から読み取った記述は現時点で0件。</p>')
         return ("<div class='scroll-x'><table class='rel todo'><thead><tr>"
                 "<th>種別</th><th>対象</th><th>位置</th><th>読んだ図</th>"
-                "<th>内容</th><th>出典</th></tr></thead><tbody>" + "".join(
+                "<th>図から何をどう読んだか</th><th>出典</th></tr></thead><tbody>" + "".join(
                     f'<tr><td>{e(r["kind"])}</td>'
                     f'<td><a href="{ctx.url(r["kind"], r["id"])}">{e(r["id"])}</a></td>'
                     f'<td><code>{e(r["path"])}</code></td>'
                     f'<td><b>{e(r["figure"])}</b></td>'
-                    f'<td>{e(r["label"])}</td>'
+                    f'<td class="readnote">{e(r["read_note"] or r["label"])}</td>'
                     f'<td>{src_link(r["source"])}</td></tr>' for r in rs)
                 + "</tbody></table></div>")
     return f"""
@@ -2529,6 +2530,7 @@ background:#fff;border-radius:5px;cursor:pointer}
 .cnt.verified{background:#e7f5ec;color:var(--ok)}
 .cnt.figure{background:#eaf2fb;color:#2c5f96}
 .cnt.inferred{background:#eef2f6;color:var(--muted)}
+.readnote{max-width:44em;white-space:normal;line-height:1.55;font-size:.92em}
 .cnt.todo{background:#fff4e5;color:var(--warn)}
 .refs{font-size:13px;padding-left:20px}
 @media(max-width:640px){main{padding:16px 12px 48px}}
@@ -2821,8 +2823,8 @@ def build(skip_validate: bool) -> int:
     n = sum(1 for _ in SITE.rglob("*.html"))
     print(f"site/ を生成: HTML {n} ページ"
           f"（分子 {len(mols)} / 細胞 {len(ds.cells)} / ファミリー {len(ds.families)}）")
-    print(f"  verified {counts_all['verified']} / inferred {counts_all['inferred']} "
-          f"/ todo {counts_all['todo']}")
+    print(f"  verified {counts_all['verified']} / 図から読取 {counts_all['figure_read']} "
+          f"/ inferred {counts_all['inferred']} / todo {counts_all['todo']}")
     if not include_own:
         print("  include_own_data: false のため own_data は出力していない")
     return 0

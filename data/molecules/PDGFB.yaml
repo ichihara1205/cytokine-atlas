@@ -24,15 +24,17 @@ form:
 range: {mode: paracrine, note: "C末端の塩基性領域で基質に固定される", source: null, status: inferred}
 
 producers:
-  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  lsec_tmnk1: {level: 3, source: "PMID:39355871", status: verified,
+     note: "毛細血管化した LSEC が PDGF・TGF-β の分泌で HSC を能動的に活性化する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   kc_ikc:     {level: 3, source: null, status: inferred}
   mac_thp1:   {level: 2, source: null, status: inferred}
   lsec_ilsec: {level: 2, source: null, status: inferred, note: "星細胞の増殖・遊走を促す。内皮由来の線維化入力"}
 
 receivers:
-  hsc_lx2:  {level: 3, source: null, status: inferred}
-  hsc_qhsc: {level: 2, source: null, status: inferred}
-  hsc_qhsc: {level: 1, source: null, status: inferred, note: "受容体 PDGFRB は活性化に伴って誘導される。静止期では応答が小さく、既に活性化した LX-2 では逆に過大評価になる"}
+  hsc_lx2: {level: 3, source: "PMID:39355871", status: verified,
+     note: "LSEC 由来 PDGF の受け手は HSC。活性化を誘導する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  hsc_qhsc: {level: 2, source: null, status: inferred,
+     note: "受容体 PDGFRB は活性化に伴って誘導される。静止期では応答が小さく、既に活性化した LX-2 では逆に過大評価になる"}
 
 effects:
   fibrosis: 2

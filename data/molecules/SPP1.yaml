@@ -40,8 +40,14 @@ effects:
   inflammation: 1
   lipid: 1
   differentiation: 0
-  source: null
-  status: inferred
+  source: "PMID:39355871"
+  figure: "Fig. 4C"
+  read_note: >-
+    同じ relative information flow の棒グラフ。SPP1 の棒は肝硬変（黒）が
+    おおよそ 3/4 を占め、健常（白）が残る。健常肝でも動いているが肝硬変で
+    大きく優位、という読み。線維化 +2 と矛盾しない。
+    比率は目視であり、数値は論文に記載がない。
+  status: figure_read
 
 notes:
   - text: "翻訳後修飾（リン酸化・グリコシル化）と切断状態で作用が変わる。抗体のエピトープによって ELISA の測定値が大きくずれるため、キット間で値を比較できない"

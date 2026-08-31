@@ -24,10 +24,10 @@ form:
 range: {mode: juxtacrine, note: "膜型は接着分子として直接働く。可溶型のみが遊走を誘導する", source: null, status: inferred}
 
 producers:
-  lsec_tmnk1:     {level: 3, source: null, status: inferred}
-  lsec_ilsec:     {level: 3, source: null, status: inferred}
+  lsec_tmnk1: {level: 3, source: null, status: inferred}
+  lsec_ilsec: {level: 3, source: null, status: inferred,
+     note: "膜型が接着分子として働き、クッパー細胞の定着に関わる。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
   hepatocyte_pxb: {level: 1, source: null, status: inferred}
-  lsec_ilsec: {level: 3, source: null, status: inferred, note: "膜型が接着分子として働き、クッパー細胞の定着に関わる。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
 
 receivers:
   kc_ikc:   {level: 3, source: null, status: inferred}

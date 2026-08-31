@@ -23,17 +23,24 @@ form:
 range: {mode: paracrine, note: "ヘパラン硫酸に結合して基質に留まる", source: null, status: inferred}
 
 producers:
-  hsc_lx2:    {level: 3, source: null, status: inferred}
-  hsc_qhsc:   {level: 3, source: null, status: inferred}
-  lsec_tmnk1: {level: 2, source: null, status: inferred}
-  kc_ikc:     {level: 1, source: null, status: inferred}
-  hsc_qhsc: {level: 3, source: null, status: inferred, note: "静止期星細胞は HGF の主要産生源。活性化に伴い産生が落ちるため、既に部分活性化した LX-2 では過小評価になる"}
-  lsec_ilsec: {level: 2, source: null, status: inferred, note: "肝細胞の支持因子。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+  hsc_lx2: {level: 3, source: null, status: inferred}
+  hsc_qhsc: {level: 3, source: null, status: inferred,
+     note: "静止期星細胞は HGF の主要産生源。活性化に伴い産生が落ちるため、既に部分活性化した LX-2 では過小評価になる"}
+  lsec_tmnk1: {level: 2, source: "PMID:39355871", status: verified,
+     note: "LSEC が Wnt2a とともに HGF を分泌し、HSC を静止状態に保ち肝細胞に再生を促す（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  kc_ikc: {level: 1, source: null, status: inferred}
+  lsec_ilsec: {level: 2, source: null, status: inferred,
+     note: "肝細胞の支持因子。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
 
 receivers:
-  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 3, source: "PMID:39355871", status: verified,
+     note: "LSEC 由来の HGF が肝細胞の増殖に必要。肝切除モデルで示されている（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hepatoblast:    {level: 3, source: null, status: inferred}
   lsec_tmnk1:     {level: 1, source: null, status: inferred}
+  hsc_lx2: {level: 2, source: "PMID:39355871", status: verified,
+     note: "LSEC が分泌する Wnt2a と HGF が HSC を静止状態に保つ（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
+  hsc_qhsc: {level: 2, source: "PMID:39355871", status: verified,
+     note: "同上。静止状態の維持を受ける側"}
 
 effects:
   fibrosis: -1

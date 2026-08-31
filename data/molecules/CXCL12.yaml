@@ -25,10 +25,11 @@ range: {mode: paracrine, note: "基質に固定されてニッチを作る", sou
 
 producers:
   lsec_tmnk1: {level: 3, source: null, status: inferred}
-  lsec_ilsec: {level: 3, source: null, status: inferred}
-  hsc_lx2:    {level: 2, source: null, status: inferred}
-  hsc_qhsc: {level: 2, source: null, status: inferred, note: "静止期でも構成的に出す。炎症誘導性ではない"}
-  lsec_ilsec: {level: 3, source: null, status: inferred, note: "構成的に出してニッチを作る。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+  lsec_ilsec: {level: 3, source: null, status: inferred,
+     note: "構成的に出してニッチを作る。不死化株の TMNK-1 は有窓構造を失っていることが多く、iPS 由来の iLSEC のほうが類洞内皮の性質を保つ可能性がある"}
+  hsc_lx2: {level: 2, source: null, status: inferred}
+  hsc_qhsc: {level: 2, source: null, status: inferred,
+     note: "静止期でも構成的に出す。炎症誘導性ではない"}
 
 receivers:
   hsc_lx2:     {level: 2, source: null, status: inferred}

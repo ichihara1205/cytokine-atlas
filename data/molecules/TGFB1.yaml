@@ -27,15 +27,18 @@ producers:
   hsc_lx2:        {level: 3, source: null, status: inferred}
   kc_ikc:         {level: 3, source: null, status: inferred}
   mac_thp1:       {level: 3, source: null, status: inferred}
-  lsec_tmnk1:     {level: 2, source: null, status: inferred}
+  lsec_tmnk1: {level: 2, source: "PMID:39355871", status: verified,
+     note: "LSEC は TGF-β ファミリーリガンドの分泌で KC の分化・表現型維持に寄与し、傷害時には PDGF とともに HSC を活性化する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hepatocyte_pxb: {level: 1, source: null, status: inferred}
   kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
 
 receivers:
-  hsc_lx2:        {level: 3, source: null, status: inferred}
+  hsc_lx2: {level: 3, source: "PMID:39355871", status: verified,
+     note: "LSEC 由来 TGF-β が HSC の活性化を誘導する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hepatocyte_pxb: {level: 2, source: null, status: inferred}
   lsec_tmnk1:     {level: 2, source: null, status: inferred}
-  kc_ikc:         {level: 2, source: null, status: inferred}
+  kc_ikc: {level: 2, source: "PMID:39355871", status: verified,
+     note: "LSEC 由来の TGF-β ファミリーリガンドが KC の分化と表現型維持に寄与する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   hsc_qhsc: {level: 3, source: null, status: inferred, note: "静止期から筋線維芽細胞への活性化を駆動する入力。ここが活性化の起点になる"}
 
 effects:

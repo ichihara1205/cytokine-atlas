@@ -24,7 +24,8 @@ form:
 range: {mode: endocrine, note: "肝から出て腸・マクロファージの鉄放出を止める", source: null, status: inferred}
 
 producers:
-  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+  hepatocyte_pxb: {level: 3, source: "PMID:39355871", status: verified,
+     note: "ヘプシジンは主に肝細胞が産生する。ただし LSEC が鉄濃度を感知して BMP リガンドを分泌し、その産生を部分的に制御する。KC もヘプシジン転写を修飾するが機構は未確定と原著は述べている（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
 
 receivers:
   kc_ikc:   {level: 3, source: null, status: inferred}

@@ -26,7 +26,8 @@ form:
 range: {mode: juxtacrine, note: "膜結合型としても働き、隣接細胞に直接作用する", source: null, status: inferred}
 
 producers:
-  kc_ikc:         {level: 2, source: null, status: inferred}
+  kc_ikc: {level: 2, source: "PMID:39355871", status: verified,
+     note: "KC における IL-1α/β の分泌が傍分泌的に線維化を促す（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   mac_thp1:       {level: 2, source: null, status: inferred}
   hepatocyte_pxb: {level: 1, source: null, status: inferred}
   lsec_tmnk1:     {level: 1, source: null, status: inferred}

@@ -24,13 +24,16 @@ form:
 range: {mode: paracrine, note: null, source: null, status: inferred}
 
 producers:
-  kc_ikc:         {level: 2, source: null, status: inferred}
+  kc_ikc: {level: 2, source: "PMID:39355871", status: verified,
+     note: "KC のインフラマソームがカスパーゼ1を活性化し IL-18 の成熟を開始する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
   mac_thp1:       {level: 2, source: null, status: inferred}
   hepatocyte_pxb: {level: 1, source: null, status: inferred}
 
 receivers:
   t_nk:    {level: 3, source: null, status: inferred}
   kc_ikc:  {level: 1, source: null, status: inferred}
+  hsc_lx2: {level: 2, source: "PMID:39355871", status: verified,
+     note: "IL-18 は HSC の活性化に直接寄与する（出典はこの細胞種の生体内での性質を述べたもの。使っている株・iPS由来細胞がそれを再現するかは別）"}
 
 effects:
   fibrosis: 0
