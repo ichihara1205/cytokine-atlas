@@ -8,8 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CXCR3"
     subunits: [CXCR3]
-    source: null
-    status: inferred
+    note: "CXCR3 は CXCL9・CXCL10・CXCL11 に特異的。親和性の序列は CXCL11 > CXCL10 > CXCL9 で、CXCL10 は中間"
+    source: "PMID:24218476"
+    status: verified
 
 downstream: {primary: "Gi → T/NK遊走", secondary: [], source: null, status: inferred}
 form:
@@ -43,3 +44,6 @@ notes:
   - text: "I型/II型 IFN の下流で誘導されるため、IFN 経路の活性化を測る代理指標として使いやすい"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Bachelerie F, et al. International Union of Basic and Clinical Pharmacology. LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature for atypical chemokine receptors. Pharmacol Rev 2013;66:1-79. doi:10.1124/pr.113.007724", pmid: "24218476", doi: "10.1124/pr.113.007724"}

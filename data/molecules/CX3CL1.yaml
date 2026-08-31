@@ -8,8 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CX3CR1"
     subunits: [CX3CR1]
-    source: null
-    status: inferred
+    note: "CX3CR1 は CX3CL1 の唯一知られたヒト受容体で、1対1の『monogamous』な関係。ただし CX3CL1 はヒトサイトメガロウイルスの受容体 US28 にも結合する"
+    source: "PMID:24218476"
+    status: verified
 
 downstream: {primary: "Gi → 遊走・接着", secondary: ["生存シグナル"], source: null, status: inferred}
 form:
@@ -51,3 +52,6 @@ notes:
   - text: "LSEC が出して iKC が受ける、系内で完結する数少ない組。共培養で内皮を入れる意義を示す分子"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Bachelerie F, et al. International Union of Basic and Clinical Pharmacology. LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature for atypical chemokine receptors. Pharmacol Rev 2013;66:1-79. doi:10.1124/pr.113.007724", pmid: "24218476", doi: "10.1124/pr.113.007724"}

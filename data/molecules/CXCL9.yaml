@@ -8,9 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CXCR3"
     subunits: [CXCR3]
-    note: "CXCL9/10/11 が同じ CXCR3 を共有する"
-    source: null
-    status: inferred
+    note: "CXCR3 は CXCL9・CXCL10・CXCL11 に特異的な炎症性の走化性受容体。親和性と作動強度には CXCL11 > CXCL10 > CXCL9 の序列がある"
+    source: "PMID:24218476"
+    status: verified
 
 downstream: {primary: "Gi → T細胞遊走", secondary: [], source: null, status: inferred}
 form:
@@ -43,3 +43,6 @@ notes:
   - text: "IFN-γ 誘導性。系内に IFN-γ の産生者がいないため、外部刺激なしにはほとんど出ない。CXCL9 が上がっていれば IFN-γ 系が動いた証拠として読める"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Bachelerie F, et al. International Union of Basic and Clinical Pharmacology. LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature for atypical chemokine receptors. Pharmacol Rev 2013;66:1-79. doi:10.1124/pr.113.007724", pmid: "24218476", doi: "10.1124/pr.113.007724"}

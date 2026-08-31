@@ -8,9 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CCR1 / CCR3 / CCR5"
     subunits: [CCR1, CCR3, CCR5]
-    note: "1つのリガンドが3つの受容体に結合する。ケモカイン系の多対多の縮重の典型"
-    source: null
-    status: inferred
+    note: "CCR1 は炎症性CCケモカイン（CCL3・CCL5・CCL6・CCL9・CCL15・CCL23）に無差別に結合し、CCR5 も CCL5 を含む多数のリガンドを結合する。1つのリガンドが複数の受容体に結合するケモカイン系の縮重の典型（CCR3 への結合はこの出典では確認していない）"
+    source: "PMID:24218476"
+    status: verified
 
 downstream: {primary: "Gi → 細胞遊走", secondary: ["ERK"], source: null, status: inferred}
 form:
@@ -46,3 +46,6 @@ notes:
   - text: "受容体が3つに分かれるため、CCL5 の量だけでは誰が動くかが決まらない。受け手側の受容体発現とセットで読む必要がある"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Bachelerie F, et al. International Union of Basic and Clinical Pharmacology. LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature for atypical chemokine receptors. Pharmacol Rev 2013;66:1-79. doi:10.1124/pr.113.007724", pmid: "24218476", doi: "10.1124/pr.113.007724"}

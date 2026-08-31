@@ -531,3 +531,36 @@ IL-38 の受容体を `IL1RL2(IL-36R) / IL1RAPL1` と書いていたが、総説
 
 `verified 97 / inferred 787 / todo 4`。
 producers/receivers 361件は依然として原著か実測待ちで、abstract でも総説本文でも埋まらない。
+
+## 2026-08-11（続き14）— 図を読むのではなく、本文に書いてある出典を探した
+
+「文献の図を読んで再構成できないのか」という問いへの答え。技術的には可能だが、
+**図の読み取りは証拠の質が落ちる**。本文なら「この文が根拠」と引用できるが、
+図は目視解釈であり、50ノード超の多対多ネットワーク（ケモカイン総説の図1）で線を1本読み違えれば
+`verified` バッジ付きの誤りが混入する。このサイトの価値は verified が信用できることなので割に合わない。
+
+そこで**対応を本文に書いている文献**を探した。
+
+出典: PubMed。Bachelerie F, et al. *International Union of Basic and Clinical Pharmacology.
+LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature
+for atypical chemokine receptors.* Pharmacol Rev 2013;66:1-79.
+PMID:24218476 / doi:10.1124/pr.113.007724
+
+IUPHAR 命名委員会による公式論文で、リガンド–受容体の対応が**本文に明記**されている。
+79ページと長いのでローカルに落として該当箇所だけ抽出した。
+
+| 分子 | 確定した受容体 | 本文の根拠 |
+|---|---|---|
+| CCL2 | CCR2 | 「CCR2 は MCP ファミリー（CCL2/7/13）の高親和性受容体」 |
+| CCL5 | CCR1, CCR5 | 「CCR1 は CCL3・CCL5 …に無差別に結合」「CCR5 は CCL2,3,4,5,… を結合」 |
+| CXCL8 | CXCR1, CXCR2 | 「CXCL8 誘導の CXCR1/CXCR2 活性化」＋「CXCR2 は7つの ELR+ CXC 全てに結合」「ELR+ の例として CXCL8」 |
+| CXCL9 / CXCL10 | CXCR3 | 「CXCR3 は CXCL9・CXCL10・CXCL11 に特異的」＋親和性序列 CXCL11 > CXCL10 > CXCL9 |
+| CXCL12 | CXCR4 | 「CXCR4 は CXCL12 の唯一知られた G タンパク質共役型受容体」 |
+| CX3CL1 | CX3CR1 | 「CX3CR1 は CX3CL1 の唯一知られたヒト受容体」（monogamous）。US28 にも結合 |
+
+**CCL5 の CCR3 への結合はこの出典では確認できなかった**ため、note に「この出典では確認していない」と
+明記したうえで CCR1/CCR5 のみを根拠として verified にした。
+
+`verified 97 → 102 / inferred 787 → 782`。
+前回ケモカイン総説（PMID:29637711）で伸びなかったのは、対応が本文ではなく図1にあったため。
+正しい打ち手は「図を読む」ではなく「本文に書いてある文献に替える」だった。

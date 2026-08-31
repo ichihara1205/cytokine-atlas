@@ -8,8 +8,8 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CXCR4"
     subunits: [CXCR4]
-    note: "CXCL12 は CXCR4 を介して働き、ACKR3 がその量を調節する。CXCL12/CXCR4/ACKR3 はケモカイン網で唯一、生存に必須のノード"
-    source: "PMID:29637711"
+    note: "CXCR4 は CXCL12 の唯一知られた G タンパク質共役型受容体。ACKR3 がその量を調節する。CXCL12/CXCR4/ACKR3 はケモカイン網で唯一、生存に必須のノード"
+    source: "PMID:24218476; PMID:29637711"
     status: verified
 
 downstream: {primary: "Gi → PI3K/AKT → 遊走・生存", secondary: ["ERK"], source: null, status: inferred}
@@ -51,4 +51,5 @@ notes:
     status: verified
 
 refs:
+  - {citation: "Bachelerie F, et al. International Union of Basic and Clinical Pharmacology. LXXXIX. Update on the extended family of chemokine receptors and introducing a new nomenclature for atypical chemokine receptors. Pharmacol Rev 2013;66:1-79. doi:10.1124/pr.113.007724", pmid: "24218476", doi: "10.1124/pr.113.007724"}
   - {citation: "Hughes CE, Nibbs RJB. A guide to chemokines and their receptors. FEBS J 2018;285:2944-2971. doi:10.1111/febs.14466", pmid: "29637711", doi: "10.1111/febs.14466"}
