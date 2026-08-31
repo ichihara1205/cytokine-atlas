@@ -8,9 +8,9 @@ families: {structure: il1-structural, receptor: il1r-family, naming: interleukin
 receptor:
   - name: "IL1R1（拮抗的結合）"
     subunits: [IL1R1]
-    note: "結合しても共受容体 IL1RAP を呼び込めないため複合体が完成せず、シグナルが出ない"
-    source: null
-    status: inferred
+    note: "IL-1R1 に IL-1 より高い親和性で結合するが、共受容体 IL-1RAcP を呼び込めないため複合体が完成せずシグナルが出ない"
+    source: "PMID:24332029"
+    status: verified
 
 downstream: {primary: "なし（シグナルを出さない）", secondary: [], source: null, status: inferred}
 form:
@@ -43,9 +43,9 @@ effects:
   status: inferred
 
 relations:                     # 分子間辺。受容体の共有は書かない（受容体軸から導出される）
-  - {type: antagonizes, target: IL1A, source: null, status: inferred,
+  - {type: antagonizes, target: IL1A, source: "PMID:24332029", status: verified,
      note: "IL-1α と同じ IL1R1 に結合するが、共受容体 IL1RAP を呼べないためシグナルが出ない"}
-  - {type: antagonizes, target: IL1B, source: null, status: inferred,
+  - {type: antagonizes, target: IL1B, source: "PMID:24332029", status: verified,
      note: "同上。IL-1β/IL-1Ra 比で読むべきで、絶対量だけでは炎症の抑制状態を判定できない"}
 
 notes:
@@ -55,3 +55,6 @@ notes:
   - text: "IL-1β との比（IL-1Ra/IL-1β）で読むべき分子。絶対量だけでは炎症の抑制状態を判定できない"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18. doi:10.1016/j.immuni.2013.11.010", pmid: "24332029", doi: "10.1016/j.immuni.2013.11.010"}

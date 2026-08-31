@@ -8,16 +8,16 @@ families: {structure: il1-structural, receptor: il1r-family, naming: interleukin
 receptor:
   - name: "IL18R1 + IL18RAP"
     subunits: [IL18R1, IL18RAP]
-    note: "内因性の可溶性拮抗因子 IL18BP が高親和性で結合し、遊離型を強く抑える"
-    source: null
-    status: inferred
+    note: "IL-18 受容体は IL-18Rα と IL-18Rβ からなる。デコイの IL-18BP が結合を妨げて活性を中和する"
+    source: "PMID:24332029"
+    status: verified
 
 downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: [], source: null, status: inferred}
 form:
   secretion: latent
-  latency: "pro-IL-18 としてカスパーゼ1切断を要する。IL-1β と同じインフラマソーム依存"
-  source: null
-  status: inferred
+  latency: "不活性な前駆体として作られ、IL-1β と同じくカスパーゼ1切断を要する。前駆体は健常時からほぼ全ての間葉系細胞に存在する"
+  source: "PMID:24332029"
+  status: verified
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
@@ -42,6 +42,9 @@ effects:
   status: inferred
 
 notes:
-  - text: "ELISA の総 IL-18 は IL18BP と結合した不活性型を含む。総量が高くても遊離型が働いているとは限らない"
-    source: null
-    status: inferred
+  - text: "IL-18BP は恒常状態でも IL-18 の20倍のモル過剰で血中に存在する。ELISA の総 IL-18 は結合型を含むので、総量が高くても遊離型が働いているとは限らない"
+    source: "PMID:24332029"
+    status: verified
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18. doi:10.1016/j.immuni.2013.11.010", pmid: "24332029", doi: "10.1016/j.immuni.2013.11.010"}

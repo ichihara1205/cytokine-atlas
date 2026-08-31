@@ -14,7 +14,9 @@ steps:
     kind: trigger
     signal: 1
     label: "シグナル1（プライミング）"
-    note: "LPS などの TLR リガンドや TNF・IL-1 自身が NF-κB を動かす。ここは転写を上げるだけ"
+    note: "IL-1β は TLR 刺激・活性化補体・TNF-α・IL-1 自身に応答して産生される。ここは転写を上げるだけ"
+    source: "PMID:24332029"
+    status: verified
   - id: tx
     kind: transcription
     label: "NF-κB → IL1B 転写"
@@ -22,7 +24,9 @@ steps:
   - id: pro
     kind: proform
     label: "pro-IL-1β が細胞質に蓄積"
-    note: "31kDa の不活性前駆体。分泌シグナル配列を持たないので小胞体には入らない"
+    note: "不活性な前駆体。カスパーゼ1に切られるまで活性を持たない"
+    source: "PMID:24332029"
+    status: verified
   - id: signal2
     kind: trigger
     signal: 2

@@ -9,7 +9,9 @@ steps:
   - id: tx
     kind: transcription
     label: "pro-IL-18 は定常的に発現"
-    note: "IL-1β と違い、刺激前から前駆体が存在することが多い"
+    note: "IL-18 の前駆体は健常時からほぼ全ての間葉系細胞に存在する"
+    source: "PMID:24332029"
+    status: verified
   - id: pro
     kind: proform
     label: "pro-IL-18 が細胞質に存在"
@@ -32,8 +34,8 @@ steps:
   - id: ext
     kind: extracellular
     label: "IL18BP による捕捉"
-    note: "内因性の可溶性結合タンパクが高親和性で結合し、遊離型を強く減らす。総 IL-18 の ELISA は不活性型を含む"
-    source: null
-    status: inferred
+    note: "IL-18BP は恒常状態でも IL-18 の20倍のモル過剰で血中に存在し、受容体への結合を妨げて活性を中和する。総 IL-18 の ELISA は結合型を含む"
+    source: "PMID:24332029"
+    status: verified
 source: "PMID:31036962"
 status: verified

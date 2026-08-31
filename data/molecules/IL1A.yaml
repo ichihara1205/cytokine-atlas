@@ -8,15 +8,18 @@ families: {structure: il1-structural, receptor: il1r-family, naming: interleukin
 receptor:
   - name: "IL1R1 + IL1RAP"
     subunits: [IL1R1, IL1RAP]
-    source: null
-    status: inferred
+    note: "IL-1 受容体は IL-1R1 と IL-1RAcP からなる4つのシグナル受容体複合体の一つ"
+    source: "PMID:24332029"
+    status: verified
 
-downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"], source: null, status: inferred}
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"],
+             note: "細胞内 TIR ドメインが MyD88 を介してシグナルを出す。TLR と共有する",
+             source: "PMID:24332029", status: verified}
 form:
   secretion: both
-  latency: "前駆体は細胞内に留まり、壊死に伴って放出される。カスパーゼ1による成熟を必須としない点が IL-1β と違う"
-  source: null
-  status: inferred
+  latency: "前駆体のまま完全な活性を持ち、壊死による細胞死に伴って放出されてアラーミンとして働く。カスパーゼ1による成熟を必須としない点が IL-1β と違う。活性化単球には膜型も存在する"
+  source: "PMID:24332029"
+  status: verified
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
@@ -46,3 +49,6 @@ notes:
   - text: "細胞死に伴って放出されるアラーミン。培養上清の IL-1α は「産生」ではなく「細胞死」の指標かもしれない。ELISA の解釈時に生存率と併せて見る必要がある"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18. doi:10.1016/j.immuni.2013.11.010", pmid: "24332029", doi: "10.1016/j.immuni.2013.11.010"}

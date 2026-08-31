@@ -17,7 +17,9 @@ steps:
   - id: pro
     kind: proform
     label: "pro-IL-1α（前駆体のまま活性あり）"
-    note: "切断されなくても IL1R1 を活性化できる。核内にも局在する"
+    note: "IL-1β の前駆体と違い、IL-1α の前駆体は完全な活性を持つ。核内にも局在し、アポトーシス時はクロマチンに結合したままで炎症を起こさない"
+    source: "PMID:24332029"
+    status: verified
   - id: death
     kind: trigger
     signal: 2
@@ -27,7 +29,9 @@ steps:
     kind: release
     label: "壊死・細胞死に伴う受動的放出"
     route: cell_death
-    note: "膜結合型として隣接細胞に直接作用する経路もある"
+    note: "壊死による細胞死で前駆体が放出され、アラーミンとして無菌性炎症を起こす。活性化単球には膜型も存在する"
+    source: "PMID:24332029"
+    status: verified
 notes:
   - text: "ELISA で IL-1α を測るときは生存率と必ず併せて見る。細胞死が増えれば産生が変わらなくても上清値は上がる"
     source: null

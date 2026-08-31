@@ -8,16 +8,17 @@ families: {structure: il1-structural, receptor: il1r-family, naming: interleukin
 receptor:
   - name: "IL1R1 + IL1RAP"
     subunits: [IL1R1, IL1RAP]
-    note: "IL-1Ra（IL1RN）が同じ IL1R1 に結合して拮抗する"
-    source: null
-    status: inferred
+    note: "IL-1 受容体は IL-1R1 と IL-1RAcP からなる。IL-1Ra は IL-1R1 に IL-1 より高い親和性で結合するが IL-1RAcP を呼び込めない"
+    source: "PMID:24332029"
+    status: verified
 
-downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"], source: null, status: inferred}
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK", "JNK"],
+             source: "PMID:24332029", status: verified}
 form:
   secretion: latent
-  latency: "不活性な pro-IL-1β として作られ、インフラマソーム活性化によるカスパーゼ1切断で初めて活性型になる"
-  source: null
-  status: inferred
+  latency: "不活性な前駆体として作られ、カスパーゼ1に切断されて細胞外に放出される。プロカスパーゼ1の切断にはインフラマソーム（中核は NLRP3）が要る。好中球のプロテイナーゼ3やエラスターゼによる細胞外切断でも活性型ができる"
+  source: "PMID:24332029"
+  status: verified
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
@@ -27,7 +28,7 @@ producers:
   kc_ikc:     {level: 3, source: null, status: inferred}
   mac_thp1:   {level: 3, source: null, status: inferred}
   neutrophil: {level: 2, source: null, status: inferred}
-  kc_pkc: {level: 3, source: null, status: inferred, note: "iKC の成熟度を測る基準として置く初代クッパー細胞。iKC のデータをこの値と直接比較しない"}
+  kc_pkc: {level: 3, source: "PMID:24332029", status: verified, note: "IL-1β は血中単球・組織マクロファージなどの造血系細胞が TLR 刺激・補体・TNF-α・IL-1 自身に応答して産生する。クッパー細胞は組織マクロファージ"}
 
 receivers:
   hsc_lx2:        {level: 3, source: null, status: inferred}
@@ -49,3 +50,6 @@ notes:
   - text: "転写量（qPCR）と活性型タンパク（ELISA）が乖離する代表例。2シグナル必要で、LPS だけでは pro 体が溜まるだけで分泌されない。mRNA だけを見て「産生した」と判断してはいけない"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18. doi:10.1016/j.immuni.2013.11.010", pmid: "24332029", doi: "10.1016/j.immuni.2013.11.010"}

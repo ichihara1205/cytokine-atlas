@@ -8,9 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CXCR4"
     subunits: [CXCR4]
-    note: "ACKR3(CXCR7) にも結合するが、こちらは β-アレスチン経由でシグナルが異なる"
-    source: null
-    status: inferred
+    note: "CXCL12 は CXCR4 を介して働き、ACKR3 がその量を調節する。CXCL12/CXCR4/ACKR3 はケモカイン網で唯一、生存に必須のノード"
+    source: "PMID:29637711"
+    status: verified
 
 downstream: {primary: "Gi → PI3K/AKT → 遊走・生存", secondary: ["ERK"], source: null, status: inferred}
 form:
@@ -46,6 +46,9 @@ effects:
   status: inferred
 
 notes:
-  - text: "他のケモカインが炎症で誘導されるのに対し、これは定常状態のニッチ形成因子。ケモカインという括りの中でも性質が異質"
-    source: null
-    status: inferred
+  - text: "他のケモカインが炎症で誘導されるのに対し、これは定常状態のニッチ形成因子。CXCL12 は最も原始的なケモカインで進化的に強く保存され、心臓・脳・血管・造血系の発生に必須。骨髄で造血幹細胞を支えるニッチの中核でもある"
+    source: "PMID:29637711"
+    status: verified
+
+refs:
+  - {citation: "Hughes CE, Nibbs RJB. A guide to chemokines and their receptors. FEBS J 2018;285:2944-2971. doi:10.1111/febs.14466", pmid: "29637711", doi: "10.1111/febs.14466"}

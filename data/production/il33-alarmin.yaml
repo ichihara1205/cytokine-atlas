@@ -12,7 +12,9 @@ steps:
   - id: pro
     kind: proform
     label: "核内でクロマチンに結合して貯蔵"
-    note: "分泌シグナル配列を持たないので通常の分泌経路に入らない"
+    note: "N末端にクロマチン結合モチーフを持つ。通常の分泌経路に入らない"
+    source: "PMID:24332029"
+    status: verified
   - id: signal2
     kind: trigger
     signal: 2
@@ -21,6 +23,8 @@ steps:
     kind: release
     label: "全長のまま受動的に放出"
     route: cell_death
-    note: "カスパーゼ1では成熟せず、逆にアポトーシス時のカスパーゼ3/7 切断は不活性化する"
+    note: "主に壊死性の細胞死で生理活性を持ったまま放出される。カスパーゼ1は成熟させるのではなく逆に不活性化する"
+    source: "PMID:24332029"
+    status: verified
 source: null
 status: inferred

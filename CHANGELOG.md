@@ -476,3 +476,58 @@ MSTN の note に「系内に相手がいない」と書いたのに、`hsc_lx2`
 していたため `system_closure` が `受けるだけ` と判定した。
 散文とデータが食い違っていたので note の側を実態に合わせた。
 手で `system_closure` を書いていたら気づけなかった類の食い違い。
+
+## 2026-08-11（続き13）— 全文からの出典付け（verified 73 → 97）
+
+### まず内訳を測った
+
+811件の inferred のうち、出典で潰せるのは受容体47・下流46・ファミリー定義46・ズレ29の
+**計168件**だけ。producers 191 + receivers 170 = **361件（45%）は原著の図が要る**ので
+abstract でも総説の本文でも上げられない。ここを正直に切り分けてから着手した。
+
+### PubMed Central の全文を使った
+
+これまでは abstract しか読んでいなかったが、今回は PMC の全文を取得した。
+出典: PubMed。
+
+- Garlanda C, Dinarello CA, Mantovani A. *The interleukin-1 family: back to the future.*
+  Immunity 2013;39:1003-18. PMID:24332029 / doi:10.1016/j.immuni.2013.11.010
+- Hughes CE, Nibbs RJB. *A guide to chemokines and their receptors.*
+  FEBS J 2018;285:2944-2971. PMID:29637711 / doi:10.1111/febs.14466
+
+IL-1 総説の本文には**4つのシグナル受容体複合体が名指しで**書かれており、
+abstract では取れなかった分子ごとの受容体対応が確定できた。
+
+| 分子 | 確定した受容体 |
+|---|---|
+| IL-1α / IL-1β | IL-1R1 + IL-1RAcP |
+| IL-33 | ST2 + IL-1RAcP |
+| IL-18 | IL-18Rα + IL-18Rβ |
+
+加えて以下も verified に上げた:
+TIR ドメイン → MyD88（TLR と共有）／ IL-1α 前駆体は完全活性で壊死により放出・膜型も存在／
+IL-1β はカスパーゼ1切断・NLRP3 インフラマソーム依存で、好中球プロテアーゼによる細胞外切断でも活性化／
+IL-1Ra は IL-1R1 に高親和性で結合するが IL-1RAcP を呼べない／
+IL-18BP は恒常状態で IL-18 の20倍のモル過剰／ IL-33 はカスパーゼ1で**不活性化**される／
+IL-33 の供給源に内皮細胞が含まれる／ IL-1β の産生細胞は組織マクロファージ（＝クッパー細胞）。
+
+### 記載の誤りを1件訂正した（IL-38）
+
+IL-38 の受容体を `IL1RL2(IL-36R) / IL1RAPL1` と書いていたが、総説は
+**「IL-38 は IL-1R1・IL-1R3・IL-18Rα には結合せず、IL-36R にのみ結合する」**と明記している。
+`IL1RAPL1` を削除し、さらに「IL-36R の**部分的**な拮抗剤で、遮断は IL-1Ra より弱い」ことを追記した。
+
+### 全文抽出の欠陥を1件見つけた（記録として）
+
+ケモカイン総説の全文抽出で、**`CX3CL1` が `CXCL1` に、`CX3CR1` が `CXCR1` に化けていた**
+（「Two chemokines, CXCL1 and CXCL16, have ... a mucin-like stalk and a transmembrane domain」は
+本来 CX3CL1）。そのまま信じると誤った事実を記録するため、**CX3C 系はこの文献からは一切採らなかった。**
+名指しが曖昧でない CCL2→CCR2 と CXCL12→CXCR4/ACKR3 のみ verified にしている。
+
+また、ケモカインのリガンド–受容体対応の大半は本文ではなく**図1の中**にあり、
+テキストからは読めない。ここが今回の収量が伸びなかった主因。
+
+### 残り
+
+`verified 97 / inferred 787 / todo 4`。
+producers/receivers 361件は依然として原著か実測待ちで、abstract でも総説本文でも埋まらない。

@@ -6,22 +6,22 @@ aliases: [IL-38, IL1HY2, IL-1F10]
 families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
 
 receptor:
-  - name: "IL1RL2(IL-36R) / IL1RAPL1（拮抗的結合）"
-    subunits: [IL1RL2, IL1RAPL1]
-    note: "IL-36 受容体に結合してシグナルを抑える。IL-1Ra と同じく拮抗側に立つ"
-    source: null
-    status: inferred
+  - name: "IL1RL2(IL-36R)（部分的な拮抗）"
+    subunits: [IL1RL2]
+    note: "IL-1R1・IL-1R3・IL-18Rα には結合せず IL-36R にのみ結合する。IL-36R の部分的な受容体拮抗剤で、遮断の強さは IL-1Ra より弱い"
+    source: "PMID:24332029"
+    status: verified
 
-downstream: {primary: "なし（拮抗によりシグナルを抑える）", secondary: [], source: null, status: inferred}
+downstream: {primary: "なし（拮抗によりシグナルを抑える）", secondary: [], source: "PMID:24332029", status: verified}
 
 form:
   secretion: both
-  latency: "分泌シグナル配列を持たず、N末端の切断で活性が変わるとされる"
+  latency: "152アミノ酸の前駆体として作られ、分泌シグナル配列を持たない。カスパーゼ1の切断部位も無く、天然のN末端は未同定"
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
-  source: null
-  status: inferred
+  source: "PMID:24332029"
+  status: verified
 range: {mode: paracrine, note: null, source: null, status: inferred}
 
 producers:
@@ -44,7 +44,7 @@ notes:
   - text: "IL-38 の名で流通するが HGNC 承認シンボルは IL1F10。IL-38 は alias であって承認シンボルではないため、シンボルで検索すると取りこぼす"
     source: null
     status: inferred
-  - text: "IL-1ファミリーの3つの受容体拮抗剤の一つ（IL-1Ra・IL-36Ra・IL-38）。番号が離れていても機能上は同じ役回り"
+  - text: "IL-1ファミリーの3つの受容体拮抗剤の一つ（IL-1Ra・IL-36Ra・IL-38）。遺伝子も染色体2番の IL-1 クラスタ内で IL-1Ra・IL-36Ra の隣に並ぶ"
     source: "PMID:24332029"
     status: verified
 

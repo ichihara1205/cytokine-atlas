@@ -8,9 +8,9 @@ families: {structure: chemokine-structural, receptor: chemokine-gpcr, naming: ch
 receptor:
   - name: "CCR2"
     subunits: [CCR2]
-    note: "ACKR1/ACKR2 が非シグナル型のスカベンジャー受容体として量を調節する"
-    source: null
-    status: inferred
+    note: "CCL2 の受容体は CCR2。ACKR1/ACKR2 が非シグナル型のスカベンジャーとして量を調節する"
+    source: "PMID:29637711"
+    status: verified
 
 downstream: {primary: "Gi → PI3Kγ → 細胞遊走", secondary: ["ERK"], source: null, status: inferred}
 form:
@@ -21,7 +21,8 @@ form:
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
-range: {mode: paracrine, note: "グリコサミノグリカンに固定されて濃度勾配を作る", source: null, status: inferred}
+range: {mode: paracrine, note: "グリコサミノグリカン(GAG)への結合が、組織内での半減期・勾配・作用する場所を決める。内皮表面での提示にも要る",
+        source: "PMID:29637711", status: verified}
 
 producers:
   hsc_lx2:        {level: 3, source: null, status: inferred}
@@ -47,3 +48,6 @@ notes:
   - text: "静置共培養では『動員』という主作用が再現されない。上清濃度が高くても系内で意味のある仕事をしているとは限らない"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Hughes CE, Nibbs RJB. A guide to chemokines and their receptors. FEBS J 2018;285:2944-2971. doi:10.1111/febs.14466", pmid: "29637711", doi: "10.1111/febs.14466"}

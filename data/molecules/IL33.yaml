@@ -8,23 +8,23 @@ families: {structure: il1-structural, receptor: il1r-family, naming: interleukin
 receptor:
   - name: "IL1RL1(ST2) + IL1RAP"
     subunits: [IL1RL1, IL1RAP]
-    note: "可溶性 ST2 がデコイ受容体として働く"
-    source: null
-    status: inferred
+    note: "成熟 IL-33 は ST2 を介してシグナルを出し、ST2 が IL-1RAcP と会合して MyD88 依存の伝達を起こす。可溶性 ST2 と可溶性 IL-1RAcP が結合して活性を止める"
+    source: "PMID:24332029"
+    status: verified
 
-downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK"], source: null, status: inferred}
+downstream: {primary: "MyD88 → IRAK → NF-κB", secondary: ["p38 MAPK"], source: "PMID:24332029", status: verified}
 form:
   secretion: both
-  latency: "分泌シグナル配列を持たない。定常状態では核内でクロマチンに結合し、細胞死・傷害に伴って全長のまま放出される"
-  source: null
-  status: inferred
+  latency: "N末端にクロマチン結合モチーフを持ち、主に壊死性の細胞死に伴って生理活性を持ったまま放出される。カスパーゼ1は成熟させるのではなく逆に不活性化する"
+  source: "PMID:24332029"
+  status: verified
   oligomer: monomer
   oligomer_note: "単量体として受容体に結合する"
   oligomer_source: null
 range: {mode: paracrine, note: null, source: null, status: inferred}
 
 producers:
-  lsec_tmnk1:     {level: 3, source: null, status: inferred}
+  lsec_tmnk1:     {level: 3, source: "PMID:24332029", status: verified, note: "IL-33 の供給源には上皮細胞・内皮細胞・線維芽細胞が含まれる"}
   hsc_lx2:        {level: 2, source: null, status: inferred}
   hepatocyte_pxb: {level: 1, source: null, status: inferred}
   hsc_qhsc: {level: 2, source: null, status: inferred, note: "静止期星細胞が核内に蓄えるアラーミン。活性化・細胞死に伴って放出される"}
@@ -51,3 +51,6 @@ notes:
   - text: "核内タンパクでもありサイトカインでもある。「分泌される因子」という前提が成り立たない"
     source: null
     status: inferred
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18. doi:10.1016/j.immuni.2013.11.010", pmid: "24332029", doi: "10.1016/j.immuni.2013.11.010"}
