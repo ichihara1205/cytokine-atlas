@@ -1,0 +1,54 @@
+id: GDF2
+symbol: "BMP-9"
+gene: GDF2
+aliases: [BMP9, BMP-9, GDF-2]
+
+families: {structure: bmp-smad158-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "ACVRL1(ALK1) + BMPR2/ACVR2（エンドグリンを共受容体とする）"
+    subunits: [ACVRL1, BMPR2, ACVR2A, ENG]
+    note: "I型受容体 ALK1 は血管内皮に限局して発現する。エンドグリン(ENG)が結合を助ける"
+    source: null
+    status: inferred
+
+downstream: {primary: "SMAD1/5/8 → SMAD4", secondary: [], source: "PMID:27141051", status: verified}
+
+form:
+  secretion: latent
+  latency: "プロドメインと結合したまま循環し、その状態でも受容体に結合できる"
+  oligomer: homodimer
+  oligomer_note: "システインノットで結ばれたホモ二量体"
+  oligomer_source: null
+  source: null
+  status: inferred
+range: {mode: endocrine, note: "肝で作られて血中を循環する", source: null, status: inferred}
+
+producers:
+  hsc_lx2:    {level: 3, source: null, status: inferred, note: "肝星細胞が血中 BMP-9 の主要な供給源とされる"}
+  hsc_qhsc:   {level: 3, source: null, status: inferred, note: "同上。静止期でも産生する"}
+  lsec_tmnk1: {level: 1, source: null, status: inferred}
+
+receivers:
+  lsec_tmnk1: {level: 3, source: null, status: inferred, note: "I型受容体 ALK1 が内皮に限局するため、受け手は内皮に絞られる"}
+  lsec_ilsec: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 1
+  inflammation: 0
+  lipid: 0
+  differentiation: 1
+  note: "内皮の静止化・血管の恒常性維持に働く。線維化への寄与は文脈依存"
+  source: null
+  status: inferred
+
+notes:
+  - text: "星細胞が出して類洞内皮が受ける、系内で完結する軸。BMP-6（鉄）とは受け手も出口も違うので、同じ BMP 枝でも混同しない"
+    source: null
+    status: inferred
+  - text: "BMP9 の名でも GDF-2 の名でも流通する。GDF と BMP の使い分けに一貫した基準はなく、HGNC 承認シンボルは GDF2"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Morikawa M, Derynck R, Miyazono K. TGF-β and the TGF-β Family. Cold Spring Harb Perspect Biol 2016;8:a021873", pmid: "27141051"}

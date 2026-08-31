@@ -1,0 +1,51 @@
+id: IFNL1
+symbol: "IFN-λ1"
+gene: IFNL1
+aliases: [IL-29, IL29, III型IFN]
+
+families: {structure: class2-helical, receptor: il10rb-shared, naming: interferon-naming}
+
+receptor:
+  - name: "IFNLR1 + IL10RB"
+    subunits: [IFNLR1, IL10RB]
+    note: "IFN-λ は IFNLR1 と IL10RB のヘテロ二量体を介してシグナルを出す。IL10RB は IL-10・IL-22 と共有する共通鎖"
+    source: "PMID:42213608; PMID:26200010"
+    status: verified
+
+downstream: {primary: "JAK1/TYK2 → STAT1/STAT2 + IRF9（ISGF3）", secondary: [], source: "PMID:42213608", status: verified}
+
+form:
+  secretion: soluble
+  latency: null
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+  source: null
+  status: inferred
+range: {mode: paracrine, note: "受容体が上皮に限局するため作用範囲が狭い", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 2, source: null, status: inferred}
+  kc_ikc:         {level: 2, source: null, status: inferred}
+  mac_thp1:       {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 3, source: null, status: inferred}
+
+effects:
+  fibrosis: 0
+  inflammation: 1
+  lipid: 0
+  differentiation: 0
+  note: "I型 IFN と同じ ISG を誘導するが、受容体が上皮限定のため作用範囲が狭い"
+  source: null
+  status: inferred
+
+notes:
+  - text: "IL-29 の名で IL 系に見えるが実体は III型 IFN。名前は IL、機能は IFN、受容体鎖は IL-10 系という三重のズレ。HGNC 承認シンボルは IFNL1"
+    source: "PMID:26200010"
+    status: verified
+
+refs:
+  - {citation: "Lazear HM, Nice TJ, Diamond MS. Interferon-λ: Immune Functions at Barrier Surfaces and Beyond. Immunity 2015;43:15-28", pmid: "26200010"}
+  - {citation: "Novotny LA, et al. Mechanisms of Differential Signal Transduction by Interferon Lambda Receptor 1 Variants. J Innate Immun 2026", pmid: "42213608"}

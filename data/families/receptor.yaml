@@ -85,7 +85,7 @@
   label_ja: IL-1受容体ファミリー（TIRドメイン）
   parent: null
   children: []
-  members: [IL1A, IL1B, IL18, IL33, IL36A, IL36B, IL36G, IL37, IL1RN]
+  members: [IL1A, IL1B, IL18, IL33, IL36A, IL36B, IL36G, IL37, IL1RN, IL1F10]
   defining_feature: "細胞内 TIR ドメインを持ち MyD88 → NF-κB を動かす。TLR と下流を共有する。IL-1 ファミリーは作動性7分子・受容体拮抗剤3分子・抗炎症性1分子(IL-37)からなり、受容体側は6鎖が4つのシグナル複合体を作るほか、デコイ受容体(IL-1R2, IL-18BP)を持つ"
   mismatch:
     - member: IL1RN

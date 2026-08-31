@@ -1,0 +1,54 @@
+id: MSTN
+symbol: "ミオスタチン"
+gene: MSTN
+aliases: [GDF8, GDF-8, myostatin]
+
+families: {structure: tgfb-smad23-branch, receptor: serine-threonine-kinase-receptor, naming: tgf-bmp-gdf-naming}
+
+receptor:
+  - name: "ACVR2A/2B + ACVR1B(ALK4)/TGFBR1(ALK5)"
+    subunits: [ACVR2A, ACVR2B, ACVR1B, TGFBR1]
+    note: "アクチビンA と受容体を共有する。フォリスタチンが細胞外で中和する"
+    source: null
+    status: inferred
+
+downstream: {primary: "SMAD2/3 → SMAD4", secondary: [], source: "PMID:27141051", status: verified}
+
+form:
+  secretion: latent
+  latency: "プロペプチドと結合した潜在型として分泌され、BMP1/トロイド型プロテアーゼの切断で活性化する"
+  oligomer: homodimer
+  oligomer_note: "システインノットで結ばれたホモ二量体"
+  oligomer_source: null
+  source: null
+  status: inferred
+range: {mode: endocrine, note: "骨格筋で作られ、主に筋自身に働く", source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "産生は主に骨格筋。肝の細胞は作らないと判断"}
+  hsc_lx2:        {level: 0, source: null, status: inferred, note: "同上"}
+  kc_ikc:         {level: 0, source: null, status: inferred, note: "同上"}
+
+receivers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "主な標的は骨格筋。肝の細胞への直接作用は確立していないと判断"}
+  hsc_lx2:        {level: 1, source: null, status: inferred, note: "アクチビンA と受容体を共有するため理論上は応答しうるが、確立していない"}
+
+effects:
+  fibrosis: 0
+  inflammation: 0
+  lipid: 0
+  differentiation: -1
+  note: "骨格筋の分化・成長を抑制する。肝の4軸では表現できない"
+  source: null
+  status: inferred
+
+notes:
+  - text: "GDF8 の名で呼ばれることが多いが HGNC 承認シンボルは MSTN。GDF 番号で検索すると TGF-βスーパーファミリーの一員であることに気づきにくい"
+    source: null
+    status: inferred
+  - text: "産生は骨格筋で、この系には出し手がいない。一方でアクチビンA と受容体（ACVR2/ALK4）を共有するため、星細胞が理論上は応答しうる（level 1）。したがって判定は『受けるだけ』になる。ただしこの応答は確立しておらず、実際に効いている証拠はない"
+    source: null
+    status: inferred
+
+refs:
+  - {citation: "Morikawa M, Derynck R, Miyazono K. TGF-β and the TGF-β Family. Cold Spring Harb Perspect Biol 2016;8:a021873", pmid: "27141051"}

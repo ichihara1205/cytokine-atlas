@@ -1,0 +1,52 @@
+id: IL1F10
+symbol: "IL-38"
+gene: IL1F10
+aliases: [IL-38, IL1HY2, IL-1F10]
+
+families: {structure: il1-structural, receptor: il1r-family, naming: interleukin}
+
+receptor:
+  - name: "IL1RL2(IL-36R) / IL1RAPL1（拮抗的結合）"
+    subunits: [IL1RL2, IL1RAPL1]
+    note: "IL-36 受容体に結合してシグナルを抑える。IL-1Ra と同じく拮抗側に立つ"
+    source: null
+    status: inferred
+
+downstream: {primary: "なし（拮抗によりシグナルを抑える）", secondary: [], source: null, status: inferred}
+
+form:
+  secretion: both
+  latency: "分泌シグナル配列を持たず、N末端の切断で活性が変わるとされる"
+  oligomer: monomer
+  oligomer_note: "単量体として受容体に結合する"
+  oligomer_source: null
+  source: null
+  status: inferred
+range: {mode: paracrine, note: null, source: null, status: inferred}
+
+producers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "産生は皮膚・扁桃などが主。肝での産生は確立していないと判断"}
+  kc_ikc:         {level: 1, source: null, status: inferred}
+
+receivers:
+  hepatocyte_pxb: {level: 0, source: null, status: inferred, note: "IL-36 受容体の発現は上皮でも限定的。肝細胞での応答は確立していない"}
+
+effects:
+  fibrosis: 0
+  inflammation: -1
+  lipid: 0
+  differentiation: 0
+  note: "IL-1ファミリーの受容体拮抗剤の一つ。作用は遮断による間接効果"
+  source: "PMID:24332029"
+  status: verified
+
+notes:
+  - text: "IL-38 の名で流通するが HGNC 承認シンボルは IL1F10。IL-38 は alias であって承認シンボルではないため、シンボルで検索すると取りこぼす"
+    source: null
+    status: inferred
+  - text: "IL-1ファミリーの3つの受容体拮抗剤の一つ（IL-1Ra・IL-36Ra・IL-38）。番号が離れていても機能上は同じ役回り"
+    source: "PMID:24332029"
+    status: verified
+
+refs:
+  - {citation: "Garlanda C, Dinarello CA, Mantovani A. The interleukin-1 family: back to the future. Immunity 2013;39:1003-18", pmid: "24332029"}

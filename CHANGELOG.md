@@ -429,3 +429,50 @@ IL-1β の図でシグナル1が転写へ、シグナル2がカスパーゼ1切�
   通常の ER-Golgi 経路をたどらない**
 
 いずれも abstract に主張そのものが書かれている。他は `inferred`。
+
+## 2026-08-11（続き12）— 公開と、ズレ一覧の死にリンク解消
+
+### GitHub Pages で公開
+
+`ichihara1205/cytokine-atlas` を **public** リポジトリとして作成し、
+GitHub Actions で `main` への push からビルドして Pages に配信するようにした。
+
+    https://ichihara1205.github.io/cytokine-atlas/
+
+- ワークフローは `validate.py` を先に走らせる。ERROR があればビルドに進まないので、
+  HGNC非承認シンボル・出典なしの verified・不正なプライマー配列は公開されない
+- `BASE_URL` 環境変数で base_url を上書きできるようにした
+  （プロジェクトページは `/<repo>/` 配下に出るため、Actions が `configure-pages` の
+  `base_path` を渡す）
+- トップに「記述の大半は未検証」の注意書きを追加。`noindex, nofollow` は維持
+- 公開前にコミットのメールアドレスを GitHub の noreply に差し替えた
+  （public にすると commit metadata は誰でも読めるため）
+
+Free プランでは private repo から Pages を公開できないため、
+リポジトリごと public にする選択をした。`CLAUDE.md` と全 YAML も公開されている。
+
+### 分子5件を追加し、WARN 0 件に
+
+ファミリーの「名前と実体のズレ」に挙げていたのに分子ファイルが無く、
+チップが死にリンクになっていた5件を作成した。いずれもズレの主役。
+
+| 分子 | ズレ |
+|---|---|
+| `IFNL1` (IL-29) | 名前は IL、機能は III型IFN、受容体鎖は IL-10 系 |
+| `IFNL2` (IL-28A) | 同上 |
+| `GDF2` (BMP9) | GDF と BMP の使い分けに基準がない |
+| `MSTN` (GDF8) | GDF 番号で探すと TGF-βスーパーファミリーだと気づけない |
+| `IL1F10` (IL-38) | IL-38 は alias。承認シンボルは IL1F10 |
+
+ズレ一覧の分子チップ31件がすべて生きたリンクになり、**死にリンクは0**。
+`--strict`（WARN もエラー扱い）も通過するようになった。
+
+BMP-9 は星細胞が出して類洞内皮が受ける（ALK1 が内皮限局）系内完結の軸で、
+同じ BMP 枝でも BMP-6（鉄・肝細胞行き）とは受け手も出口も違う。
+
+### 導出が自分の書き間違いを1件捕まえた
+
+MSTN の note に「系内に相手がいない」と書いたのに、`hsc_lx2` を level 1 の受け手に
+していたため `system_closure` が `受けるだけ` と判定した。
+散文とデータが食い違っていたので note の側を実態に合わせた。
+手で `system_closure` を書いていたら気づけなかった類の食い違い。

@@ -7,7 +7,7 @@
   label_ja: IL番号
   parent: null
   children: []
-  members: [IL1A, IL1B, IL1RN, IL2, IL4, IL6, IL7, IL9, IL10, IL11, IL12B, IL15, IL17A, IL18, IL21, IL22, IL23A, IL26, IL33, IL34]
+  members: [IL1A, IL1B, IL1RN, IL1F10, IL2, IL4, IL6, IL7, IL9, IL10, IL11, IL12B, IL15, IL17A, IL18, IL21, IL22, IL23A, IL26, IL33, IL34]
   defining_feature: "白血球間の伝達因子に発見順で番号を振ったもの。系統も受容体も反映しない"
   mismatch:
     - member: null
